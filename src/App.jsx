@@ -8,6 +8,7 @@ import {
   Quote, Star,
   Youtube, Instagram, HeartHandshake, Cpu
 } from 'lucide-react'
+import GlobeHero from './GlobeHero.jsx'
 
 /* ─── Global Styles ─────────────────────────────────────────────────────── */
 const GlobalStyles = () => (
@@ -975,6 +976,77 @@ const GlobalStyles = () => (
     .nav-link { min-height: 44px; display: inline-flex; align-items: center; }
     .foot-link { min-height: 36px; display: flex; align-items: center; }
 
+    /* ── Hero Globe ── */
+    @keyframes globe-enter {
+      0% {
+        opacity: 0;
+        transform: translate(-30%, -15%) scale(0.35) rotate(-25deg);
+        filter: blur(8px);
+      }
+      60% {
+        opacity: 0.85;
+        filter: blur(0);
+      }
+      100% {
+        opacity: 0.92;
+        transform: translate(0, 0) scale(1) rotate(0);
+        filter: blur(0);
+      }
+    }
+    @keyframes globe-glow {
+      0%, 100% { box-shadow: 0 0 80px 10px rgba(212,168,83,0.06); }
+      50%       { box-shadow: 0 0 140px 20px rgba(212,168,83,0.12); }
+    }
+    .globe-hero {
+      position: absolute;
+      top: 50%;
+      right: -8%;
+      transform: translateY(-50%);
+      width: min(920px, 75vw);
+      height: min(920px, 75vw);
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0;
+      animation: globe-enter 2.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+      will-change: transform, opacity;
+    }
+    .globe-hero canvas {
+      display: block;
+      mask-image: radial-gradient(circle at center, black 55%, transparent 85%);
+      -webkit-mask-image: radial-gradient(circle at center, black 55%, transparent 85%);
+    }
+    /* Subtle radial glow behind the globe */
+    .globe-hero::before {
+      content: '';
+      position: absolute;
+      inset: 10%;
+      border-radius: 50%;
+      background: radial-gradient(circle at center, rgba(212,168,83,0.10) 0%, rgba(212,168,83,0.04) 35%, transparent 70%);
+      animation: globe-glow 6s ease-in-out infinite;
+      pointer-events: none;
+      z-index: -1;
+    }
+    @media (max-width: 1100px) {
+      .globe-hero {
+        right: -20%;
+        width: min(720px, 80vw);
+        height: min(720px, 80vw);
+        opacity: 0.5;
+      }
+      .globe-hero { animation-name: globe-enter-mobile; }
+      @keyframes globe-enter-mobile {
+        0%   { opacity: 0; transform: translate(-20%, -10%) scale(0.4); }
+        100% { opacity: 0.45; transform: translateY(-50%) scale(1); }
+      }
+    }
+    @media (max-width: 700px) {
+      .globe-hero {
+        right: -30%;
+        top: 60%;
+        opacity: 0.32;
+      }
+    }
+
     /* ── Scrolling columns (tools/integrations) ── */
     @keyframes scroll-down {
       from { transform: translateY(0); }
@@ -1389,8 +1461,11 @@ export default function App() {
           ))}
         </div>
 
+        {/* 3D rotating globe — global NRI connections */}
+        <GlobeHero />
+
         {/* Glow */}
-        <div aria-hidden="true" style={{ position: 'absolute', top: '28%', left: '55%', transform: 'translate(-50%,-50%)', width: 900, height: 900, background: 'radial-gradient(circle, rgba(212,168,83,0.055) 0%, transparent 68%)', pointerEvents: 'none' }} />
+        <div aria-hidden="true" style={{ position: 'absolute', top: '28%', left: '55%', transform: 'translate(-50%,-50%)', width: 900, height: 900, background: 'radial-gradient(circle, rgba(212,168,83,0.055) 0%, transparent 68%)', pointerEvents: 'none', zIndex: 0 }} />
 
         <div style={{ maxWidth: 1280, margin: '0 auto', width: '100%', position: 'relative', zIndex: 2 }}>
 
