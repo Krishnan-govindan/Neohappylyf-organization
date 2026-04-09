@@ -825,6 +825,154 @@ const GlobalStyles = () => (
     @media (max-width: 600px) {
       .contact-cards-grid { grid-template-columns: 1fr !important; }
     }
+
+    /* ── Phase 5 ── */
+
+    /* Prevent all horizontal scroll */
+    html, body { overflow-x: hidden; max-width: 100vw; }
+
+    /* Blog / Insights */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .blog-card {
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(212,168,83,0.09);
+      padding: 36px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: transform 0.3s, border-color 0.3s, background 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .blog-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(212,168,83,0.25);
+      background: rgba(212,168,83,0.03);
+    }
+    .blog-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: rgba(212,168,83,0.08);
+      border: 1px solid rgba(212,168,83,0.18);
+      color: #D4A853;
+    }
+
+    /* Newsletter */
+    .newsletter-band {
+      background: rgba(212,168,83,0.04);
+      border: 1px solid rgba(212,168,83,0.12);
+      padding: 36px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin-bottom: 56px;
+    }
+    .newsletter-form {
+      display: flex;
+      gap: 0;
+      flex: 1;
+      max-width: 400px;
+    }
+    .newsletter-input {
+      flex: 1;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(212,168,83,0.2);
+      border-right: none;
+      color: #F5F5F0;
+      padding: 13px 18px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.25s;
+    }
+    .newsletter-input:focus { border-color: rgba(212,168,83,0.5); }
+    .newsletter-input::placeholder { color: rgba(245,245,240,0.25); }
+    .newsletter-btn {
+      background: #D4A853;
+      color: #0A0A0A;
+      border: none;
+      padding: 13px 20px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.25s;
+      white-space: nowrap;
+    }
+    .newsletter-btn:hover { background: #F5D78E; }
+
+    /* ── Comprehensive Responsive Fixes ── */
+
+    /* Large screens — cap and centre */
+    @media (min-width: 1920px) {
+      section > div, footer > div, nav > div { max-width: 1400px !important; }
+    }
+
+    /* Tablet 768px */
+    @media (max-width: 900px) {
+      /* Venture detail flip — remove RTL on mobile */
+      .vd-grid { direction: ltr !important; }
+      /* Blog grid */
+      .blog-grid { grid-template-columns: 1fr 1fr !important; }
+      /* Newsletter band */
+      .newsletter-band { flex-direction: column; align-items: flex-start; }
+      .newsletter-form { max-width: 100%; width: 100%; }
+      /* Footer top band */
+      .footer-top-social { align-items: flex-start !important; }
+      /* Process strip */
+      .process-strip { flex-direction: column; gap: 16px !important; }
+      .process-strip .process-arrow { display: none; }
+    }
+
+    /* Mobile 600px */
+    @media (max-width: 640px) {
+      /* Ecosystem — shrink and scroll */
+      .eco-outer { transform: scale(0.55); transform-origin: top center; margin-bottom: -260px; }
+      /* Blog */
+      .blog-grid { grid-template-columns: 1fr !important; }
+      /* Stats */
+      .stats-bar { grid-template-columns: 1fr 1fr !important; }
+      /* Trust strip */
+      .trust-badge { min-width: 130px; }
+      /* Section padding */
+      section { padding-top: 80px !important; padding-bottom: 80px !important; }
+      /* Partner cards */
+      .cta-grid { grid-template-columns: 1fr !important; }
+      /* Footer grid */
+      .footer-grid { grid-template-columns: 1fr 1fr !important; }
+      /* Contact HQ col */
+      .hq-map { flex-direction: column; }
+    }
+
+    /* Mobile 375px */
+    @media (max-width: 420px) {
+      .footer-grid { grid-template-columns: 1fr !important; }
+      .stats-bar { grid-template-columns: 1fr !important; }
+      .eco-outer { transform: scale(0.42); margin-bottom: -330px; }
+      .newsletter-form { flex-direction: column; }
+      .newsletter-input { border-right: 1px solid rgba(212,168,83,0.2); border-bottom: none; }
+      .newsletter-btn { width: 100%; text-align: center; justify-content: center; }
+    }
+
+    /* Touch targets */
+    button, a, [role="button"] { min-height: 44px; }
+    .nav-link { min-height: 44px; display: inline-flex; align-items: center; }
+    .foot-link { min-height: 36px; display: flex; align-items: center; }
   `}</style>
 )
 
@@ -1023,6 +1171,8 @@ export default function App() {
   const [submitted, setSubmitted]     = useState(false)
   const [loading, setLoading]         = useState(true)
   const [showTop, setShowTop]         = useState(false)
+  const [newsEmail, setNewsEmail]     = useState('')
+  const [newsSent, setNewsSent]       = useState(false)
 
   useReveal()
 
@@ -1373,8 +1523,8 @@ export default function App() {
           </div>
 
           {/* Ecosystem diagram */}
-          <div className="reveal" style={{ display: 'flex', justifyContent: 'center' }}>
-            <div style={{ position: 'relative', width: 560, height: 560 }}>
+          <div className="reveal" style={{ display: 'flex', justifyContent: 'center', overflow: 'hidden' }}>
+            <div className="eco-outer" style={{ position: 'relative', width: 560, height: 560 }}>
 
               {/* Connector rings */}
               <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', overflow: 'visible' }} aria-hidden="true">
@@ -1593,7 +1743,7 @@ export default function App() {
           {/* Process strip */}
           <div className="reveal" style={{ background: 'rgba(212,168,83,0.03)', border: '1px solid rgba(212,168,83,0.1)', padding: '36px 40px', marginBottom: 52 }}>
             <div style={{ fontSize: 11, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#D4A853', fontWeight: 600, marginBottom: 24 }}>How We Work</div>
-            <div style={{ display: 'flex', gap: 0, flexWrap: 'wrap' }}>
+            <div className="process-strip" style={{ display: 'flex', gap: 0, flexWrap: 'wrap' }}>
               {['Discovery & Audit', 'Process Mapping', 'Build & Test', 'Deploy & Support'].map((step, i) => (
                 <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 16, flex: 1, minWidth: 160 }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
@@ -1602,7 +1752,7 @@ export default function App() {
                     </div>
                     <span style={{ fontSize: 13, fontWeight: 500, color: 'rgba(245,245,240,0.75)' }}>{step}</span>
                   </div>
-                  {i < 3 && <div style={{ flex: 1, height: 1, background: 'rgba(212,168,83,0.15)', minWidth: 20 }} />}
+                  {i < 3 && <div className="process-arrow" style={{ flex: 1, height: 1, background: 'rgba(212,168,83,0.15)', minWidth: 20 }} />}
                 </div>
               ))}
             </div>
@@ -1897,6 +2047,70 @@ export default function App() {
         </div>
       </section>
 
+      {/* ══════════════════════════════════ INSIGHTS / BLOG ══════════════════════════════════ */}
+      <section id="insights" style={{ padding: '100px 40px', borderTop: '1px solid rgba(212,168,83,0.07)', borderBottom: '1px solid rgba(212,168,83,0.07)' }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto' }}>
+
+          <div className="reveal" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: 24, marginBottom: 52 }}>
+            <div>
+              <span className="section-label">Insights & Updates</span>
+              <div className="gold-rule" />
+              <h2 className="playfair" style={{ fontSize: 'clamp(26px, 3vw, 42px)', fontWeight: 700, lineHeight: 1.2 }}>
+                Thinking Out Loud on <em style={{ color: '#D4A853' }}>Wellness & Systems</em>
+              </h2>
+            </div>
+            <span className="badge-upcoming" style={{ fontSize: 11 }}>
+              <span className="live-dot" />
+              Blog Launching Soon
+            </span>
+          </div>
+
+          <div className="blog-grid reveal">
+            {[
+              {
+                tag: 'Mental Wellness',
+                title: 'Why NRIs Struggle to Access Indian Therapy — And What We\'re Doing About It',
+                excerpt: 'The gap between demand and supply in NRI mental health support is massive. Here\'s the data, the problem, and how IndiaTherapist.com was built as the answer.',
+                date: 'Coming Soon',
+                readTime: '8 min read',
+              },
+              {
+                tag: 'Business Automation',
+                title: 'The Hidden Cost of Manual Processes: What Most Indian SMEs Don\'t Track',
+                excerpt: 'Most small businesses underestimate how much time — and money — is lost to repetitive tasks. A practical breakdown of the automation opportunity.',
+                date: 'Coming Soon',
+                readTime: '6 min read',
+              },
+              {
+                tag: 'Entrepreneurship',
+                title: 'Building a Multi-Platform Wellness Company from Krishnagiri: The NeoHappyLyf Story',
+                excerpt: 'A candid account of building four platforms from a small city in Tamil Nadu — the challenges, the lessons, and the vision that keeps it moving.',
+                date: 'Coming Soon',
+                readTime: '10 min read',
+              },
+            ].map((post, i) => (
+              <article key={i} className="blog-card" aria-label={post.title}>
+                {/* Coming soon overlay */}
+                <div style={{ position: 'absolute', top: 16, right: 16 }}>
+                  <span style={{ fontSize: 9, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(245,245,240,0.25)', fontWeight: 600 }}>Draft</span>
+                </div>
+
+                <span className="blog-tag">{post.tag}</span>
+
+                <h3 className="playfair" style={{ fontSize: 18, fontWeight: 600, lineHeight: 1.4, color: '#F5F5F0' }}>{post.title}</h3>
+
+                <p style={{ fontSize: 13, color: 'rgba(245,245,240,0.45)', lineHeight: 1.8, flexGrow: 1 }}>{post.excerpt}</p>
+
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: 16, borderTop: '1px solid rgba(212,168,83,0.08)' }}>
+                  <span style={{ fontSize: 11, color: 'rgba(245,245,240,0.25)', letterSpacing: '0.06em' }}>{post.date}</span>
+                  <span style={{ fontSize: 11, color: 'rgba(212,168,83,0.5)', letterSpacing: '0.06em' }}>{post.readTime}</span>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ══════════════════════════════════ PARTNER / CTA ══════════════════════════════════ */}
       <section id="partner" style={{ padding: '120px 40px', background: 'rgba(212,168,83,0.025)', borderTop: '1px solid rgba(212,168,83,0.1)', borderBottom: '1px solid rgba(212,168,83,0.1)' }}>
         <div style={{ maxWidth: 1280, margin: '0 auto' }}>
@@ -2142,6 +2356,35 @@ export default function App() {
                 ))}
               </div>
             </div>
+          </div>
+
+          {/* Newsletter band */}
+          <div className="newsletter-band">
+            <div>
+              <div style={{ fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#D4A853', fontWeight: 700, marginBottom: 6 }}>Stay Informed</div>
+              <div className="playfair" style={{ fontSize: 20, fontWeight: 600, color: '#F5F5F0', marginBottom: 4 }}>Join Our Newsletter</div>
+              <div style={{ fontSize: 13, color: 'rgba(245,245,240,0.4)', maxWidth: 320 }}>
+                Insights on mental wellness, automation, and the NeoHappyLyf ecosystem. No spam — ever.
+              </div>
+            </div>
+            {newsSent ? (
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10, color: '#22c55e', fontSize: 14, fontWeight: 600 }}>
+                <BadgeCheck size={18} /> You're on the list — thank you!
+              </div>
+            ) : (
+              <form className="newsletter-form" onSubmit={e => { e.preventDefault(); if (newsEmail) setNewsSent(true) }}>
+                <input
+                  className="newsletter-input"
+                  type="email"
+                  value={newsEmail}
+                  onChange={e => setNewsEmail(e.target.value)}
+                  placeholder="your@email.com"
+                  required
+                  aria-label="Email address for newsletter"
+                />
+                <button type="submit" className="newsletter-btn">Subscribe</button>
+              </form>
+            )}
           </div>
 
           {/* Main link grid */}
