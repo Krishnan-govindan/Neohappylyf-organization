@@ -1377,7 +1377,6 @@ export default function App() {
               ['4', 'Active Platforms'],
               ['2022', 'Operating Since'],
               ['NRI-Focused', 'Global Reach'],
-              ['MSME Certified', 'Govt. Registered'],
             ].map(([val, label]) => (
               <div key={label}>
                 <div className="playfair" style={{ fontSize: 28, fontWeight: 700, color: '#D4A853', lineHeight: 1 }}>{val}</div>
@@ -1496,7 +1495,6 @@ export default function App() {
               { value: '4', label: 'Active Platforms', sub: 'Wellness & Automation' },
               { value: '2+', label: 'Years of Impact', sub: 'Operating Since 2022' },
               { value: '20+', label: 'Countries Served', sub: 'NRI Communities Worldwide' },
-              { value: 'MSME', label: 'Govt. Registered', sub: 'UDYAM-TN-11-0044799' },
             ].map((s, i) => (
               <div key={i} className="stat-cell reveal">
                 <div className="playfair" style={{ fontSize: 'clamp(36px, 4vw, 56px)', fontWeight: 700, color: '#D4A853', lineHeight: 1, marginBottom: 8 }}>{s.value}</div>
