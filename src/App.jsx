@@ -2,7 +2,10 @@ import { useState, useEffect } from 'react'
 import {
   ExternalLink, Mail, MapPin, Linkedin, Twitter,
   ChevronDown, Menu, X, ArrowRight,
-  Building2, Brain, Heart, Users, Zap, Settings
+  Building2, Brain, Heart, Users, Zap, Settings,
+  Bot, BarChart3, Wrench, GitMerge,
+  ShieldCheck, Globe, Award, BadgeCheck, Clock,
+  Quote, Star, Newspaper, Puzzle
 } from 'lucide-react'
 
 /* ─── Global Styles ─────────────────────────────────────────────────────── */
@@ -465,6 +468,192 @@ const GlobalStyles = () => (
       .vd-grid { grid-template-columns: 1fr !important; }
       .vd-visual { min-height: 280px !important; }
       .vd-number { font-size: 100px !important; }
+    }
+
+    /* ── Phase 3 ── */
+
+    /* Automation lab cards — glassmorphism */
+    @keyframes card-glow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(212,168,83,0); }
+      50%       { box-shadow: 0 0 30px 4px rgba(212,168,83,0.08); }
+    }
+    .lab-card {
+      background: rgba(255,255,255,0.03);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(212,168,83,0.1);
+      padding: 40px 36px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.35s ease, border-color 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
+      border-radius: 2px;
+    }
+    .lab-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(212,168,83,0.04) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+    .lab-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(212,168,83,0.4);
+      background: rgba(212,168,83,0.04);
+      box-shadow: 0 8px 40px rgba(212,168,83,0.12), 0 0 0 1px rgba(212,168,83,0.15);
+    }
+    .lab-card:hover::after { opacity: 1; }
+    .lab-card-icon {
+      width: 52px; height: 52px;
+      background: rgba(212,168,83,0.08);
+      border: 1px solid rgba(212,168,83,0.2);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 24px;
+      border-radius: 2px;
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+    .lab-card:hover .lab-card-icon {
+      background: rgba(212,168,83,0.15);
+      box-shadow: 0 0 20px rgba(212,168,83,0.2);
+    }
+    .lab-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+    }
+    @media (max-width: 1100px) { .lab-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px)  { .lab-grid { grid-template-columns: 1fr; } }
+
+    /* Founder / Leadership */
+    .founder-quote {
+      position: relative;
+      padding: 36px 40px;
+      margin: 36px 0;
+      border-left: 3px solid #D4A853;
+      background: rgba(212,168,83,0.04);
+    }
+    .founder-quote-text {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(20px, 2.5vw, 28px);
+      font-weight: 500;
+      line-height: 1.5;
+      color: #F5F5F0;
+    }
+    .founder-photo-wrap {
+      position: relative;
+    }
+    .founder-photo-inner {
+      aspect-ratio: 4/5;
+      background: linear-gradient(160deg, rgba(212,168,83,0.12) 0%, rgba(212,168,83,0.03) 100%);
+      border: 1px solid rgba(212,168,83,0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+    .founder-initials {
+      width: 96px; height: 96px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(212,168,83,0.22) 0%, rgba(212,168,83,0.08) 100%);
+      border: 2px solid rgba(212,168,83,0.4);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .founder-role-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #D4A853;
+      font-weight: 600;
+      background: rgba(212,168,83,0.08);
+      border: 1px solid rgba(212,168,83,0.2);
+      padding: 6px 14px;
+      border-radius: 20px;
+    }
+    .expertise-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 16px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(212,168,83,0.14);
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(245,245,240,0.7);
+      border-radius: 20px;
+      transition: border-color 0.25s, background 0.25s;
+    }
+    .expertise-pill:hover {
+      border-color: rgba(212,168,83,0.35);
+      background: rgba(212,168,83,0.05);
+    }
+
+    /* Trust signals */
+    .trust-strip {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2px;
+    }
+    .trust-badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      padding: 40px 32px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(212,168,83,0.1);
+      flex: 1;
+      min-width: 160px;
+      max-width: 240px;
+      text-align: center;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .trust-badge:hover {
+      background: rgba(212,168,83,0.04);
+      border-color: rgba(212,168,83,0.25);
+    }
+    .trust-icon-wrap {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: rgba(212,168,83,0.08);
+      border: 1px solid rgba(212,168,83,0.2);
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    /* Media & Partners */
+    .media-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(212,168,83,0.08);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: border-color 0.3s;
+    }
+    .media-card:hover { border-color: rgba(212,168,83,0.2); }
+    .partner-chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 12px 24px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.07);
+      color: rgba(245,245,240,0.3);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      border-radius: 2px;
+      transition: color 0.3s, border-color 0.3s;
+    }
+    .partner-chip:hover {
+      color: rgba(245,245,240,0.55);
+      border-color: rgba(255,255,255,0.12);
     }
   `}</style>
 )
@@ -1115,43 +1304,90 @@ export default function App() {
         )
       })}
 
-      {/* ══════════════════════════════════ AUTOMATION ══════════════════════════════════ */}
-      <section id="automation" style={{ padding: '120px 40px' }}>
+      {/* ══════════════════════════════════ AUTOMATION LAB ══════════════════════════════════ */}
+      <section id="automation" style={{ padding: '120px 40px', background: 'rgba(255,255,255,0.01)', borderTop: '1px solid rgba(212,168,83,0.07)', borderBottom: '1px solid rgba(212,168,83,0.07)' }}>
         <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-          <div className="two-col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center' }}>
 
-            {/* Left */}
-            <div className="reveal">
-              <span className="section-label">Additional Service Line</span>
-              <div className="gold-rule" />
-              <h2 className="playfair" style={{ fontSize: 'clamp(28px, 3.5vw, 48px)', fontWeight: 700, lineHeight: 1.18, marginBottom: 24 }}>
-                Business Automation &<br /><em style={{ color: '#D4A853' }}>Product Development</em>
-              </h2>
-              <p style={{ color: 'rgba(245,245,240,0.6)', lineHeight: 1.95, fontSize: 15, marginBottom: 36 }}>
-                Beyond wellness, NeoHappyLyf engineers custom automation systems and digital tools for businesses drowning in repetitive day-to-day operations. We turn manual workflows into intelligent, self-running systems — so you can focus on what actually matters.
-              </p>
-              <button className="btn-gold" onClick={() => nav('contact')}>
-                Discuss Your Project <ArrowRight size={15} />
-              </button>
-            </div>
+          {/* Header */}
+          <div className="reveal" style={{ marginBottom: 72, maxWidth: 720 }}>
+            <span className="section-label">Service Division</span>
+            <div className="gold-rule" />
+            <h2 className="playfair" style={{ fontSize: 'clamp(30px, 4vw, 56px)', fontWeight: 700, lineHeight: 1.1, marginBottom: 20 }}>
+              Automation &<br /><em style={{ color: '#D4A853' }}>Innovation Lab</em>
+            </h2>
+            <p style={{ color: 'rgba(245,245,240,0.55)', fontSize: 17, lineHeight: 1.9, fontWeight: 300 }}>
+              We build the systems that free businesses to focus on what matters.
+            </p>
+          </div>
 
-            {/* Right */}
-            <div className="reveal">
-              {[
-                { Icon: Zap,        title: 'Workflow Automation',       desc: 'Eliminate repetitive tasks with intelligent, custom-built automation pipelines tailored precisely to your operations.' },
-                { Icon: Settings,   title: 'Custom Software Tools',     desc: 'Purpose-built internal tools and digital products that solve your specific operational and business challenges.' },
-                { Icon: Brain,      title: 'Process Optimisation',      desc: 'Audit, redesign, and streamline your existing workflows for maximum efficiency and minimum operational friction.' },
-                { Icon: Building2,  title: 'System Integration',        desc: 'Connect your existing tools into a unified operational ecosystem — no more data silos or manual hand-offs.' },
-              ].map(({ Icon, title, desc }, i) => (
-                <div key={i} className="auto-row">
-                  <div className="auto-icon"><Icon size={18} color="#D4A853" aria-hidden="true" /></div>
-                  <div>
-                    <div style={{ fontWeight: 600, fontSize: 15, marginBottom: 5 }}>{title}</div>
-                    <div style={{ fontSize: 13, color: 'rgba(245,245,240,0.45)', lineHeight: 1.7 }}>{desc}</div>
+          {/* Service cards grid */}
+          <div className="lab-grid" style={{ marginBottom: 64 }}>
+            {[
+              {
+                Icon: GitMerge,
+                title: 'Workflow Automation',
+                desc: 'Automating repetitive day-to-day business tasks — CRM flows, email sequences, data entry, and reporting pipelines that run without human intervention.',
+                tag: 'Most Popular',
+              },
+              {
+                Icon: Wrench,
+                title: 'Custom Tool Development',
+                desc: 'Bespoke internal tools and dashboards built precisely for your business — no bloated off-the-shelf software, just exactly what you need.',
+                tag: null,
+              },
+              {
+                Icon: BarChart3,
+                title: 'Process Optimisation',
+                desc: 'Analysing and restructuring your existing business processes for maximum efficiency — identifying bottlenecks, waste, and opportunities for automation.',
+                tag: null,
+              },
+              {
+                Icon: Bot,
+                title: 'AI-Powered Solutions',
+                desc: 'Leveraging AI for intelligent automation, conversational chatbots, data analysis, and decision-support tools that learn and improve over time.',
+                tag: 'New',
+              },
+            ].map(({ Icon, title, desc, tag }, i) => (
+              <div key={i} className="lab-card reveal">
+                {tag && (
+                  <div style={{ position: 'absolute', top: 20, right: 20, fontSize: 10, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#D4A853', background: 'rgba(212,168,83,0.1)', border: '1px solid rgba(212,168,83,0.22)', padding: '3px 10px', borderRadius: 20, fontWeight: 700 }}>{tag}</div>
+                )}
+                <div className="lab-card-icon">
+                  <Icon size={22} color="#D4A853" aria-hidden="true" />
+                </div>
+                <h3 className="playfair" style={{ fontSize: 19, fontWeight: 600, marginBottom: 12, color: '#F5F5F0' }}>{title}</h3>
+                <p style={{ fontSize: 14, color: 'rgba(245,245,240,0.5)', lineHeight: 1.8 }}>{desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Process strip */}
+          <div className="reveal" style={{ background: 'rgba(212,168,83,0.03)', border: '1px solid rgba(212,168,83,0.1)', padding: '36px 40px', marginBottom: 52 }}>
+            <div style={{ fontSize: 11, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#D4A853', fontWeight: 600, marginBottom: 24 }}>How We Work</div>
+            <div style={{ display: 'flex', gap: 0, flexWrap: 'wrap' }}>
+              {['Discovery & Audit', 'Process Mapping', 'Build & Test', 'Deploy & Support'].map((step, i) => (
+                <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 16, flex: 1, minWidth: 160 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                    <div style={{ width: 32, height: 32, borderRadius: '50%', background: 'rgba(212,168,83,0.12)', border: '1px solid rgba(212,168,83,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                      <span className="playfair" style={{ fontSize: 13, fontWeight: 700, color: '#D4A853' }}>0{i+1}</span>
+                    </div>
+                    <span style={{ fontSize: 13, fontWeight: 500, color: 'rgba(245,245,240,0.75)' }}>{step}</span>
                   </div>
+                  {i < 3 && <div style={{ flex: 1, height: 1, background: 'rgba(212,168,83,0.15)', minWidth: 20 }} />}
                 </div>
               ))}
             </div>
+          </div>
+
+          {/* CTA */}
+          <div className="reveal" style={{ display: 'flex', alignItems: 'center', gap: 20, flexWrap: 'wrap' }}>
+            <a href="mailto:contact@neohappylyf.com?subject=Business Automation Enquiry"
+              className="btn-gold" style={{ fontSize: 14, padding: '15px 32px' }}>
+              Let's Automate Your Business <ArrowRight size={15} />
+            </a>
+            <span style={{ fontSize: 13, color: 'rgba(245,245,240,0.35)' }}>
+              Free 30-minute discovery call available
+            </span>
           </div>
         </div>
       </section>
@@ -1186,61 +1422,248 @@ export default function App() {
       {/* ══════════════════════════════════ LEADERSHIP ══════════════════════════════════ */}
       <section id="leadership" style={{ padding: '120px 40px' }}>
         <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-          <div className="reveal" style={{ marginBottom: 64 }}>
+
+          <div className="reveal" style={{ marginBottom: 72 }}>
             <span className="section-label">Founder & Leadership</span>
             <div className="gold-rule" />
             <h2 className="playfair" style={{ fontSize: 'clamp(28px, 3.5vw, 52px)', fontWeight: 700, lineHeight: 1.18 }}>
-              The Visionary Behind <em style={{ color: '#D4A853' }}>NeoHappyLyf</em>
+              The Vision Behind <em style={{ color: '#D4A853' }}>NeoHappyLyf</em>
             </h2>
           </div>
 
-          <div className="leader-grid" style={{ display: 'grid', gridTemplateColumns: '300px 1fr', gap: 80, alignItems: 'start' }}>
+          <div className="leader-grid" style={{ display: 'grid', gridTemplateColumns: '340px 1fr', gap: 88, alignItems: 'start' }}>
 
-            {/* Photo card */}
-            <div className="reveal">
-              <div style={{ aspectRatio: '4/5', background: 'rgba(212,168,83,0.04)', border: '1px solid rgba(212,168,83,0.14)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 14, marginBottom: 22 }} aria-label="Founder photo placeholder">
-                <div style={{ width: 68, height: 68, borderRadius: '50%', background: 'rgba(212,168,83,0.12)', border: '1px solid rgba(212,168,83,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <span className="playfair" style={{ fontSize: 26, color: '#D4A853', fontWeight: 700 }}>KG</span>
+            {/* Photo column */}
+            <div className="reveal founder-photo-wrap">
+              <div className="founder-photo-inner" aria-label="Founder photo placeholder">
+                {/* Decorative corner marks */}
+                {[['top:0;left:0', 'borderTop:2px solid #D4A853;borderLeft:2px solid #D4A853'],
+                  ['top:0;right:0', 'borderTop:2px solid #D4A853;borderRight:2px solid #D4A853'],
+                  ['bottom:0;left:0', 'borderBottom:2px solid #D4A853;borderLeft:2px solid #D4A853'],
+                  ['bottom:0;right:0', 'borderBottom:2px solid #D4A853;borderRight:2px solid #D4A853'],
+                ].map(([pos, borders], i) => {
+                  const posStyle = Object.fromEntries(pos.split(';').map(s => { const [k,v] = s.split(':'); return [k, v] }))
+                  const borderStyle = Object.fromEntries(borders.split(';').map(s => { const [k,v] = s.split(':'); return [k, v] }))
+                  return <div key={i} aria-hidden="true" style={{ position: 'absolute', width: 20, height: 20, ...posStyle, ...borderStyle }} />
+                })}
+
+                {/* Ambient gradient blobs */}
+                <div aria-hidden="true" style={{ position: 'absolute', top: '10%', right: '10%', width: 160, height: 160, borderRadius: '50%', background: 'radial-gradient(circle, rgba(212,168,83,0.12) 0%, transparent 70%)', pointerEvents: 'none' }} />
+                <div aria-hidden="true" style={{ position: 'absolute', bottom: '15%', left: '5%', width: 120, height: 120, borderRadius: '50%', background: 'radial-gradient(circle, rgba(212,168,83,0.08) 0%, transparent 70%)', pointerEvents: 'none' }} />
+
+                <div className="founder-initials">
+                  <span className="playfair" style={{ fontSize: 34, color: '#D4A853', fontWeight: 700, lineHeight: 1 }}>KG</span>
                 </div>
-                <span style={{ fontSize: 11, color: 'rgba(245,245,240,0.22)', letterSpacing: '0.08em' }}>Photo Placeholder</span>
+                <span className="founder-role-tag">
+                  <Star size={11} aria-hidden="true" />
+                  Founder & CEO
+                </span>
+                <span style={{ fontSize: 11, color: 'rgba(245,245,240,0.2)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>Photo Coming Soon</span>
               </div>
-              <div style={{ display: 'flex', gap: 10 }}>
-                {[Linkedin, Twitter, Mail].map((Icon, i) => (
-                  <a key={i} href={i === 2 ? 'mailto:contact@neohappylyf.com' : '#'} aria-label={['LinkedIn', 'Twitter', 'Email'][i]}
-                    style={{ width: 36, height: 36, background: 'rgba(212,168,83,0.06)', border: '1px solid rgba(212,168,83,0.18)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#D4A853', textDecoration: 'none', transition: 'background 0.2s' }}
-                    onMouseEnter={e => e.currentTarget.style.background = 'rgba(212,168,83,0.18)'}
-                    onMouseLeave={e => e.currentTarget.style.background = 'rgba(212,168,83,0.06)'}>
+
+              {/* Social links */}
+              <div style={{ display: 'flex', gap: 10, marginTop: 20 }}>
+                {[
+                  { Icon: Linkedin, href: '#', label: 'LinkedIn' },
+                  { Icon: Twitter,  href: '#', label: 'Twitter' },
+                  { Icon: Mail,     href: 'mailto:contact@neohappylyf.com', label: 'Email' },
+                ].map(({ Icon, href, label }) => (
+                  <a key={label} href={href} aria-label={label}
+                    style={{ width: 38, height: 38, background: 'rgba(212,168,83,0.06)', border: '1px solid rgba(212,168,83,0.18)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#D4A853', textDecoration: 'none', transition: 'all 0.25s' }}
+                    onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,168,83,0.18)'; e.currentTarget.style.transform = 'translateY(-2px)' }}
+                    onMouseLeave={e => { e.currentTarget.style.background = 'rgba(212,168,83,0.06)'; e.currentTarget.style.transform = 'translateY(0)' }}>
                     <Icon size={14} aria-hidden="true" />
                   </a>
                 ))}
               </div>
             </div>
 
-            {/* Bio */}
+            {/* Bio column */}
             <div className="reveal">
-              <h3 className="playfair" style={{ fontSize: 36, fontWeight: 700, marginBottom: 6 }}>Krishnan Govindan</h3>
-              <p style={{ color: '#D4A853', fontSize: 13, letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 28 }}>Founder & Chief Executive Officer</p>
+              <h3 className="playfair" style={{ fontSize: 'clamp(28px, 3.5vw, 42px)', fontWeight: 700, marginBottom: 6 }}>Krishnan Govindan</h3>
+              <p style={{ color: '#D4A853', fontSize: 13, letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600, marginBottom: 32 }}>
+                Founder & Chief Executive Officer · Neo HappyLyf Mind Care For U Pvt. Ltd.
+              </p>
 
-              <div style={{ color: 'rgba(245,245,240,0.6)', lineHeight: 1.95, fontSize: 15, marginBottom: 36 }}>
-                <p style={{ marginBottom: 16 }}>Krishnan Govindan is the founder and driving force behind Neo HappyLyf — a company born from the conviction that mental wellness and operational excellence are not trade-offs, but complements.</p>
-                <p style={{ marginBottom: 16 }}>Based in Krishnagiri, Tamil Nadu, Krishnan identified an underserved gap: the Indian diaspora needed culturally rooted mental health and life coaching support, delivered through modern digital platforms. What began as IndiaTherapist.com in 2022 has since grown into a multi-vertical ecosystem serving thousands.</p>
-                <p>An entrepreneur at heart, Krishnan simultaneously recognised the operational pain points facing India's growing business class — and built NeoHappyLyf's automation division to address them directly with custom-engineered solutions.</p>
+              {/* Founder quote — editorial style */}
+              <div className="founder-quote">
+                <Quote size={20} color="rgba(212,168,83,0.4)" style={{ marginBottom: 12 }} aria-hidden="true" />
+                <p className="founder-quote-text">
+                  "Technology should serve humanity's deepest needs — healing minds and freeing hands."
+                </p>
+                <div style={{ marginTop: 16, fontSize: 11, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(212,168,83,0.6)', fontWeight: 600 }}>
+                  — Krishnan Govindan
+                </div>
               </div>
 
-              <div style={{ display: 'flex', gap: 28, flexWrap: 'wrap' }}>
+              {/* Bio paragraphs */}
+              <div style={{ color: 'rgba(245,245,240,0.6)', lineHeight: 1.95, fontSize: 15, marginBottom: 36 }}>
+                <p style={{ marginBottom: 16 }}>
+                  Krishnan Govindan is the founder and driving force behind Neo HappyLyf — a company built from the conviction that mental wellness and operational excellence are not trade-offs, but complements of a fully realised human life.
+                </p>
+                <p style={{ marginBottom: 16 }}>
+                  Based in Tamil Nadu, India, Krishnan recognised an underserved gap: the Indian diaspora needed culturally rooted mental health and life coaching support, accessible through modern digital platforms. What began as IndiaTherapist.com in 2022 — before the company was even formally incorporated — has since grown into a multi-vertical ecosystem that bridges continents.
+                </p>
+                <p>
+                  An entrepreneur at heart, Krishnan simultaneously identified the operational pain points holding India's growing business class back — and built NeoHappyLyf's automation division to address them head-on. He believes automation is a fundamentally humanist pursuit: free people from the mundane, and they flourish.
+                </p>
+              </div>
+
+              {/* Expertise pills */}
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 36 }}>
+                {['Mental Wellness', 'Business Automation', 'NRI Services', 'Entrepreneurship', 'AI & Technology', 'Platform Building'].map(tag => (
+                  <span key={tag} className="expertise-pill">
+                    <span style={{ width: 4, height: 4, borderRadius: '50%', background: '#D4A853', flexShrink: 0 }} />
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              {/* Domain tags */}
+              <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap' }}>
                 {[
                   ['Mental Wellness', 'Domain Expert'],
                   ['Business Automation', 'Builder'],
                   ['NRI Services', 'Pioneer'],
-                  ['Entrepreneurship', 'Thought Leader'],
+                  ['Thought Leadership', 'Speaker'],
                 ].map(([domain, role]) => (
-                  <div key={domain} style={{ borderLeft: '2px solid #D4A853', paddingLeft: 14 }}>
-                    <div style={{ fontSize: 14, fontWeight: 600, marginBottom: 2 }}>{domain}</div>
-                    <div style={{ fontSize: 11, color: '#D4A853', textTransform: 'uppercase', letterSpacing: '0.09em' }}>{role}</div>
+                  <div key={domain} style={{ borderLeft: '2px solid rgba(212,168,83,0.5)', paddingLeft: 14 }}>
+                    <div style={{ fontSize: 13, fontWeight: 600, marginBottom: 2 }}>{domain}</div>
+                    <div style={{ fontSize: 10, color: '#D4A853', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{role}</div>
                   </div>
                 ))}
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════ TRUST SIGNALS ══════════════════════════════════ */}
+      <section id="trust" style={{ padding: '100px 40px', background: '#060606', borderTop: '1px solid rgba(212,168,83,0.09)', borderBottom: '1px solid rgba(212,168,83,0.09)' }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto' }}>
+
+          <div className="reveal" style={{ textAlign: 'center', marginBottom: 60 }}>
+            <span className="section-label">Built on Trust</span>
+            <div className="gold-rule" style={{ margin: '20px auto 28px' }} />
+            <h2 className="playfair" style={{ fontSize: 'clamp(24px, 3vw, 40px)', fontWeight: 700, lineHeight: 1.2 }}>
+              Why Choose <em style={{ color: '#D4A853' }}>NeoHappyLyf</em>
+            </h2>
+          </div>
+
+          <div className="reveal trust-strip">
+            {[
+              { Icon: Award,       title: 'MSME / Udyam Registered',     sub: 'Govt. of India Certified',          color: '#D4A853' },
+              { Icon: BadgeCheck,  title: 'Private Limited Company',      sub: 'MCA Registered Entity',             color: '#22c55e' },
+              { Icon: ShieldCheck, title: 'Data Privacy Committed',       sub: 'Secure & Confidential Platforms',   color: '#6C9FD4' },
+              { Icon: Globe,       title: 'Serving 20+ Countries',        sub: 'Global NRI Communities',            color: '#9B8EC4' },
+              { Icon: Clock,       title: '2+ Years in Operation',        sub: 'Continuously Operating Since 2022', color: '#F4788A' },
+            ].map(({ Icon, title, sub, color }, i) => (
+              <div key={i} className="trust-badge">
+                <div className="trust-icon-wrap" style={{ background: `${color}10`, border: `1px solid ${color}28` }}>
+                  <Icon size={22} color={color} aria-hidden="true" />
+                </div>
+                <div>
+                  <div style={{ fontSize: 13, fontWeight: 700, color: '#F5F5F0', marginBottom: 4, letterSpacing: '0.01em' }}>{title}</div>
+                  <div style={{ fontSize: 11, color: 'rgba(245,245,240,0.38)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>{sub}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════ MEDIA & RECOGNITION ══════════════════════════════════ */}
+      <section id="media" style={{ padding: '100px 40px', borderBottom: '1px solid rgba(212,168,83,0.07)' }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto' }}>
+
+          <div className="reveal" style={{ marginBottom: 56 }}>
+            <span className="section-label">Media & Recognition</span>
+            <div className="gold-rule" />
+            <h2 className="playfair" style={{ fontSize: 'clamp(24px, 3vw, 40px)', fontWeight: 700, lineHeight: 1.2, marginBottom: 14 }}>
+              Press, Coverage & <em style={{ color: '#D4A853' }}>Recognition</em>
+            </h2>
+            <p style={{ color: 'rgba(245,245,240,0.38)', fontSize: 14, maxWidth: 420, lineHeight: 1.8 }}>
+              As NeoHappyLyf grows, this section will feature press coverage, podcast appearances, awards, and media recognition.
+            </p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 2 }} className="reveal three-col">
+            {[
+              { Icon: Newspaper, title: 'Press Coverage',      sub: 'Awaiting first media feature', placeholder: true },
+              { Icon: Star,      title: 'Awards & Recognition', sub: 'Industry recognition coming',   placeholder: true },
+              { Icon: Quote,     title: 'Podcasts & Speaking',  sub: 'Speaking engagements in progress', placeholder: true },
+            ].map(({ Icon, title, sub }, i) => (
+              <div key={i} className="media-card">
+                <div style={{ width: 42, height: 42, background: 'rgba(212,168,83,0.06)', border: '1px solid rgba(212,168,83,0.14)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <Icon size={18} color="rgba(212,168,83,0.5)" aria-hidden="true" />
+                </div>
+                <div className="playfair" style={{ fontSize: 16, fontWeight: 600, color: 'rgba(245,245,240,0.6)' }}>{title}</div>
+                <div style={{ fontSize: 12, color: 'rgba(245,245,240,0.25)', lineHeight: 1.6 }}>{sub}</div>
+                <div style={{ fontSize: 11, color: 'rgba(212,168,83,0.35)', letterSpacing: '0.1em', textTransform: 'uppercase', marginTop: 4 }}>Coming Soon</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════ PARTNERS & INTEGRATIONS ══════════════════════════════════ */}
+      <section id="partners" style={{ padding: '100px 40px', background: 'rgba(255,255,255,0.01)', borderBottom: '1px solid rgba(212,168,83,0.07)' }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto' }}>
+
+          <div className="reveal" style={{ marginBottom: 56 }}>
+            <span className="section-label">Partners & Integrations</span>
+            <div className="gold-rule" />
+            <h2 className="playfair" style={{ fontSize: 'clamp(24px, 3vw, 40px)', fontWeight: 700, lineHeight: 1.2, marginBottom: 14 }}>
+              Technology &<br /><em style={{ color: '#D4A853' }}>Platform Partners</em>
+            </h2>
+            <p style={{ color: 'rgba(245,245,240,0.38)', fontSize: 14, maxWidth: 460, lineHeight: 1.8 }}>
+              Our platforms integrate with industry-leading tools to deliver seamless, secure experiences for our users worldwide.
+            </p>
+          </div>
+
+          <div className="reveal">
+            {/* Category: Video & Communication */}
+            <div style={{ marginBottom: 36 }}>
+              <div style={{ fontSize: 10, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(245,245,240,0.25)', fontWeight: 600, marginBottom: 16 }}>Video & Communication</div>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 2 }}>
+                {['Zoom', 'Google Meet', 'WhatsApp Business'].map(name => (
+                  <div key={name} className="partner-chip">
+                    <Puzzle size={12} style={{ marginRight: 8, opacity: 0.4 }} aria-hidden="true" />
+                    {name}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Category: Payments */}
+            <div style={{ marginBottom: 36 }}>
+              <div style={{ fontSize: 10, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(245,245,240,0.25)', fontWeight: 600, marginBottom: 16 }}>Payments & Billing</div>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 2 }}>
+                {['Stripe', 'Razorpay', 'PayPal'].map(name => (
+                  <div key={name} className="partner-chip">
+                    <Puzzle size={12} style={{ marginRight: 8, opacity: 0.4 }} aria-hidden="true" />
+                    {name}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Category: Automation */}
+            <div>
+              <div style={{ fontSize: 10, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(245,245,240,0.25)', fontWeight: 600, marginBottom: 16 }}>Automation & Productivity</div>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 2 }}>
+                {['Zapier', 'Make (Integromat)', 'Google Workspace', 'Notion'].map(name => (
+                  <div key={name} className="partner-chip">
+                    <Puzzle size={12} style={{ marginRight: 8, opacity: 0.4 }} aria-hidden="true" />
+                    {name}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <p style={{ marginTop: 28, fontSize: 12, color: 'rgba(245,245,240,0.2)', fontStyle: 'italic' }}>
+              * Partner integrations vary by platform. All logos are property of their respective owners.
+            </p>
           </div>
         </div>
       </section>
