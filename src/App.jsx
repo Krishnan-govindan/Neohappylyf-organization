@@ -5,7 +5,7 @@ import {
   Building2, Brain, Heart, Users, Zap, Settings,
   Bot, BarChart3, Wrench, GitMerge,
   ShieldCheck, Globe, Award, BadgeCheck, Clock,
-  Quote, Star, Newspaper, Puzzle,
+  Quote,
   Youtube, Instagram, HeartHandshake, Cpu
 } from 'lucide-react'
 
@@ -19,6 +19,7 @@ const GlobalStyles = () => (
       background: #0A0A0A;
       color: #F5F5F0;
       font-family: 'DM Sans', sans-serif;
+      font-size: 18px;
       overflow-x: hidden;
       line-height: 1.6;
     }
@@ -98,14 +99,14 @@ const GlobalStyles = () => (
       max-width: 1280px;
       margin: 0 auto;
       padding: 0 40px;
-      height: 72px;
+      height: 88px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
     .nav-link {
       color: rgba(245,245,240,0.65);
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 500;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -125,7 +126,7 @@ const GlobalStyles = () => (
       padding: 13px 26px;
       font-family: 'DM Sans', sans-serif;
       font-weight: 600;
-      font-size: 13px;
+      font-size: 14px;
       letter-spacing: 0.06em;
       text-transform: uppercase;
       border: none;
@@ -145,7 +146,7 @@ const GlobalStyles = () => (
       padding: 12px 24px;
       font-family: 'DM Sans', sans-serif;
       font-weight: 500;
-      font-size: 13px;
+      font-size: 14px;
       letter-spacing: 0.06em;
       text-transform: uppercase;
       border: 1px solid rgba(212,168,83,0.5);
@@ -165,7 +166,7 @@ const GlobalStyles = () => (
       padding: 9px 18px;
       font-family: 'DM Sans', sans-serif;
       font-weight: 500;
-      font-size: 12px;
+      font-size: 13px;
       letter-spacing: 0.06em;
       text-transform: uppercase;
       border: 1px solid rgba(212,168,83,0.4);
@@ -280,7 +281,7 @@ const GlobalStyles = () => (
       color: #F5F5F0;
       padding: 15px 18px;
       font-family: 'DM Sans', sans-serif;
-      font-size: 15px;
+      font-size: 16px;
       outline: none;
       transition: border-color 0.25s;
       border-radius: 1px;
@@ -307,7 +308,7 @@ const GlobalStyles = () => (
     /* Footer hover links */
     .foot-link {
       display: block;
-      font-size: 13px;
+      font-size: 15px;
       color: rgba(245,245,240,0.45);
       text-decoration: none;
       margin-bottom: 10px;
@@ -337,7 +338,7 @@ const GlobalStyles = () => (
         display: flex;
         flex-direction: column;
         position: fixed;
-        top: 72px; left: 0; right: 0;
+        top: 88px; left: 0; right: 0;
         background: rgba(10,10,10,0.97);
         border-top: 1px solid rgba(212,168,83,0.1);
         padding: 28px 32px;
@@ -364,7 +365,7 @@ const GlobalStyles = () => (
     /* Stats bar */
     .stats-bar {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       border: 1px solid rgba(212,168,83,0.12);
     }
     .stat-cell {
@@ -980,7 +981,7 @@ const GlobalStyles = () => (
 const VENTURES = [
   {
     name: 'IndiaTherapist.com',
-    tagline: "India's premier NRI online therapy platform.",
+    tagline: "The leading online therapy platform for the global Indian diaspora.",
     desc: 'Connecting the Indian diaspora with licensed Indian therapists via video sessions and subscription-based mental health plans. Culturally rooted support for those who need it most.',
     url: 'https://indiatherapist.com',
     live: true,
@@ -1029,7 +1030,7 @@ const MILESTONES = [
   {
     year: 'June 2023',
     title: 'Neo HappyLyf Incorporated',
-    desc: 'Neo HappyLyf Mind Care For U Private Limited officially registered under the Companies Act. MSME/Udyam Registration: UDYAM-TN-11-0044799. Headquarters: Krishnagiri, Tamil Nadu.',
+    desc: 'Neo HappyLyf Mind Care For U Private Limited officially registered under the Companies Act — formalising the vision of a purpose-driven wellness and automation conglomerate.',
   },
   {
     year: '2023',
@@ -1058,8 +1059,8 @@ const VENTURE_DETAILS = [
     num: '01',
     id: 'v-therapy',
     name: 'IndiaTherapist.com',
-    tagline: '#1 Indian Online Therapy Platform for NRIs',
-    desc: 'Connecting Non-Resident Indians with licensed Indian therapists via secure, encrypted video sessions. Anxiety, depression, relationship issues, trauma, career stress — all addressed through culturally relevant mental health support from therapists who truly understand your world.',
+    tagline: 'Online Therapy for the Global Indian Diaspora',
+    desc: 'Connecting Non-Resident Indians worldwide with licensed therapists via secure, encrypted video sessions. Anxiety, depression, relationship issues, trauma, career stress — all addressed through culturally relevant mental health support from therapists who truly understand your world.',
     features: ['Video Therapy Sessions', 'Verified Licensed Therapists', 'Subscription Plans', 'Confidential & Secure', 'Culturally Relevant', 'NRI-Specialised'],
     target: 'NRIs in the US, UK, Middle East, Australia & Southeast Asia',
     url: 'https://indiatherapist.com',
@@ -1075,7 +1076,7 @@ const VENTURE_DETAILS = [
     id: 'v-coaches',
     name: 'IndianLifeCoaches.com',
     tagline: 'Complete Holistic Lifestyle Transformation for NRIs',
-    desc: "Connecting NRIs to India's top life coaches for financial freedom, career acceleration, personal empowerment, and relationship transformation. Subscription-based 1:1 video coaching with structured goal-setting, strategy sessions, and on-demand content.",
+    desc: "Connecting NRIs globally with expert life coaches for financial freedom, career acceleration, personal empowerment, and relationship transformation. Subscription-based 1:1 video coaching with structured goal-setting, strategy sessions, and on-demand content.",
     features: ['1:1 Coaching Sessions', 'On-Demand Content Library', 'Goal-Setting Tools', 'Strategy Sessions', 'Financial Coaching', 'Career Acceleration'],
     target: 'NRIs seeking personal & professional transformation',
     url: 'https://indianlifecoaches.com',
@@ -1248,12 +1249,11 @@ export default function App() {
         alternateName: 'NeoHappyLyf',
         url: 'https://neohappylyf.com',
         logo: 'https://neohappylyf.com/logo.png',
-        description: "India's mental wellness and business automation conglomerate — operating IndiaTherapist.com, IndianLifeCoaches.com, IndianDivorceCoach.com, and enterprise automation services.",
-        address: { '@type': 'PostalAddress', addressLocality: 'Krishnagiri', addressRegion: 'Tamil Nadu', addressCountry: 'IN' },
+        description: "Global wellness and business automation conglomerate serving the Indian diaspora — operating IndiaTherapist.com, IndianLifeCoaches.com, IndianDivorceCoach.com, and enterprise automation services.",
+        address: { '@type': 'PostalAddress', addressCountry: 'IN' },
         founder: { '@type': 'Person', name: 'Krishnan Govindan', jobTitle: 'Founder & CEO', url: 'https://krishnangovindan.com' },
         foundingDate: '2023-06-01',
         email: 'contact@neohappylyf.com',
-        identifier: { '@type': 'PropertyValue', name: 'UDYAM', value: 'UDYAM-TN-11-0044799' },
         sameAs: [
           'https://www.linkedin.com/company/neohappylyf',
           'https://twitter.com/neohappylyf',
@@ -1313,7 +1313,7 @@ export default function App() {
       <main id="main-content">
 
       {/* ══════════════════════════════════ HERO ══════════════════════════════════ */}
-      <section id="hero" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', padding: '130px 40px 90px' }}>
+      <section id="hero" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', padding: '140px 40px 90px' }}>
 
         {/* Parallax vertical lines */}
         <div aria-hidden="true" style={{ position: 'absolute', inset: 0, transform: `translateY(${heroShift}px)`, pointerEvents: 'none', opacity: 0.04 }}>
@@ -1331,7 +1331,7 @@ export default function App() {
           <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 36, animation: 'fadeInUp 0.7s ease both' }}>
             <div style={{ width: 36, height: 1, background: '#D4A853' }} />
             <span style={{ fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#D4A853', fontWeight: 600 }}>
-              Krishnagiri, Tamil Nadu, India &nbsp;·&nbsp; Est. 2023
+              Est. 2023 &nbsp;·&nbsp; Serving the Global Indian Diaspora
             </span>
           </div>
 
@@ -1358,7 +1358,7 @@ export default function App() {
             marginBottom: 48,
             animation: 'fadeInUp 0.7s ease 0.3s both',
           }}>
-            Neo HappyLyf is India's emerging wellness and automation conglomerate — four specialised platforms serving the mental, emotional, and operational needs of individuals and businesses worldwide.
+            Neo HappyLyf is a global wellness and automation conglomerate — four specialised platforms serving the mental, emotional, and operational needs of the Indian diaspora and businesses worldwide.
           </p>
 
           {/* CTAs */}
@@ -1374,13 +1374,13 @@ export default function App() {
           {/* Stats */}
           <div className="hero-stats" style={{ display: 'flex', gap: 52, marginTop: 80, flexWrap: 'wrap', animation: 'fadeInUp 0.7s ease 0.6s both' }}>
             {[
-              ['4', 'Active Platforms'],
               ['2022', 'Operating Since'],
+              ['20+', 'Countries Served'],
               ['NRI-Focused', 'Global Reach'],
             ].map(([val, label]) => (
               <div key={label}>
                 <div className="playfair" style={{ fontSize: 28, fontWeight: 700, color: '#D4A853', lineHeight: 1 }}>{val}</div>
-                <div style={{ fontSize: 11, color: 'rgba(245,245,240,0.4)', letterSpacing: '0.1em', textTransform: 'uppercase', marginTop: 6 }}>{label}</div>
+                <div style={{ fontSize: 13, color: 'rgba(245,245,240,0.4)', letterSpacing: '0.1em', textTransform: 'uppercase', marginTop: 6 }}>{label}</div>
               </div>
             ))}
           </div>
@@ -1411,15 +1411,15 @@ export default function App() {
                   A Conglomerate Built<br />on <em style={{ color: '#D4A853' }}>Purpose</em>
                 </h2>
               </div>
-              <div className="reveal" style={{ color: 'rgba(245,245,240,0.6)', lineHeight: 1.95, fontSize: 15 }}>
+              <div className="reveal" style={{ color: 'rgba(245,245,240,0.6)', lineHeight: 1.95, fontSize: 16 }}>
                 <p style={{ marginBottom: 18 }}>
-                  Neo HappyLyf Mind Care For U Private Limited is an MSME-registered enterprise headquartered in Krishnagiri, Tamil Nadu. Founded in June 2023 by Krishnan Govindan, the company operates at the intersection of mental wellness and technology innovation.
+                  Neo HappyLyf Mind Care For U Private Limited is a registered private limited company founded in June 2023 by Krishnan Govindan. The company operates at the intersection of mental wellness and technology innovation — serving clients across the globe.
                 </p>
                 <p style={{ marginBottom: 18 }}>
                   Our ecosystem addresses two of the most pressing challenges of our era: the mental health crisis among the Indian diaspora, and the operational inefficiencies that prevent growing businesses from scaling. We don't just build products — we build platforms that genuinely change lives.
                 </p>
                 <p>
-                  With Udyam Registration <strong style={{ color: 'rgba(245,245,240,0.8)' }}>UDYAM-TN-11-0044799</strong> and a growing portfolio of specialised platforms, NeoHappyLyf is positioned to become one of India's defining wellness and automation companies of this decade.
+                  With a growing portfolio of specialised platforms serving NRIs across 20+ countries, NeoHappyLyf is positioned to become the defining wellness and automation company for the global Indian diaspora.
                 </p>
               </div>
             </div>
@@ -1434,8 +1434,8 @@ export default function App() {
               ].map((item, i) => (
                 <div key={i} style={{ background: 'rgba(212,168,83,0.03)', border: '1px solid rgba(212,168,83,0.1)', padding: '28px 24px' }}>
                   <div style={{ width: 7, height: 7, background: '#D4A853', borderRadius: '50%', marginBottom: 16 }} />
-                  <div className="playfair" style={{ fontSize: 15, fontWeight: 600, marginBottom: 8 }}>{item.label}</div>
-                  <div style={{ fontSize: 13, color: 'rgba(245,245,240,0.45)', lineHeight: 1.65 }}>{item.desc}</div>
+                  <div className="playfair" style={{ fontSize: 17, fontWeight: 600, marginBottom: 8 }}>{item.label}</div>
+                  <div style={{ fontSize: 15, color: 'rgba(245,245,240,0.45)', lineHeight: 1.65 }}>{item.desc}</div>
                 </div>
               ))}
             </div>
@@ -1453,8 +1453,8 @@ export default function App() {
             <h2 className="playfair" style={{ fontSize: 'clamp(28px, 3.5vw, 52px)', fontWeight: 700, lineHeight: 1.18, maxWidth: 560 }}>
               Four Platforms. <em style={{ color: '#D4A853' }}>One Vision.</em>
             </h2>
-            <p style={{ color: 'rgba(245,245,240,0.45)', marginTop: 16, maxWidth: 500, lineHeight: 1.85, fontSize: 15 }}>
-              Each venture operates independently while contributing to the NeoHappyLyf mission of making wellness and efficiency accessible to every Indian — at home and abroad.
+            <p style={{ color: 'rgba(245,245,240,0.45)', marginTop: 16, maxWidth: 500, lineHeight: 1.85, fontSize: 17 }}>
+              Each venture operates independently while contributing to the NeoHappyLyf mission of making wellness and efficiency accessible to the Indian diaspora — wherever they are in the world.
             </p>
           </div>
 
@@ -1474,8 +1474,8 @@ export default function App() {
                   </div>
 
                   <h3 className="playfair" style={{ fontSize: 22, fontWeight: 600, marginBottom: 10, color: '#F5F5F0' }}>{v.name}</h3>
-                  <p style={{ fontSize: 13, color: '#D4A853', marginBottom: 12, fontWeight: 500, lineHeight: 1.55 }}>{v.tagline}</p>
-                  <p style={{ fontSize: 14, color: 'rgba(245,245,240,0.45)', lineHeight: 1.8, marginBottom: 30 }}>{v.desc}</p>
+                  <p style={{ fontSize: 15, color: '#D4A853', marginBottom: 12, fontWeight: 500, lineHeight: 1.55 }}>{v.tagline}</p>
+                  <p style={{ fontSize: 16, color: 'rgba(245,245,240,0.45)', lineHeight: 1.8, marginBottom: 30 }}>{v.desc}</p>
 
                   <a href={v.url} target="_blank" rel="noopener noreferrer" className="btn-ghost-sm" aria-label={`Visit ${v.name}`}>
                     Visit Platform <ExternalLink size={12} />
@@ -1492,14 +1492,14 @@ export default function App() {
         <div style={{ maxWidth: 1280, margin: '0 auto' }}>
           <div className="stats-bar">
             {[
-              { value: '4', label: 'Active Platforms', sub: 'Wellness & Automation' },
               { value: '2+', label: 'Years of Impact', sub: 'Operating Since 2022' },
               { value: '20+', label: 'Countries Served', sub: 'NRI Communities Worldwide' },
+              { value: '3', label: 'Live Platforms', sub: 'Wellness & Coaching' },
             ].map((s, i) => (
               <div key={i} className="stat-cell reveal">
                 <div className="playfair" style={{ fontSize: 'clamp(36px, 4vw, 56px)', fontWeight: 700, color: '#D4A853', lineHeight: 1, marginBottom: 8 }}>{s.value}</div>
-                <div style={{ fontSize: 13, fontWeight: 600, color: '#F5F5F0', marginBottom: 4, letterSpacing: '0.02em' }}>{s.label}</div>
-                <div style={{ fontSize: 11, color: 'rgba(245,245,240,0.35)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>{s.sub}</div>
+                <div style={{ fontSize: 16, fontWeight: 600, color: '#F5F5F0', marginBottom: 4, letterSpacing: '0.02em' }}>{s.label}</div>
+                <div style={{ fontSize: 13, color: 'rgba(245,245,240,0.35)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>{s.sub}</div>
               </div>
             ))}
           </div>
@@ -1874,7 +1874,7 @@ export default function App() {
               </div>
 
               {/* Bio paragraphs */}
-              <div style={{ color: 'rgba(245,245,240,0.6)', lineHeight: 1.95, fontSize: 15, marginBottom: 36 }}>
+              <div style={{ color: 'rgba(245,245,240,0.6)', lineHeight: 1.95, fontSize: 17, marginBottom: 36 }}>
                 <p style={{ marginBottom: 16 }}>
                   Krishnan Govindan is the founder and driving force behind Neo HappyLyf — a company built from the conviction that mental wellness and operational excellence are not trade-offs, but complements of a fully realised human life.
                 </p>
@@ -1882,7 +1882,7 @@ export default function App() {
                   Based in Tamil Nadu, India, Krishnan recognised an underserved gap: the Indian diaspora needed culturally rooted mental health and life coaching support, accessible through modern digital platforms. What began as IndiaTherapist.com in 2022 — before the company was even formally incorporated — has since grown into a multi-vertical ecosystem that bridges continents.
                 </p>
                 <p>
-                  An entrepreneur at heart, Krishnan simultaneously identified the operational pain points holding India's growing business class back — and built NeoHappyLyf's automation division to address them head-on. He believes automation is a fundamentally humanist pursuit: free people from the mundane, and they flourish.
+                  An entrepreneur at heart, Krishnan simultaneously identified the operational pain points holding growing businesses back — and built NeoHappyLyf's automation division to address them head-on. He believes automation is a fundamentally humanist pursuit: free people from the mundane, and they flourish.
                 </p>
               </div>
 
@@ -1929,19 +1929,19 @@ export default function App() {
 
           <div className="reveal trust-strip">
             {[
-              { Icon: Award,       title: 'MSME / Udyam Registered',     sub: 'Govt. of India Certified',          color: '#D4A853' },
-              { Icon: BadgeCheck,  title: 'Private Limited Company',      sub: 'MCA Registered Entity',             color: '#22c55e' },
+              { Icon: BadgeCheck,  title: 'Registered Company',           sub: 'Private Limited · Est. 2023',       color: '#22c55e' },
               { Icon: ShieldCheck, title: 'Data Privacy Committed',       sub: 'Secure & Confidential Platforms',   color: '#6C9FD4' },
               { Icon: Globe,       title: 'Serving 20+ Countries',        sub: 'Global NRI Communities',            color: '#9B8EC4' },
               { Icon: Clock,       title: '2+ Years in Operation',        sub: 'Continuously Operating Since 2022', color: '#F4788A' },
+              { Icon: Award,       title: 'Culturally Rooted',            sub: 'Built for the Indian Diaspora',     color: '#D4A853' },
             ].map(({ Icon, title, sub, color }, i) => (
               <div key={i} className="trust-badge">
                 <div className="trust-icon-wrap" style={{ background: `${color}10`, border: `1px solid ${color}28` }}>
                   <Icon size={22} color={color} aria-hidden="true" />
                 </div>
                 <div>
-                  <div style={{ fontSize: 13, fontWeight: 700, color: '#F5F5F0', marginBottom: 4, letterSpacing: '0.01em' }}>{title}</div>
-                  <div style={{ fontSize: 11, color: 'rgba(245,245,240,0.38)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>{sub}</div>
+                  <div style={{ fontSize: 15, fontWeight: 700, color: '#F5F5F0', marginBottom: 4, letterSpacing: '0.01em' }}>{title}</div>
+                  <div style={{ fontSize: 12, color: 'rgba(245,245,240,0.38)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>{sub}</div>
                 </div>
               </div>
             ))}
@@ -1949,101 +1949,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════ MEDIA & RECOGNITION ══════════════════════════════════ */}
-      <section id="media" style={{ padding: '100px 40px', borderBottom: '1px solid rgba(212,168,83,0.07)' }}>
-        <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-
-          <div className="reveal" style={{ marginBottom: 56 }}>
-            <span className="section-label">Media & Recognition</span>
-            <div className="gold-rule" />
-            <h2 className="playfair" style={{ fontSize: 'clamp(24px, 3vw, 40px)', fontWeight: 700, lineHeight: 1.2, marginBottom: 14 }}>
-              Press, Coverage & <em style={{ color: '#D4A853' }}>Recognition</em>
-            </h2>
-            <p style={{ color: 'rgba(245,245,240,0.38)', fontSize: 14, maxWidth: 420, lineHeight: 1.8 }}>
-              As NeoHappyLyf grows, this section will feature press coverage, podcast appearances, awards, and media recognition.
-            </p>
-          </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 2 }} className="reveal three-col">
-            {[
-              { Icon: Newspaper, title: 'Press Coverage',      sub: 'Awaiting first media feature', placeholder: true },
-              { Icon: Star,      title: 'Awards & Recognition', sub: 'Industry recognition coming',   placeholder: true },
-              { Icon: Quote,     title: 'Podcasts & Speaking',  sub: 'Speaking engagements in progress', placeholder: true },
-            ].map(({ Icon, title, sub }, i) => (
-              <div key={i} className="media-card">
-                <div style={{ width: 42, height: 42, background: 'rgba(212,168,83,0.06)', border: '1px solid rgba(212,168,83,0.14)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <Icon size={18} color="rgba(212,168,83,0.5)" aria-hidden="true" />
-                </div>
-                <div className="playfair" style={{ fontSize: 16, fontWeight: 600, color: 'rgba(245,245,240,0.6)' }}>{title}</div>
-                <div style={{ fontSize: 12, color: 'rgba(245,245,240,0.25)', lineHeight: 1.6 }}>{sub}</div>
-                <div style={{ fontSize: 11, color: 'rgba(212,168,83,0.35)', letterSpacing: '0.1em', textTransform: 'uppercase', marginTop: 4 }}>Coming Soon</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════ PARTNERS & INTEGRATIONS ══════════════════════════════════ */}
-      <section id="partners" style={{ padding: '100px 40px', background: 'rgba(255,255,255,0.01)', borderBottom: '1px solid rgba(212,168,83,0.07)' }}>
-        <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-
-          <div className="reveal" style={{ marginBottom: 56 }}>
-            <span className="section-label">Partners & Integrations</span>
-            <div className="gold-rule" />
-            <h2 className="playfair" style={{ fontSize: 'clamp(24px, 3vw, 40px)', fontWeight: 700, lineHeight: 1.2, marginBottom: 14 }}>
-              Technology &<br /><em style={{ color: '#D4A853' }}>Platform Partners</em>
-            </h2>
-            <p style={{ color: 'rgba(245,245,240,0.38)', fontSize: 14, maxWidth: 460, lineHeight: 1.8 }}>
-              Our platforms integrate with industry-leading tools to deliver seamless, secure experiences for our users worldwide.
-            </p>
-          </div>
-
-          <div className="reveal">
-            {/* Category: Video & Communication */}
-            <div style={{ marginBottom: 36 }}>
-              <div style={{ fontSize: 10, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(245,245,240,0.25)', fontWeight: 600, marginBottom: 16 }}>Video & Communication</div>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 2 }}>
-                {['Zoom', 'Google Meet', 'WhatsApp Business'].map(name => (
-                  <div key={name} className="partner-chip">
-                    <Puzzle size={12} style={{ marginRight: 8, opacity: 0.4 }} aria-hidden="true" />
-                    {name}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Category: Payments */}
-            <div style={{ marginBottom: 36 }}>
-              <div style={{ fontSize: 10, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(245,245,240,0.25)', fontWeight: 600, marginBottom: 16 }}>Payments & Billing</div>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 2 }}>
-                {['Stripe', 'Razorpay', 'PayPal'].map(name => (
-                  <div key={name} className="partner-chip">
-                    <Puzzle size={12} style={{ marginRight: 8, opacity: 0.4 }} aria-hidden="true" />
-                    {name}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Category: Automation */}
-            <div>
-              <div style={{ fontSize: 10, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(245,245,240,0.25)', fontWeight: 600, marginBottom: 16 }}>Automation & Productivity</div>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 2 }}>
-                {['Zapier', 'Make (Integromat)', 'Google Workspace', 'Notion'].map(name => (
-                  <div key={name} className="partner-chip">
-                    <Puzzle size={12} style={{ marginRight: 8, opacity: 0.4 }} aria-hidden="true" />
-                    {name}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <p style={{ marginTop: 28, fontSize: 12, color: 'rgba(245,245,240,0.2)', fontStyle: 'italic' }}>
-              * Partner integrations vary by platform. All logos are property of their respective owners.
-            </p>
-          </div>
-        </div>
-      </section>
 
       {/* ══════════════════════════════════ INSIGHTS / BLOG ══════════════════════════════════ */}
       <section id="insights" style={{ padding: '100px 40px', borderTop: '1px solid rgba(212,168,83,0.07)', borderBottom: '1px solid rgba(212,168,83,0.07)' }}>
@@ -2081,8 +1986,8 @@ export default function App() {
               },
               {
                 tag: 'Entrepreneurship',
-                title: 'Building a Multi-Platform Wellness Company from Krishnagiri: The NeoHappyLyf Story',
-                excerpt: 'A candid account of building four platforms from a small city in Tamil Nadu — the challenges, the lessons, and the vision that keeps it moving.',
+                title: 'Building a Global Wellness Conglomerate from India: The NeoHappyLyf Story',
+                excerpt: 'A candid account of building four platforms from South India to serve a global diaspora — the challenges, the lessons, and the vision that keeps it moving.',
                 date: 'Coming Soon',
                 readTime: '10 min read',
               },
@@ -2198,7 +2103,7 @@ export default function App() {
                 <div>
                   <div style={{ fontSize: 10, letterSpacing: '0.14em', textTransform: 'uppercase', color, fontWeight: 700, marginBottom: 6 }}>{label}</div>
                   <h3 className="playfair" style={{ fontSize: 19, fontWeight: 600, color: '#F5F5F0', marginBottom: 10 }}>{title}</h3>
-                  <p style={{ fontSize: 13, color: 'rgba(245,245,240,0.48)', lineHeight: 1.75 }}>{desc}</p>
+                  <p style={{ fontSize: 15, color: 'rgba(245,245,240,0.48)', lineHeight: 1.75 }}>{desc}</p>
                 </div>
                 <a href={`mailto:${email}`}
                   style={{ display: 'inline-flex', alignItems: 'center', gap: 7, color, fontSize: 13, fontWeight: 600, textDecoration: 'none', marginTop: 'auto', letterSpacing: '0.01em', transition: 'opacity 0.2s' }}
@@ -2275,8 +2180,8 @@ export default function App() {
                 </div>
                 <div>
                   <div style={{ fontSize: 10, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'rgba(245,245,240,0.35)', fontWeight: 600, marginBottom: 4 }}>Headquarters</div>
-                  <div style={{ fontSize: 16, fontWeight: 600, color: '#F5F5F0', marginBottom: 2 }}>Krishnagiri, Tamil Nadu</div>
-                  <div style={{ fontSize: 13, color: 'rgba(245,245,240,0.45)' }}>India · 635 001</div>
+                  <div style={{ fontSize: 16, fontWeight: 600, color: '#F5F5F0', marginBottom: 2 }}>Tamil Nadu, India</div>
+                  <div style={{ fontSize: 13, color: 'rgba(245,245,240,0.45)' }}>Serving Clients Worldwide</div>
                 </div>
               </div>
 
@@ -2390,15 +2295,15 @@ export default function App() {
 
             {/* Brand column */}
             <div>
-              <p style={{ fontSize: 13, color: 'rgba(245,245,240,0.4)', lineHeight: 1.9, maxWidth: 280, marginBottom: 20 }}>
-                Neo HappyLyf Mind Care For U Private Limited — a MSME-registered Indian company building wellness platforms and automation systems from Krishnagiri, Tamil Nadu, India.
+              <p style={{ fontSize: 15, color: 'rgba(245,245,240,0.4)', lineHeight: 1.9, maxWidth: 280, marginBottom: 20 }}>
+                Neo HappyLyf Mind Care For U Private Limited — building wellness platforms and automation systems for the global Indian diaspora.
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                 <a href="mailto:contact@neohappylyf.com" className="foot-link" style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
                   <Mail size={12} aria-hidden="true" /> contact@neohappylyf.com
                 </a>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 7, fontSize: 13, color: 'rgba(245,245,240,0.45)' }}>
-                  <MapPin size={12} aria-hidden="true" /> Krishnagiri, Tamil Nadu, India
+                <div style={{ display: 'flex', alignItems: 'center', gap: 7, fontSize: 15, color: 'rgba(245,245,240,0.45)' }}>
+                  <MapPin size={12} aria-hidden="true" /> Tamil Nadu, India · Serving Clients Worldwide
                 </div>
               </div>
             </div>
@@ -2447,11 +2352,9 @@ export default function App() {
               © 2023–{new Date().getFullYear()} Neo HappyLyf Mind Care For U Pvt. Ltd. All rights reserved.
             </p>
             <div style={{ display: 'flex', gap: 20, alignItems: 'center', flexWrap: 'wrap' }}>
-              <span style={{ fontSize: 11, color: 'rgba(245,245,240,0.18)', letterSpacing: '0.06em' }}>MSME Registered</span>
+              <span style={{ fontSize: 12, color: 'rgba(245,245,240,0.18)', letterSpacing: '0.06em' }}>Made with purpose in India</span>
               <span style={{ width: 3, height: 3, borderRadius: '50%', background: 'rgba(212,168,83,0.25)', flexShrink: 0 }} aria-hidden="true" />
-              <span style={{ fontSize: 11, color: 'rgba(245,245,240,0.18)', letterSpacing: '0.06em' }}>Made with purpose in India</span>
-              <span style={{ width: 3, height: 3, borderRadius: '50%', background: 'rgba(212,168,83,0.25)', flexShrink: 0 }} aria-hidden="true" />
-              <span style={{ fontSize: 11, color: 'rgba(245,245,240,0.14)', letterSpacing: '0.04em' }}>Krishnagiri, Tamil Nadu, India</span>
+              <span style={{ fontSize: 12, color: 'rgba(245,245,240,0.18)', letterSpacing: '0.06em' }}>Serving the Global Indian Diaspora</span>
             </div>
           </div>
 
