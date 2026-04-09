@@ -354,6 +354,118 @@ const GlobalStyles = () => (
       .cta-grid { grid-template-columns: 1fr !important; }
       .about-quad { grid-template-columns: 1fr !important; }
     }
+
+    /* ── Phase 2 ── */
+
+    /* Stats bar */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1px solid rgba(212,168,83,0.12);
+    }
+    .stat-cell {
+      padding: 44px 32px;
+      border-right: 1px solid rgba(212,168,83,0.1);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+    .stat-cell:last-child { border-right: none; }
+    .stat-cell:hover { background: rgba(212,168,83,0.04); }
+    @media (max-width: 768px) {
+      .stats-bar { grid-template-columns: 1fr 1fr; }
+      .stat-cell:nth-child(2) { border-right: none; }
+      .stat-cell { border-bottom: 1px solid rgba(212,168,83,0.1); }
+    }
+    @media (max-width: 480px) {
+      .stats-bar { grid-template-columns: 1fr; }
+      .stat-cell { border-right: none; }
+    }
+
+    /* Ecosystem diagram */
+    @keyframes orbit {
+      from { transform: rotate(0deg) translateX(180px) rotate(0deg); }
+      to   { transform: rotate(360deg) translateX(180px) rotate(-360deg); }
+    }
+    @keyframes float-node {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-8px); }
+    }
+    .eco-node {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      cursor: default;
+      transition: transform 0.3s;
+    }
+    .eco-node:hover { transform: scale(1.06); }
+    .eco-dot {
+      width: 90px; height: 90px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 4px;
+      border: 1px solid;
+      transition: box-shadow 0.3s;
+    }
+    .eco-dot:hover { box-shadow: 0 0 30px rgba(212,168,83,0.25); }
+
+    /* Venture detail sections */
+    .vd-section {
+      position: relative;
+      overflow: hidden;
+    }
+    .vd-number {
+      position: absolute;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(120px, 18vw, 220px);
+      font-weight: 800;
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+      opacity: 0.03;
+      color: #ffffff;
+    }
+    .vd-feature-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      border: 1px solid;
+      white-space: nowrap;
+    }
+    .vd-visual {
+      position: relative;
+      border-radius: 2px;
+      overflow: hidden;
+      min-height: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .vd-visual-inner {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 20px;
+    }
+    .vd-tag {
+      font-size: 10px; letter-spacing: 0.18em;
+      text-transform: uppercase; font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 20px;
+    }
+    @media (max-width: 900px) {
+      .vd-grid { grid-template-columns: 1fr !important; }
+      .vd-visual { min-height: 280px !important; }
+      .vd-number { font-size: 100px !important; }
+    }
   `}</style>
 )
 
@@ -434,6 +546,80 @@ const MILESTONES = [
   },
 ]
 
+const VENTURE_DETAILS = [
+  {
+    num: '01',
+    id: 'v-therapy',
+    name: 'IndiaTherapist.com',
+    tagline: '#1 Indian Online Therapy Platform for NRIs',
+    desc: 'Connecting Non-Resident Indians with licensed Indian therapists via secure, encrypted video sessions. Anxiety, depression, relationship issues, trauma, career stress — all addressed through culturally relevant mental health support from therapists who truly understand your world.',
+    features: ['Video Therapy Sessions', 'Verified Licensed Therapists', 'Subscription Plans', 'Confidential & Secure', 'Culturally Relevant', 'NRI-Specialised'],
+    target: 'NRIs in the US, UK, Middle East, Australia & Southeast Asia',
+    url: 'https://indiatherapist.com',
+    live: true,
+    accent: '#6C9FD4',
+    gradStart: 'rgba(108,159,212,0.12)',
+    gradEnd: 'rgba(108,159,212,0.03)',
+    visual: { bg: 'rgba(108,159,212,0.07)', border: 'rgba(108,159,212,0.18)', tagBg: 'rgba(108,159,212,0.12)', tagColor: '#6C9FD4', label: 'Mental Wellness', Icon: Brain },
+    flip: false,
+  },
+  {
+    num: '02',
+    id: 'v-coaches',
+    name: 'IndianLifeCoaches.com',
+    tagline: 'Complete Holistic Lifestyle Transformation for NRIs',
+    desc: "Connecting NRIs to India's top life coaches for financial freedom, career acceleration, personal empowerment, and relationship transformation. Subscription-based 1:1 video coaching with structured goal-setting, strategy sessions, and on-demand content.",
+    features: ['1:1 Coaching Sessions', 'On-Demand Content Library', 'Goal-Setting Tools', 'Strategy Sessions', 'Financial Coaching', 'Career Acceleration'],
+    target: 'NRIs seeking personal & professional transformation',
+    url: 'https://indianlifecoaches.com',
+    live: true,
+    accent: '#D4A853',
+    gradStart: 'rgba(212,168,83,0.1)',
+    gradEnd: 'rgba(212,168,83,0.02)',
+    visual: { bg: 'rgba(212,168,83,0.07)', border: 'rgba(212,168,83,0.2)', tagBg: 'rgba(212,168,83,0.12)', tagColor: '#D4A853', label: 'Life Coaching', Icon: Users },
+    flip: true,
+  },
+  {
+    num: '03',
+    id: 'v-divorce',
+    name: 'IndianDivorceCoach.com',
+    tagline: 'Confidential Divorce Coaching with Cultural Sensitivity',
+    desc: 'Specialised support for individuals navigating separation and divorce. Emotional coaching, practical step-by-step guidance, and a culturally aware approach built for the Indian diaspora — where family dynamics, social pressure, and personal dignity matter deeply.',
+    features: ['Confidential Sessions', 'Emotional Support', 'Practical Guidance', 'Culturally Aware', 'Zero Judgement', 'Post-Divorce Rebuilding'],
+    target: 'Individuals going through or considering divorce',
+    url: 'https://indiandivorcecoach.com',
+    live: true,
+    accent: '#9B8EC4',
+    gradStart: 'rgba(155,142,196,0.1)',
+    gradEnd: 'rgba(155,142,196,0.02)',
+    visual: { bg: 'rgba(155,142,196,0.07)', border: 'rgba(155,142,196,0.18)', tagBg: 'rgba(155,142,196,0.12)', tagColor: '#9B8EC4', label: 'Divorce Coaching', Icon: Heart },
+    flip: false,
+  },
+  {
+    num: '04',
+    id: 'v-founder',
+    name: 'KrishnanGovindan.com',
+    tagline: 'Founder. Thought Leader. Wellness Entrepreneur.',
+    desc: "Krishnan Govindan's personal brand and thought leadership platform — at the intersection of mental wellness, entrepreneurship, and business automation. Speaking engagements, public mentorship, long-form writing, and a growing body of work that challenges how India thinks about health and efficiency.",
+    features: ['Keynote Speaking', 'Public Mentorship', 'Thought Leadership Blog', 'Media & Press', 'Entrepreneurship Insights', 'Wellness Innovation'],
+    target: 'Entrepreneurs, wellness professionals, and the Indian startup ecosystem',
+    url: 'https://krishnangovindan.com',
+    live: false,
+    accent: '#D4A853',
+    gradStart: 'rgba(212,168,83,0.1)',
+    gradEnd: 'rgba(212,168,83,0.02)',
+    visual: { bg: 'rgba(212,168,83,0.06)', border: 'rgba(212,168,83,0.2)', tagBg: 'rgba(212,168,83,0.1)', tagColor: '#D4A853', label: 'Personal Brand', Icon: Building2 },
+    flip: true,
+  },
+]
+
+const ECOSYSTEM_NODES = [
+  { label: 'IndiaTherapist', sublabel: '.com', color: '#6C9FD4', angle: -90,  Icon: Brain },
+  { label: 'IndianLife',     sublabel: 'Coaches.com', color: '#D4A853', angle: 0,    Icon: Users },
+  { label: 'IndianDivorce',  sublabel: 'Coach.com',   color: '#9B8EC4', angle: 90,   Icon: Heart },
+  { label: 'Krishnan',       sublabel: 'Govindan.com', color: '#F4788A', angle: 180,  Icon: Building2 },
+]
+
 /* ─── Helpers ────────────────────────────────────────────────────────────── */
 function useReveal() {
   useEffect(() => {
@@ -495,6 +681,7 @@ export default function App() {
   const NAV_ITEMS = [
     ['about', 'About'],
     ['ventures', 'Ventures'],
+    ['ecosystem', 'Ecosystem'],
     ['automation', 'Automation'],
     ['journey', 'Journey'],
     ['leadership', 'Leadership'],
@@ -732,6 +919,201 @@ export default function App() {
           </div>
         </div>
       </section>
+
+      {/* ══════════════════════════════════ STATS BAR ══════════════════════════════════ */}
+      <section style={{ padding: '0 40px', background: '#060606', borderTop: '1px solid rgba(212,168,83,0.1)', borderBottom: '1px solid rgba(212,168,83,0.1)' }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto' }}>
+          <div className="stats-bar">
+            {[
+              { value: '4', label: 'Active Platforms', sub: 'Wellness & Automation' },
+              { value: '2+', label: 'Years of Impact', sub: 'Operating Since 2022' },
+              { value: '20+', label: 'Countries Served', sub: 'NRI Communities Worldwide' },
+              { value: 'MSME', label: 'Govt. Registered', sub: 'UDYAM-TN-11-0044799' },
+            ].map((s, i) => (
+              <div key={i} className="stat-cell reveal">
+                <div className="playfair" style={{ fontSize: 'clamp(36px, 4vw, 56px)', fontWeight: 700, color: '#D4A853', lineHeight: 1, marginBottom: 8 }}>{s.value}</div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: '#F5F5F0', marginBottom: 4, letterSpacing: '0.02em' }}>{s.label}</div>
+                <div style={{ fontSize: 11, color: 'rgba(245,245,240,0.35)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>{s.sub}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════ ECOSYSTEM ══════════════════════════════════ */}
+      <section id="ecosystem" style={{ padding: '120px 40px', background: 'rgba(255,255,255,0.008)', borderBottom: '1px solid rgba(212,168,83,0.07)' }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto' }}>
+          <div className="reveal" style={{ textAlign: 'center', marginBottom: 80 }}>
+            <span className="section-label">The NeoHappyLyf Ecosystem</span>
+            <div className="gold-rule" style={{ margin: '20px auto 28px' }} />
+            <h2 className="playfair" style={{ fontSize: 'clamp(28px, 3.5vw, 48px)', fontWeight: 700, lineHeight: 1.18, maxWidth: 600, margin: '0 auto 16px' }}>
+              One Holding Company.<br /><em style={{ color: '#D4A853' }}>Four Focused Platforms.</em>
+            </h2>
+            <p style={{ color: 'rgba(245,245,240,0.45)', maxWidth: 480, margin: '0 auto', lineHeight: 1.85, fontSize: 15 }}>
+              NeoHappyLyf sits at the centre of a purpose-built ecosystem — each venture independently operated yet unified by a shared mission.
+            </p>
+          </div>
+
+          {/* Ecosystem diagram */}
+          <div className="reveal" style={{ display: 'flex', justifyContent: 'center' }}>
+            <div style={{ position: 'relative', width: 560, height: 560 }}>
+
+              {/* Connector rings */}
+              <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', overflow: 'visible' }} aria-hidden="true">
+                <circle cx="280" cy="280" r="178" fill="none" stroke="rgba(212,168,83,0.07)" strokeWidth="1" strokeDasharray="4 6" />
+                <circle cx="280" cy="280" r="118" fill="none" stroke="rgba(212,168,83,0.05)" strokeWidth="1" />
+                {/* Spoke lines */}
+                {[[-90,0],[0,180],[90,360],[180,180]].map(([deg], i) => {
+                  const rad = (deg - 90) * Math.PI / 180
+                  return (
+                    <line key={i}
+                      x1="280" y1="280"
+                      x2={280 + Math.cos(rad) * 178} y2={280 + Math.sin(rad) * 178}
+                      stroke="rgba(212,168,83,0.1)" strokeWidth="1"
+                    />
+                  )
+                })}
+              </svg>
+
+              {/* Centre hub */}
+              <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', zIndex: 10 }}>
+                <div style={{ width: 110, height: 110, borderRadius: '50%', background: '#D4A853', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', boxShadow: '0 0 60px rgba(212,168,83,0.25)' }}>
+                  <span style={{ fontFamily: 'Playfair Display, serif', fontWeight: 800, fontSize: 22, color: '#0A0A0A', lineHeight: 1 }}>Neo</span>
+                  <span style={{ fontFamily: 'Playfair Display, serif', fontWeight: 700, fontSize: 11, color: '#0A0A0A', lineHeight: 1.2, letterSpacing: '0.05em' }}>HappyLyf</span>
+                </div>
+              </div>
+
+              {/* Spoke nodes — top, right, bottom, left */}
+              {[
+                { label: 'IndiaTherapist', sub: '.com', color: '#6C9FD4', Icon: Brain,     top: '0%',   left: '50%',  tx: '-50%', ty: '0' },
+                { label: 'IndianLife',     sub: 'Coaches', color: '#D4A853', Icon: Users,   top: '50%',  left: '100%', tx: '-100%', ty: '-50%' },
+                { label: 'IndianDivorce',  sub: 'Coach',   color: '#9B8EC4', Icon: Heart,   top: '100%', left: '50%',  tx: '-50%', ty: '-100%' },
+                { label: 'Krishnan',       sub: 'Govindan', color: '#F4788A', Icon: Building2, top: '50%', left: '0%',  tx: '0', ty: '-50%' },
+              ].map(({ label, sub, color, Icon, top, left, tx, ty }, i) => (
+                <div key={i} style={{ position: 'absolute', top, left, transform: `translate(${tx}, ${ty})`, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8, zIndex: 5, animation: `float-node ${3 + i * 0.5}s ease-in-out infinite` }}>
+                  <div style={{ width: 82, height: 82, borderRadius: '50%', background: `${color}12`, border: `1px solid ${color}35`, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 3, transition: 'box-shadow 0.3s', cursor: 'default' }}
+                    onMouseEnter={e => e.currentTarget.style.boxShadow = `0 0 28px ${color}30`}
+                    onMouseLeave={e => e.currentTarget.style.boxShadow = 'none'}>
+                    <Icon size={20} color={color} aria-hidden="true" />
+                  </div>
+                  <div style={{ textAlign: 'center' }}>
+                    <div style={{ fontSize: 11, fontWeight: 700, color: '#F5F5F0', letterSpacing: '0.04em', lineHeight: 1.2 }}>{label}</div>
+                    <div style={{ fontSize: 10, color, fontWeight: 500 }}>{sub}</div>
+                  </div>
+                </div>
+              ))}
+
+              {/* Business Automation — offset node */}
+              <div style={{ position: 'absolute', top: '22%', right: '-60px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8, zIndex: 5, animation: 'float-node 4s ease-in-out infinite' }}>
+                <div style={{ width: 64, height: 64, borderRadius: '50%', background: 'rgba(212,168,83,0.06)', border: '1px solid rgba(212,168,83,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <Zap size={18} color="#D4A853" aria-hidden="true" />
+                </div>
+                <div style={{ textAlign: 'center' }}>
+                  <div style={{ fontSize: 10, fontWeight: 700, color: 'rgba(245,245,240,0.6)', letterSpacing: '0.04em' }}>Automation</div>
+                  <div style={{ fontSize: 10, color: '#D4A853', fontWeight: 500 }}>Division</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Connecting description */}
+          <div className="reveal" style={{ textAlign: 'center', marginTop: 64 }}>
+            <p style={{ color: 'rgba(245,245,240,0.4)', fontSize: 14, maxWidth: 560, margin: '0 auto', lineHeight: 1.9 }}>
+              Each platform addresses a distinct human need — therapy, growth, transition support, and leadership — while collectively forming a comprehensive wellness and productivity ecosystem for the global Indian community.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════ VENTURE DETAIL SECTIONS ══════════════════════════════════ */}
+      {VENTURE_DETAILS.map((v) => {
+        const VisualIcon = v.visual.Icon
+        return (
+          <section key={v.id} id={v.id} className="vd-section" style={{ padding: '120px 40px', borderBottom: '1px solid rgba(212,168,83,0.07)', background: v.flip ? 'rgba(255,255,255,0.01)' : 'transparent' }}>
+
+            {/* Decorative number */}
+            <div className="vd-number" style={{ top: -20, [v.flip ? 'right' : 'left']: -20 }}>{v.num}</div>
+
+            <div style={{ maxWidth: 1280, margin: '0 auto', position: 'relative', zIndex: 2 }}>
+              <div className="vd-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center', direction: v.flip ? 'rtl' : 'ltr' }}>
+
+                {/* Text side */}
+                <div className="reveal" style={{ direction: 'ltr' }}>
+                  {/* Eyebrow */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 20 }}>
+                    <div style={{ width: 28, height: 1, background: v.accent }} />
+                    <span style={{ fontSize: 10, letterSpacing: '0.2em', textTransform: 'uppercase', color: v.accent, fontWeight: 700 }}>{v.num} / 04</span>
+                  </div>
+
+                  <span className="section-label" style={{ color: v.accent }}>Venture Spotlight</span>
+                  <div style={{ width: 48, height: 1, background: v.accent, margin: '20px 0 24px' }} />
+
+                  <h2 className="playfair" style={{ fontSize: 'clamp(26px, 3vw, 42px)', fontWeight: 700, lineHeight: 1.18, marginBottom: 10, color: '#F5F5F0' }}>
+                    {v.name}
+                  </h2>
+                  <p style={{ fontSize: 'clamp(15px, 1.6vw, 18px)', color: v.accent, fontWeight: 500, marginBottom: 20, lineHeight: 1.5 }}>{v.tagline}</p>
+                  <p style={{ color: 'rgba(245,245,240,0.6)', lineHeight: 1.95, fontSize: 15, marginBottom: 32 }}>{v.desc}</p>
+
+                  {/* Target audience */}
+                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10, marginBottom: 28, padding: '14px 18px', background: `${v.accent}08`, border: `1px solid ${v.accent}1A`, borderRadius: 2 }}>
+                    <span style={{ fontSize: 10, letterSpacing: '0.15em', textTransform: 'uppercase', color: v.accent, fontWeight: 700, whiteSpace: 'nowrap', marginTop: 1 }}>For</span>
+                    <span style={{ fontSize: 13, color: 'rgba(245,245,240,0.65)', lineHeight: 1.6 }}>{v.target}</span>
+                  </div>
+
+                  {/* Feature pills */}
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 36 }}>
+                    {v.features.map(f => (
+                      <span key={f} className="vd-feature-pill" style={{ background: `${v.accent}0D`, borderColor: `${v.accent}25`, color: 'rgba(245,245,240,0.75)' }}>
+                        <span style={{ width: 4, height: 4, borderRadius: '50%', background: v.accent, flexShrink: 0 }} />
+                        {f}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Status + CTA */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
+                    <a href={v.url} target="_blank" rel="noopener noreferrer"
+                      style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: v.accent, color: '#0A0A0A', padding: '13px 26px', fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: 13, letterSpacing: '0.05em', textTransform: 'uppercase', textDecoration: 'none', transition: 'opacity 0.25s, transform 0.2s', borderRadius: 1 }}
+                      onMouseEnter={e => { e.currentTarget.style.opacity = '0.85'; e.currentTarget.style.transform = 'translateY(-1px)' }}
+                      onMouseLeave={e => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.transform = 'translateY(0)' }}>
+                      Visit {v.name} <ExternalLink size={13} />
+                    </a>
+                    {v.live
+                      ? <span className="badge-live"><span className="live-dot" />Live & Operating</span>
+                      : <span className="badge-upcoming"><span className="live-dot" />Launching 2025</span>
+                    }
+                  </div>
+                </div>
+
+                {/* Visual side */}
+                <div className="reveal vd-visual" style={{ direction: 'ltr', background: `linear-gradient(135deg, ${v.gradStart} 0%, ${v.gradEnd} 100%)`, border: `1px solid ${v.accent}20` }}>
+                  <div className="vd-visual-inner">
+                    {/* Large brand icon */}
+                    <div style={{ width: 120, height: 120, borderRadius: '50%', background: `${v.accent}12`, border: `1px solid ${v.accent}30`, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 8 }}>
+                      <VisualIcon size={52} color={v.accent} aria-hidden="true" />
+                    </div>
+
+                    {/* Brand name */}
+                    <div style={{ textAlign: 'center', padding: '0 40px' }}>
+                      <div className="playfair" style={{ fontSize: 'clamp(18px, 2.5vw, 26px)', fontWeight: 700, color: '#F5F5F0', marginBottom: 6 }}>{v.name}</div>
+                      <div style={{ fontSize: 13, color: `${v.accent}CC`, lineHeight: 1.6, maxWidth: 260 }}>{v.tagline}</div>
+                    </div>
+
+                    {/* Decorative tag */}
+                    <span className="vd-tag" style={{ background: v.visual.tagBg, color: v.visual.tagColor, border: `1px solid ${v.accent}25` }}>
+                      {v.visual.label}
+                    </span>
+
+                    {/* Ambient glow */}
+                    <div aria-hidden="true" style={{ position: 'absolute', top: '20%', left: '30%', width: 240, height: 240, borderRadius: '50%', background: `radial-gradient(circle, ${v.accent}10 0%, transparent 70%)`, pointerEvents: 'none' }} />
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </section>
+        )
+      })}
 
       {/* ══════════════════════════════════ AUTOMATION ══════════════════════════════════ */}
       <section id="automation" style={{ padding: '120px 40px' }}>
