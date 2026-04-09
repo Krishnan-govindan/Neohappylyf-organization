@@ -974,6 +974,73 @@ const GlobalStyles = () => (
     button, a, [role="button"] { min-height: 44px; }
     .nav-link { min-height: 44px; display: inline-flex; align-items: center; }
     .foot-link { min-height: 36px; display: flex; align-items: center; }
+
+    /* ── Scrolling columns (tools/integrations) ── */
+    @keyframes scroll-down {
+      from { transform: translateY(0); }
+      to   { transform: translateY(-50%); }
+    }
+    @keyframes scroll-up {
+      from { transform: translateY(-50%); }
+      to   { transform: translateY(0); }
+    }
+    .scroll-viewport {
+      overflow: hidden;
+      height: 540px;
+      position: relative;
+      mask-image: linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%);
+    }
+    .scroll-track-down {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      animation: scroll-down 22s linear infinite;
+    }
+    .scroll-track-up {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      animation: scroll-up 18s linear infinite;
+    }
+    .scroll-track-down:hover,
+    .scroll-track-up:hover {
+      animation-play-state: paused;
+    }
+    .tool-card {
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(212,168,83,0.1);
+      border-radius: 12px;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      white-space: nowrap;
+      transition: border-color 0.3s, background 0.3s;
+      cursor: default;
+    }
+    .tool-card:hover {
+      border-color: rgba(212,168,83,0.3);
+      background: rgba(212,168,83,0.04);
+    }
+    .tool-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    @media (max-width: 900px) {
+      .tools-cols { grid-template-columns: 1fr 1fr !important; }
+      .tools-col-hide { display: none !important; }
+      .scroll-viewport { height: 480px; }
+    }
+    @media (max-width: 560px) {
+      .tools-cols { grid-template-columns: 1fr !important; }
+      .scroll-viewport { height: 420px; }
+    }
   `}</style>
 )
 
@@ -1949,6 +2016,124 @@ export default function App() {
         </div>
       </section>
 
+
+      {/* ══════════════════════════════════ TOOLS & INTEGRATIONS ══════════════════════════════════ */}
+      <section id="tools" style={{ padding: '100px 40px', background: 'rgba(255,255,255,0.008)', borderTop: '1px solid rgba(212,168,83,0.07)', borderBottom: '1px solid rgba(212,168,83,0.07)', overflow: 'hidden' }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto' }}>
+
+          <div className="reveal" style={{ textAlign: 'center', marginBottom: 64 }}>
+            <span className="section-label">Tools & Integrations</span>
+            <div className="gold-rule" style={{ margin: '20px auto 28px' }} />
+            <h2 className="playfair" style={{ fontSize: 'clamp(26px, 3.5vw, 46px)', fontWeight: 700, lineHeight: 1.18, maxWidth: 560, margin: '0 auto 16px' }}>
+              Platforms We Work With
+            </h2>
+            <p style={{ color: 'rgba(245,245,240,0.45)', maxWidth: 460, margin: '0 auto', lineHeight: 1.85, fontSize: 16 }}>
+              Our wellness and automation services integrate with the tools your business and clients already rely on.
+            </p>
+          </div>
+
+          {/* Three scrolling columns */}
+          <div className="tools-cols" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 14 }}>
+
+            {/* Column 1 — scrolls downward */}
+            {(() => {
+              const items = [
+                { label: 'Zoom',              sub: 'Video Sessions',      bg: '#2D8CFF18', border: '#2D8CFF30', icon: '🎥' },
+                { label: 'Stripe',            sub: 'Payments',            bg: '#635BFF18', border: '#635BFF30', icon: '💳' },
+                { label: 'Google Workspace',  sub: 'Productivity',        bg: '#EA433518', border: '#EA433530', icon: '📂' },
+                { label: 'WhatsApp Business', sub: 'Client Messaging',    bg: '#25D36618', border: '#25D36630', icon: '💬' },
+                { label: 'Calendly',          sub: 'Session Scheduling',  bg: '#006BFF18', border: '#006BFF30', icon: '📅' },
+                { label: 'Notion',            sub: 'Knowledge Base',      bg: '#ffffff12', border: '#ffffff22', icon: '📋' },
+                { label: 'Typeform',          sub: 'Client Intake',       bg: '#262627',   border: '#555',      icon: '📝' },
+                { label: 'Loom',              sub: 'Async Video',         bg: '#625DF518', border: '#625DF530', icon: '▶️' },
+              ]
+              const doubled = [...items, ...items]
+              return (
+                <div className="scroll-viewport">
+                  <div className="scroll-track-down">
+                    {doubled.map((item, i) => (
+                      <div key={i} className="tool-card">
+                        <div className="tool-icon" style={{ background: item.bg, border: `1px solid ${item.border}` }}>
+                          <span style={{ fontSize: 18 }} aria-hidden="true">{item.icon}</span>
+                        </div>
+                        <div>
+                          <div style={{ fontSize: 14, fontWeight: 600, color: '#F5F5F0', marginBottom: 2 }}>{item.label}</div>
+                          <div style={{ fontSize: 12, color: 'rgba(245,245,240,0.38)', letterSpacing: '0.04em' }}>{item.sub}</div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )
+            })()}
+
+            {/* Column 2 — scrolls upward */}
+            {(() => {
+              const items = [
+                { label: 'Zapier',          sub: 'Workflow Automation',  bg: '#FF4A0018', border: '#FF4A0030', icon: '⚡' },
+                { label: 'Make',            sub: 'No-Code Automation',   bg: '#6E5CE618', border: '#6E5CE630', icon: '🔄' },
+                { label: 'OpenAI',          sub: 'AI Integrations',      bg: '#10A37F18', border: '#10A37F30', icon: '🤖' },
+                { label: 'Razorpay',        sub: 'India Payments',       bg: '#3395FF18', border: '#3395FF30', icon: '₹' },
+                { label: 'Mailchimp',       sub: 'Email Marketing',      bg: '#FFE01B18', border: '#FFE01B30', icon: '📧' },
+                { label: 'Airtable',        sub: 'Data Management',      bg: '#18BFFF18', border: '#18BFFF30', icon: '🗂️' },
+                { label: 'PayPal',          sub: 'Global Payments',      bg: '#003087',   border: '#00308750', icon: '💰' },
+                { label: 'Slack',           sub: 'Team Collaboration',   bg: '#4A154B18', border: '#4A154B40', icon: '💼' },
+              ]
+              const doubled = [...items, ...items]
+              return (
+                <div className="scroll-viewport">
+                  <div className="scroll-track-up">
+                    {doubled.map((item, i) => (
+                      <div key={i} className="tool-card">
+                        <div className="tool-icon" style={{ background: item.bg, border: `1px solid ${item.border}` }}>
+                          <span style={{ fontSize: 18 }} aria-hidden="true">{item.icon}</span>
+                        </div>
+                        <div>
+                          <div style={{ fontSize: 14, fontWeight: 600, color: '#F5F5F0', marginBottom: 2 }}>{item.label}</div>
+                          <div style={{ fontSize: 12, color: 'rgba(245,245,240,0.38)', letterSpacing: '0.04em' }}>{item.sub}</div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )
+            })()}
+
+            {/* Column 3 — scrolls downward */}
+            {(() => {
+              const items = [
+                { label: 'Google Meet',    sub: 'Video Consultations',   bg: '#00897B18', border: '#00897B30', icon: '🎦' },
+                { label: 'ConvertKit',     sub: 'Newsletter',            bg: '#FB6970',   border: '#FB697040', icon: '📨' },
+                { label: 'HubSpot',       sub: 'CRM',                   bg: '#FF7A5918', border: '#FF7A5930', icon: '🏆' },
+                { label: 'Google Analytics', sub: 'Platform Insights',   bg: '#F9AB0018', border: '#F9AB0030', icon: '📊' },
+                { label: 'Hotjar',        sub: 'UX Analytics',          bg: '#FD3A2D18', border: '#FD3A2D30', icon: '🔥' },
+                { label: 'Webflow',       sub: 'Landing Pages',         bg: '#4353FF18', border: '#4353FF30', icon: '🌐' },
+                { label: 'n8n',           sub: 'Self-hosted Automation', bg: '#EA4B7118', border: '#EA4B7130', icon: '🔧' },
+                { label: 'Intercom',      sub: 'Client Support',        bg: '#1F8DED18', border: '#1F8DED30', icon: '💭' },
+              ]
+              const doubled = [...items, ...items]
+              return (
+                <div className="scroll-viewport tools-col-hide" style={{ display: 'block' }}>
+                  <div className="scroll-track-down" style={{ animationDuration: '26s' }}>
+                    {doubled.map((item, i) => (
+                      <div key={i} className="tool-card">
+                        <div className="tool-icon" style={{ background: item.bg, border: `1px solid ${item.border}` }}>
+                          <span style={{ fontSize: 18 }} aria-hidden="true">{item.icon}</span>
+                        </div>
+                        <div>
+                          <div style={{ fontSize: 14, fontWeight: 600, color: '#F5F5F0', marginBottom: 2 }}>{item.label}</div>
+                          <div style={{ fontSize: 12, color: 'rgba(245,245,240,0.38)', letterSpacing: '0.04em' }}>{item.sub}</div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )
+            })()}
+
+          </div>
+        </div>
+      </section>
 
       {/* ══════════════════════════════════ INSIGHTS / BLOG ══════════════════════════════════ */}
       <section id="insights" style={{ padding: '100px 40px', borderTop: '1px solid rgba(212,168,83,0.07)', borderBottom: '1px solid rgba(212,168,83,0.07)' }}>
