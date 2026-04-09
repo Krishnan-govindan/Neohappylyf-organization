@@ -5,7 +5,7 @@ import {
   Building2, Brain, Heart, Users, Zap, Settings,
   Bot, BarChart3, Wrench, GitMerge,
   ShieldCheck, Globe, Award, BadgeCheck, Clock,
-  Quote,
+  Quote, Star,
   Youtube, Instagram, HeartHandshake, Cpu
 } from 'lucide-react'
 
