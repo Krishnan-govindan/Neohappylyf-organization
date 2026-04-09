@@ -1,11 +1,12 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import {
   ExternalLink, Mail, MapPin, Linkedin, Twitter,
-  ChevronDown, Menu, X, ArrowRight,
+  ChevronDown, Menu, X, ArrowRight, ChevronUp,
   Building2, Brain, Heart, Users, Zap, Settings,
   Bot, BarChart3, Wrench, GitMerge,
   ShieldCheck, Globe, Award, BadgeCheck, Clock,
-  Quote, Star, Newspaper, Puzzle
+  Quote, Star, Newspaper, Puzzle,
+  Youtube, Instagram, HeartHandshake, Cpu
 } from 'lucide-react'
 
 /* ─── Global Styles ─────────────────────────────────────────────────────── */
@@ -655,6 +656,175 @@ const GlobalStyles = () => (
       color: rgba(245,245,240,0.55);
       border-color: rgba(255,255,255,0.12);
     }
+
+    /* ── Phase 4 ── */
+
+    /* Preloader */
+    @keyframes preloader-fade {
+      0%   { opacity: 1; }
+      80%  { opacity: 1; }
+      100% { opacity: 0; pointer-events: none; }
+    }
+    @keyframes preloader-logo {
+      0%   { opacity: 0; transform: translateY(12px); }
+      30%  { opacity: 1; transform: translateY(0); }
+      70%  { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(-8px); }
+    }
+    @keyframes preloader-bar {
+      from { width: 0; }
+      to   { width: 100%; }
+    }
+    .preloader {
+      position: fixed;
+      inset: 0;
+      background: #0A0A0A;
+      z-index: 9998;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      animation: preloader-fade 2.6s ease forwards;
+    }
+    .preloader-logo {
+      animation: preloader-logo 2.4s ease forwards;
+    }
+    .preloader-track {
+      width: 160px;
+      height: 1px;
+      background: rgba(212,168,83,0.15);
+      position: relative;
+      overflow: hidden;
+    }
+    .preloader-track::after {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; height: 100%;
+      background: #D4A853;
+      animation: preloader-bar 2s ease forwards;
+    }
+
+    /* Back-to-top */
+    .back-to-top {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      width: 44px; height: 44px;
+      background: rgba(10,10,10,0.9);
+      border: 1px solid rgba(212,168,83,0.35);
+      color: #D4A853;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      z-index: 500;
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(16px);
+      pointer-events: none;
+      backdrop-filter: blur(8px);
+    }
+    .back-to-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .back-to-top:hover {
+      background: #D4A853;
+      color: #0A0A0A;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(212,168,83,0.25);
+    }
+
+    /* Contact cards */
+    .contact-card {
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(212,168,83,0.1);
+      padding: 36px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: transform 0.3s, border-color 0.3s, background 0.3s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #D4A853, transparent);
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+    .contact-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(212,168,83,0.3);
+      background: rgba(212,168,83,0.04);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+    }
+    .contact-card:hover::before { transform: scaleX(1); }
+
+    /* HQ map placeholder */
+    .hq-map {
+      background: rgba(212,168,83,0.03);
+      border: 1px solid rgba(212,168,83,0.12);
+      border-radius: 2px;
+      padding: 32px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hq-pin {
+      width: 48px; height: 48px;
+      border-radius: 50% 50% 50% 0;
+      transform: rotate(-45deg);
+      background: rgba(212,168,83,0.15);
+      border: 2px solid rgba(212,168,83,0.4);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .hq-pin-inner {
+      transform: rotate(45deg);
+    }
+
+    /* Social icon strip */
+    .social-icon {
+      width: 36px; height: 36px;
+      background: rgba(212,168,83,0.05);
+      border: 1px solid rgba(212,168,83,0.14);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(245,245,240,0.45);
+      text-decoration: none;
+      transition: all 0.25s;
+      flex-shrink: 0;
+    }
+    .social-icon:hover {
+      background: rgba(212,168,83,0.15);
+      color: #D4A853;
+      transform: translateY(-2px);
+      border-color: rgba(212,168,83,0.3);
+    }
+
+    /* Footer column heading */
+    .foot-col-head {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #D4A853;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    /* Responsive Phase 4 */
+    @media (max-width: 900px) {
+      .contact-cards-grid { grid-template-columns: 1fr !important; }
+      .back-to-top { bottom: 20px; right: 20px; }
+    }
+    @media (max-width: 600px) {
+      .contact-cards-grid { grid-template-columns: 1fr !important; }
+    }
   `}</style>
 )
 
@@ -849,15 +1019,24 @@ export default function App() {
   const [scrolled, setScrolled]       = useState(false)
   const [mobileOpen, setMobileOpen]   = useState(false)
   const [heroShift, setHeroShift]     = useState(0)
-  const [form, setForm]               = useState({ name: '', email: '', company: '', interest: '', message: '' })
+  const [form, setForm]               = useState({ name: '', email: '', subject: '', message: '' })
   const [submitted, setSubmitted]     = useState(false)
+  const [loading, setLoading]         = useState(true)
+  const [showTop, setShowTop]         = useState(false)
 
   useReveal()
+
+  /* Preloader — hide after 2.6 s (matches CSS animation) */
+  useEffect(() => {
+    const t = setTimeout(() => setLoading(false), 2700)
+    return () => clearTimeout(t)
+  }, [])
 
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 60)
       setHeroShift(window.scrollY * 0.38)
+      setShowTop(window.scrollY > 500)
     }
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
@@ -881,24 +1060,71 @@ export default function App() {
     <>
       <GlobalStyles />
 
-      {/* ── Schema.org ── */}
+      {/* ── Preloader ── */}
+      {loading && (
+        <div className="preloader" aria-hidden="true">
+          <div className="preloader-logo">
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 24 }}>
+              <div style={{ width: 40, height: 40, background: '#D4A853', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <span style={{ fontFamily: 'Playfair Display, serif', fontWeight: 800, fontSize: 20, color: '#0A0A0A' }}>N</span>
+              </div>
+              <div>
+                <div style={{ fontFamily: 'Playfair Display, serif', fontWeight: 600, fontSize: 18, color: '#F5F5F0', letterSpacing: '0.02em' }}>NeoHappyLyf</div>
+                <div style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(245,245,240,0.3)' }}>Mind Care For U</div>
+              </div>
+            </div>
+          </div>
+          <div className="preloader-track" />
+          <div style={{ fontSize: 10, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(245,245,240,0.2)' }}>
+            Healing Minds. Building Systems.
+          </div>
+        </div>
+      )}
+
+      {/* ── Back to Top ── */}
+      <button
+        className={`back-to-top${showTop ? ' visible' : ''}`}
+        onClick={() => scrollTo('hero')}
+        aria-label="Back to top"
+      >
+        <ChevronUp size={18} />
+      </button>
+
+      {/* ── Schema.org — Organization ── */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'Organization',
         name: 'Neo HappyLyf Mind Care For U Private Limited',
         alternateName: 'NeoHappyLyf',
         url: 'https://neohappylyf.com',
-        description: "India's mental wellness and business automation conglomerate operating four specialized digital platforms for NRI communities worldwide.",
+        logo: 'https://neohappylyf.com/logo.png',
+        description: "India's mental wellness and business automation conglomerate — operating IndiaTherapist.com, IndianLifeCoaches.com, IndianDivorceCoach.com, and enterprise automation services.",
         address: { '@type': 'PostalAddress', addressLocality: 'Krishnagiri', addressRegion: 'Tamil Nadu', addressCountry: 'IN' },
-        founder: { '@type': 'Person', name: 'Krishnan Govindan' },
-        foundingDate: '2023-06',
+        founder: { '@type': 'Person', name: 'Krishnan Govindan', jobTitle: 'Founder & CEO', url: 'https://krishnangovindan.com' },
+        foundingDate: '2023-06-01',
         email: 'contact@neohappylyf.com',
-        identifier: 'UDYAM-TN-11-0044799',
+        identifier: { '@type': 'PropertyValue', name: 'UDYAM', value: 'UDYAM-TN-11-0044799' },
+        sameAs: [
+          'https://www.linkedin.com/company/neohappylyf',
+          'https://twitter.com/neohappylyf',
+          'https://www.instagram.com/neohappylyf'
+        ],
         hasOfferCatalog: {
           '@type': 'OfferCatalog',
           name: 'Wellness & Automation Platforms',
           itemListElement: VENTURES.map(v => ({ '@type': 'Offer', name: v.name, url: v.url }))
         }
+      })}} />
+
+      {/* ── Schema.org — WebSite ── */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: 'NeoHappyLyf',
+        url: 'https://neohappylyf.com',
+        description: 'Corporate website of Neo HappyLyf Mind Care For U Private Limited',
+        publisher: { '@type': 'Organization', name: 'Neo HappyLyf Mind Care For U Private Limited' },
+        potentialAction: { '@type': 'SearchAction', target: 'https://neohappylyf.com/?q={search_term_string}', 'query-input': 'required name=search_term_string' }
       })}} />
 
       {/* ══════════════════════════════════ NAVIGATION ══════════════════════════════════ */}
@@ -932,6 +1158,9 @@ export default function App() {
           </button>
         </div>
       </nav>
+
+      {/* ══════════════════════════════════ MAIN CONTENT ══════════════════════════════════ */}
+      <main id="main-content">
 
       {/* ══════════════════════════════════ HERO ══════════════════════════════════ */}
       <section id="hero" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', padding: '130px 40px 90px' }}>
@@ -1707,113 +1936,235 @@ export default function App() {
       </section>
 
       {/* ══════════════════════════════════ CONTACT ══════════════════════════════════ */}
-      <section id="contact" style={{ padding: '120px 40px' }}>
+      <section id="contact" style={{ padding: '120px 40px', background: 'rgba(255,255,255,0.01)', borderTop: '1px solid rgba(212,168,83,0.07)' }}>
         <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-          <div className="two-col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80 }}>
 
-            {/* Left */}
+          {/* Header */}
+          <div className="reveal" style={{ marginBottom: 64, maxWidth: 640 }}>
+            <span className="section-label">Get In Touch</span>
+            <div className="gold-rule" />
+            <h2 className="playfair" style={{ fontSize: 'clamp(30px, 4vw, 52px)', fontWeight: 700, lineHeight: 1.1, marginBottom: 18 }}>
+              Let's Build Something<br /><em style={{ color: '#D4A853' }}>Together</em>
+            </h2>
+            <p style={{ color: 'rgba(245,245,240,0.5)', lineHeight: 1.9, fontSize: 16 }}>
+              Whether you're seeking wellness support, automation solutions, or partnership opportunities — the right door is open for you.
+            </p>
+          </div>
+
+          {/* Three contact channel cards */}
+          <div className="contact-cards-grid reveal" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 2, marginBottom: 64 }}>
+            {[
+              {
+                Icon: Brain,
+                color: '#6C9FD4',
+                title: 'Wellness Platforms',
+                desc: 'Enquiries about IndiaTherapist.com, IndianLifeCoaches.com, IndianDivorceCoach.com, or mental wellness partnerships.',
+                email: 'contact@neohappylyf.com',
+                label: 'General & Wellness',
+              },
+              {
+                Icon: Cpu,
+                color: '#D4A853',
+                title: 'Business Automation',
+                desc: 'Discuss your automation project, custom tool development, process optimisation, or AI-powered solutions.',
+                email: 'automation@neohappylyf.com',
+                label: 'Automation Division',
+              },
+              {
+                Icon: HeartHandshake,
+                color: '#9B8EC4',
+                title: 'Partnerships & Investment',
+                desc: 'Strategic investment conversations, platform partnerships, media enquiries, and collaboration opportunities.',
+                email: 'partnerships@neohappylyf.com',
+                label: 'Investors & Partners',
+              },
+            ].map(({ Icon, color, title, desc, email, label }) => (
+              <div key={title} className="contact-card">
+                <div style={{ width: 50, height: 50, background: `${color}12`, border: `1px solid ${color}28`, display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: 2 }}>
+                  <Icon size={22} color={color} aria-hidden="true" />
+                </div>
+                <div>
+                  <div style={{ fontSize: 10, letterSpacing: '0.14em', textTransform: 'uppercase', color, fontWeight: 700, marginBottom: 6 }}>{label}</div>
+                  <h3 className="playfair" style={{ fontSize: 19, fontWeight: 600, color: '#F5F5F0', marginBottom: 10 }}>{title}</h3>
+                  <p style={{ fontSize: 13, color: 'rgba(245,245,240,0.48)', lineHeight: 1.75 }}>{desc}</p>
+                </div>
+                <a href={`mailto:${email}`}
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: 7, color, fontSize: 13, fontWeight: 600, textDecoration: 'none', marginTop: 'auto', letterSpacing: '0.01em', transition: 'opacity 0.2s' }}
+                  onMouseEnter={e => e.currentTarget.style.opacity = '0.7'}
+                  onMouseLeave={e => e.currentTarget.style.opacity = '1'}>
+                  <Mail size={13} aria-hidden="true" />
+                  {email}
+                </a>
+              </div>
+            ))}
+          </div>
+
+          {/* Form + HQ panel */}
+          <div className="two-col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64 }}>
+
+            {/* Contact form */}
             <div className="reveal">
-              <span className="section-label">Get In Touch</span>
-              <div className="gold-rule" />
-              <h2 className="playfair" style={{ fontSize: 'clamp(28px, 3.5vw, 46px)', fontWeight: 700, lineHeight: 1.18, marginBottom: 22 }}>
-                Let's Start a <em style={{ color: '#D4A853' }}>Conversation</em>
-              </h2>
-              <p style={{ color: 'rgba(245,245,240,0.5)', lineHeight: 1.95, fontSize: 15, marginBottom: 44 }}>
-                Whether you're an investor, a platform partner, a business seeking automation support, or a mental wellness professional looking to join our ecosystem — we'd love to hear from you.
-              </p>
-
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 22 }}>
-                {[
-                  { Icon: Mail,    label: 'Email',    value: 'contact@neohappylyf.com', href: 'mailto:contact@neohappylyf.com' },
-                  { Icon: MapPin,  label: 'Location', value: 'Krishnagiri, Tamil Nadu, India', href: null },
-                ].map(({ Icon, label, value, href }) => (
-                  <div key={label} style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-                    <div style={{ width: 42, height: 42, background: 'rgba(212,168,83,0.07)', border: '1px solid rgba(212,168,83,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                      <Icon size={16} color="#D4A853" aria-hidden="true" />
+              <div style={{ fontSize: 11, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#D4A853', fontWeight: 600, marginBottom: 24 }}>Send Us a Message</div>
+              {submitted ? (
+                <div style={{ background: 'rgba(212,168,83,0.05)', border: '1px solid rgba(212,168,83,0.2)', padding: '52px 40px', textAlign: 'center' }}>
+                  <div style={{ width: 56, height: 56, borderRadius: '50%', background: 'rgba(34,197,94,0.1)', border: '1px solid rgba(34,197,94,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
+                    <BadgeCheck size={24} color="#22c55e" />
+                  </div>
+                  <div className="playfair" style={{ fontSize: 22, fontWeight: 600, marginBottom: 10 }}>Message Received</div>
+                  <p style={{ color: 'rgba(245,245,240,0.5)', fontSize: 14, lineHeight: 1.8 }}>
+                    Thank you for reaching out. We review all enquiries personally and will respond within 48 hours.
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
+                    <div>
+                      <label className="field-label" htmlFor="c-name">Full Name *</label>
+                      <input id="c-name" className="form-ctrl" name="name" value={form.name} onChange={handleForm} placeholder="Your name" required autoComplete="name" />
                     </div>
                     <div>
-                      <div style={{ fontSize: 10, color: 'rgba(245,245,240,0.35)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 3 }}>{label}</div>
-                      {href
-                        ? <a href={href} style={{ color: '#F5F5F0', textDecoration: 'none', fontSize: 15 }}>{value}</a>
-                        : <span style={{ fontSize: 15 }}>{value}</span>
-                      }
+                      <label className="field-label" htmlFor="c-email">Email *</label>
+                      <input id="c-email" className="form-ctrl" type="email" name="email" value={form.email} onChange={handleForm} placeholder="your@email.com" required autoComplete="email" />
+                    </div>
+                  </div>
+                  <div>
+                    <label className="field-label" htmlFor="c-subject">Subject</label>
+                    <select id="c-subject" className="form-ctrl" name="subject" value={form.subject} onChange={handleForm} style={{ cursor: 'pointer' }}>
+                      <option value="">Select a topic</option>
+                      <option value="wellness">Wellness Platforms</option>
+                      <option value="automation">Business Automation</option>
+                      <option value="partnership">Partnership / Investment</option>
+                      <option value="media">Media / Press</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="field-label" htmlFor="c-message">Message *</label>
+                    <textarea id="c-message" className="form-ctrl" name="message" value={form.message} onChange={handleForm} placeholder="Tell us about your enquiry…" rows={5} style={{ resize: 'vertical' }} required />
+                  </div>
+                  <button type="submit" className="btn-gold" style={{ width: '100%', justifyContent: 'center', padding: '16px 24px', fontSize: 14 }}>
+                    Send Message <ArrowRight size={15} />
+                  </button>
+                  <p style={{ fontSize: 11, color: 'rgba(245,245,240,0.22)', textAlign: 'center', letterSpacing: '0.04em' }}>
+                    We respond to all enquiries within 48 hours · contact@neohappylyf.com
+                  </p>
+                </form>
+              )}
+            </div>
+
+            {/* HQ + info */}
+            <div className="reveal" style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+              <div className="hq-map">
+                <div aria-hidden="true" style={{ position: 'absolute', right: 20, top: 20, width: 80, height: 80, borderRadius: '50%', background: 'radial-gradient(circle, rgba(212,168,83,0.08) 0%, transparent 70%)', pointerEvents: 'none' }} />
+                <div className="hq-pin">
+                  <div className="hq-pin-inner">
+                    <MapPin size={18} color="#D4A853" />
+                  </div>
+                </div>
+                <div>
+                  <div style={{ fontSize: 10, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'rgba(245,245,240,0.35)', fontWeight: 600, marginBottom: 4 }}>Headquarters</div>
+                  <div style={{ fontSize: 16, fontWeight: 600, color: '#F5F5F0', marginBottom: 2 }}>Krishnagiri, Tamil Nadu</div>
+                  <div style={{ fontSize: 13, color: 'rgba(245,245,240,0.45)' }}>India · 635 001</div>
+                </div>
+              </div>
+
+              {/* Response time */}
+              <div style={{ background: 'rgba(212,168,83,0.03)', border: '1px solid rgba(212,168,83,0.1)', padding: '24px 28px' }}>
+                <div style={{ fontSize: 10, letterSpacing: '0.16em', textTransform: 'uppercase', color: '#D4A853', fontWeight: 600, marginBottom: 16 }}>Response Times</div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+                  {[
+                    ['General Enquiries',      'Within 48 hours'],
+                    ['Automation Projects',    'Within 24 hours'],
+                    ['Investment / Partners',  'Within 72 hours'],
+                  ].map(([type, time]) => (
+                    <div key={type} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                      <span style={{ fontSize: 13, color: 'rgba(245,245,240,0.55)' }}>{type}</span>
+                      <span style={{ fontSize: 12, color: '#D4A853', fontWeight: 600, letterSpacing: '0.04em' }}>{time}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Direct emails */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+                {[
+                  { label: 'General & Wellness',    email: 'contact@neohappylyf.com' },
+                  { label: 'Automation',            email: 'automation@neohappylyf.com' },
+                  { label: 'Partnerships',          email: 'partnerships@neohappylyf.com' },
+                ].map(({ label, email }) => (
+                  <div key={email} style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+                    <div style={{ width: 34, height: 34, background: 'rgba(212,168,83,0.07)', border: '1px solid rgba(212,168,83,0.14)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                      <Mail size={13} color="#D4A853" aria-hidden="true" />
+                    </div>
+                    <div>
+                      <div style={{ fontSize: 9, color: 'rgba(245,245,240,0.3)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 2 }}>{label}</div>
+                      <a href={`mailto:${email}`} style={{ fontSize: 13, color: 'rgba(245,245,240,0.7)', textDecoration: 'none', transition: 'color 0.2s' }}
+                        onMouseEnter={e => e.currentTarget.style.color = '#D4A853'}
+                        onMouseLeave={e => e.currentTarget.style.color = 'rgba(245,245,240,0.7)'}>
+                        {email}
+                      </a>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
-
-            {/* Form */}
-            <div className="reveal">
-              {submitted ? (
-                <div style={{ background: 'rgba(212,168,83,0.06)', border: '1px solid rgba(212,168,83,0.2)', padding: 48, textAlign: 'center' }}>
-                  <div className="playfair" style={{ fontSize: 24, fontWeight: 600, marginBottom: 12 }}>Message Received</div>
-                  <p style={{ color: 'rgba(245,245,240,0.55)', fontSize: 15, lineHeight: 1.8 }}>
-                    Thank you for reaching out. We review all enquiries carefully and will respond within 48 hours.
-                  </p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-                  <div className="two-col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
-                    <div>
-                      <label className="field-label" htmlFor="f-name">Full Name *</label>
-                      <input id="f-name" className="form-ctrl" name="name" value={form.name} onChange={handleForm} placeholder="Your name" required />
-                    </div>
-                    <div>
-                      <label className="field-label" htmlFor="f-email">Email *</label>
-                      <input id="f-email" className="form-ctrl" type="email" name="email" value={form.email} onChange={handleForm} placeholder="your@email.com" required />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="field-label" htmlFor="f-company">Company / Organisation</label>
-                    <input id="f-company" className="form-ctrl" name="company" value={form.company} onChange={handleForm} placeholder="Your company name" />
-                  </div>
-                  <div>
-                    <label className="field-label" htmlFor="f-interest">I'm Interested In</label>
-                    <select id="f-interest" className="form-ctrl" name="interest" value={form.interest} onChange={handleForm} style={{ cursor: 'pointer' }}>
-                      <option value="">Select an option</option>
-                      <option value="investment">Investment / Strategic Partnership</option>
-                      <option value="automation">Business Automation Services</option>
-                      <option value="therapy">IndiaTherapist.com</option>
-                      <option value="coaching">IndianLifeCoaches.com</option>
-                      <option value="divorce">IndianDivorceCoach.com</option>
-                      <option value="other">General Enquiry</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="field-label" htmlFor="f-message">Message *</label>
-                    <textarea id="f-message" className="form-ctrl" name="message" value={form.message} onChange={handleForm} placeholder="Tell us about your interest or enquiry…" rows={5} style={{ resize: 'vertical' }} required />
-                  </div>
-                  <button type="submit" className="btn-gold" style={{ width: '100%', justifyContent: 'center', marginTop: 4, padding: '16px 24px' }}>
-                    Send Message <ArrowRight size={16} />
-                  </button>
-                  <p style={{ fontSize: 12, color: 'rgba(245,245,240,0.25)', textAlign: 'center' }}>
-                    We respond to all enquiries within 48 hours.
-                  </p>
-                </form>
-              )}
-            </div>
           </div>
         </div>
       </section>
 
-      {/* ══════════════════════════════════ FOOTER ══════════════════════════════════ */}
-      <footer role="contentinfo" style={{ background: '#060606', borderTop: '1px solid rgba(212,168,83,0.09)', padding: '64px 40px 32px' }}>
-        <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-          <div className="footer-grid" style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: 48, marginBottom: 52 }}>
+      </main>{/* end #main-content */}
 
-            {/* Brand */}
-            <div>
+      {/* ══════════════════════════════════ FOOTER ══════════════════════════════════ */}
+      <footer role="contentinfo" style={{ background: '#050505', borderTop: '1px solid rgba(212,168,83,0.1)', padding: '80px 40px 0' }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto' }}>
+
+          {/* Top band — tagline + social */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 32, paddingBottom: 56, borderBottom: '1px solid rgba(212,168,83,0.07)', marginBottom: 56 }}>
+            <div style={{ maxWidth: 420 }}>
               <Logo onClick={() => nav('hero')} />
-              <p style={{ fontSize: 13, color: 'rgba(245,245,240,0.38)', lineHeight: 1.85, maxWidth: 260, margin: '20px 0 16px' }}>
-                Neo HappyLyf Mind Care For U Private Limited — healing minds and building systems from Krishnagiri, Tamil Nadu, India.
+              <p className="playfair" style={{ fontSize: 'clamp(18px, 2.2vw, 24px)', fontStyle: 'italic', color: 'rgba(245,245,240,0.35)', marginTop: 20, lineHeight: 1.5 }}>
+                "Empowering Lives.<br />Automating Futures."
               </p>
-              <p style={{ fontSize: 11, color: 'rgba(245,245,240,0.2)', letterSpacing: '0.05em' }}>UDYAM-TN-11-0044799</p>
+            </div>
+            {/* Social icons */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'flex-end' }}>
+              <div style={{ fontSize: 10, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(245,245,240,0.25)', fontWeight: 600 }}>Follow Us</div>
+              <div style={{ display: 'flex', gap: 8 }}>
+                {[
+                  { Icon: Linkedin,  href: '#', label: 'LinkedIn' },
+                  { Icon: Twitter,   href: '#', label: 'Twitter / X' },
+                  { Icon: Instagram, href: '#', label: 'Instagram' },
+                  { Icon: Youtube,   href: '#', label: 'YouTube' },
+                ].map(({ Icon, href, label }) => (
+                  <a key={label} href={href} aria-label={label} className="social-icon">
+                    <Icon size={15} aria-hidden="true" />
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Main link grid */}
+          <div className="footer-grid" style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: 48, marginBottom: 56 }}>
+
+            {/* Brand column */}
+            <div>
+              <p style={{ fontSize: 13, color: 'rgba(245,245,240,0.4)', lineHeight: 1.9, maxWidth: 280, marginBottom: 20 }}>
+                Neo HappyLyf Mind Care For U Private Limited — a MSME-registered Indian company building wellness platforms and automation systems from Krishnagiri, Tamil Nadu, India.
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                <a href="mailto:contact@neohappylyf.com" className="foot-link" style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
+                  <Mail size={12} aria-hidden="true" /> contact@neohappylyf.com
+                </a>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 7, fontSize: 13, color: 'rgba(245,245,240,0.45)' }}>
+                  <MapPin size={12} aria-hidden="true" /> Krishnagiri, Tamil Nadu, India
+                </div>
+              </div>
             </div>
 
             {/* Ventures */}
             <div>
-              <div style={{ fontSize: 10, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#D4A853', fontWeight: 700, marginBottom: 20 }}>Ventures</div>
+              <div className="foot-col-head">Ventures</div>
               {VENTURES.map(v => (
                 <a key={v.name} href={v.url} target="_blank" rel="noopener noreferrer" className="foot-link">{v.name}</a>
               ))}
@@ -1821,40 +2172,48 @@ export default function App() {
 
             {/* Company */}
             <div>
-              <div style={{ fontSize: 10, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#D4A853', fontWeight: 700, marginBottom: 20 }}>Company</div>
-              {[['about','About'],['automation','Automation'],['journey','Journey'],['leadership','Leadership'],['contact','Contact']].map(([id, label]) => (
-                <span key={id} className="foot-link" onClick={() => nav(id)}>{label}</span>
+              <div className="foot-col-head">Company</div>
+              {[
+                ['about',      'About Us'],
+                ['ventures',   'Our Ventures'],
+                ['automation', 'Automation Services'],
+                ['journey',    'Our Journey'],
+                ['leadership', 'Leadership'],
+                ['contact',    'Contact'],
+              ].map(([id, label]) => (
+                <span key={id} className="foot-link" onClick={() => nav(id)} role="button" tabIndex={0} onKeyDown={e => e.key === 'Enter' && nav(id)}>{label}</span>
               ))}
             </div>
 
-            {/* Connect */}
+            {/* Services */}
             <div>
-              <div style={{ fontSize: 10, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#D4A853', fontWeight: 700, marginBottom: 20 }}>Connect</div>
-              <a href="mailto:contact@neohappylyf.com" className="foot-link" style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                <Mail size={12} aria-hidden="true" /> contact@neohappylyf.com
-              </a>
-              <div style={{ display: 'flex', gap: 10, marginTop: 20 }}>
-                {[Linkedin, Twitter].map((Icon, i) => (
-                  <a key={i} href="#" aria-label={['LinkedIn', 'Twitter'][i]}
-                    style={{ width: 34, height: 34, background: 'rgba(212,168,83,0.05)', border: '1px solid rgba(212,168,83,0.14)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'rgba(245,245,240,0.45)', textDecoration: 'none', transition: 'all 0.2s' }}
-                    onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,168,83,0.15)'; e.currentTarget.style.color = '#D4A853' }}
-                    onMouseLeave={e => { e.currentTarget.style.background = 'rgba(212,168,83,0.05)'; e.currentTarget.style.color = 'rgba(245,245,240,0.45)' }}>
-                    <Icon size={14} aria-hidden="true" />
-                  </a>
-                ))}
-              </div>
+              <div className="foot-col-head">Services</div>
+              {[
+                ['automation', 'Workflow Automation'],
+                ['automation', 'Custom Tool Dev'],
+                ['automation', 'Process Optimisation'],
+                ['automation', 'AI Solutions'],
+                ['partner',    'Partnerships'],
+              ].map(([id, label]) => (
+                <span key={label} className="foot-link" onClick={() => nav(id)} role="button" tabIndex={0} onKeyDown={e => e.key === 'Enter' && nav(id)}>{label}</span>
+              ))}
             </div>
           </div>
 
           {/* Bottom bar */}
-          <div style={{ borderTop: '1px solid rgba(212,168,83,0.07)', paddingTop: 26, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12 }}>
-            <p style={{ fontSize: 12, color: 'rgba(245,245,240,0.22)' }}>
-              © {new Date().getFullYear()} Neo HappyLyf Mind Care For U Private Limited. All rights reserved.
+          <div style={{ borderTop: '1px solid rgba(212,168,83,0.07)', padding: '24px 0 32px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 14 }}>
+            <p style={{ fontSize: 12, color: 'rgba(245,245,240,0.2)' }}>
+              © 2023–{new Date().getFullYear()} Neo HappyLyf Mind Care For U Pvt. Ltd. All rights reserved.
             </p>
-            <p style={{ fontSize: 12, color: 'rgba(245,245,240,0.18)' }}>
-              Krishnagiri, Tamil Nadu, India
-            </p>
+            <div style={{ display: 'flex', gap: 20, alignItems: 'center', flexWrap: 'wrap' }}>
+              <span style={{ fontSize: 11, color: 'rgba(245,245,240,0.18)', letterSpacing: '0.06em' }}>MSME Registered</span>
+              <span style={{ width: 3, height: 3, borderRadius: '50%', background: 'rgba(212,168,83,0.25)', flexShrink: 0 }} aria-hidden="true" />
+              <span style={{ fontSize: 11, color: 'rgba(245,245,240,0.18)', letterSpacing: '0.06em' }}>Made with purpose in India</span>
+              <span style={{ width: 3, height: 3, borderRadius: '50%', background: 'rgba(212,168,83,0.25)', flexShrink: 0 }} aria-hidden="true" />
+              <span style={{ fontSize: 11, color: 'rgba(245,245,240,0.14)', letterSpacing: '0.04em' }}>Krishnagiri, Tamil Nadu, India</span>
+            </div>
           </div>
+
         </div>
       </footer>
     </>
