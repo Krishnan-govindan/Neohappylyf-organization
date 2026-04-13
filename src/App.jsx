@@ -999,7 +999,7 @@ const GlobalStyles = () => (
     }
     .globe-hero {
       position: absolute;
-      top: 50%;
+      top: 42%;
       right: -8%;
       transform: translateY(-50%);
       width: min(920px, 75vw);
@@ -1042,7 +1042,7 @@ const GlobalStyles = () => (
     @media (max-width: 700px) {
       .globe-hero {
         right: -30%;
-        top: 60%;
+        top: 50%;
         opacity: 0.32;
       }
     }
