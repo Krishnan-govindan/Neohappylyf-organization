@@ -999,7 +999,7 @@ const GlobalStyles = () => (
     }
     .globe-hero {
       position: absolute;
-      top: 26%;
+      top: 15%;
       right: 5%;
       transform: translateY(-50%);
       width: min(920px, 75vw);
