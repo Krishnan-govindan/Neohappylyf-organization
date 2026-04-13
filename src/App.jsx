@@ -1183,8 +1183,8 @@ const MILESTONES = [
   },
   {
     year: '2024',
-    title: 'Business Automation Division',
-    desc: 'NeoHappyLyf enters its second major vertical — building custom automation systems and digital tools for businesses struggling with repetitive day-to-day operations.',
+    title: 'FulSuccess Division Launched',
+    desc: 'NeoHappyLyf enters its second major vertical — FulSuccess (fulsuccess.com), building custom automation systems and digital tools for businesses struggling with repetitive day-to-day operations.',
   },
   {
     year: '2025',
@@ -1247,7 +1247,7 @@ const VENTURE_DETAILS = [
     id: 'v-founder',
     name: 'KrishnanGovindan.com',
     tagline: 'Founder. Thought Leader. Wellness Entrepreneur.',
-    desc: "Krishnan Govindan's personal brand and thought leadership platform — at the intersection of mental wellness, entrepreneurship, and business automation. Speaking engagements, public mentorship, long-form writing, and a growing body of work that challenges how India thinks about health and efficiency.",
+    desc: "Krishnan Govindan's personal brand and thought leadership platform — at the intersection of mental wellness, entrepreneurship, and FulSuccess. Speaking engagements, public mentorship, long-form writing, and a growing body of work that challenges how India thinks about health and efficiency.",
     features: ['Keynote Speaking', 'Public Mentorship', 'Thought Leadership Blog', 'Media & Press', 'Entrepreneurship Insights', 'Wellness Innovation'],
     target: 'Entrepreneurs, wellness professionals, and the Indian startup ecosystem',
     url: 'https://krishnangovindan.com',
@@ -1340,7 +1340,7 @@ export default function App() {
     ['about', 'About'],
     ['ventures', 'Ventures'],
     ['ecosystem', 'Ecosystem'],
-    ['automation', 'Automation'],
+    ['fulsuccess', 'FulSuccess'],
     ['journey', 'Journey'],
     ['leadership', 'Leadership'],
     ['contact', 'Contact'],
@@ -1388,7 +1388,7 @@ export default function App() {
         alternateName: 'NeoHappyLyf',
         url: 'https://neohappylyf.com',
         logo: 'https://neohappylyf.com/logo.png',
-        description: "Global wellness and business automation conglomerate serving the Indian diaspora — operating IndiaTherapist.com, IndianLifeCoaches.com, IndianDivorceCoach.com, and enterprise automation services.",
+        description: "Global wellness and business automation conglomerate serving the Indian diaspora — operating IndiaTherapist.com, IndianLifeCoaches.com, IndianDivorceCoach.com, and FulSuccess.com.",
         address: { '@type': 'PostalAddress', addressCountry: 'IN' },
         founder: { '@type': 'Person', name: 'Krishnan Govindan', jobTitle: 'Founder & CEO', url: 'https://krishnangovindan.com' },
         foundingDate: '2023-06-01',
@@ -1400,7 +1400,7 @@ export default function App() {
         ],
         hasOfferCatalog: {
           '@type': 'OfferCatalog',
-          name: 'Wellness & Automation Platforms',
+          name: 'Wellness & FulSuccess Platforms',
           itemListElement: VENTURES.map(v => ({ '@type': 'Offer', name: v.name, url: v.url }))
         }
       })}} />
@@ -1500,7 +1500,7 @@ export default function App() {
             marginBottom: 48,
             animation: 'fadeInUp 0.7s ease 0.3s both',
           }}>
-            Neo HappyLyf is a global wellness and automation conglomerate — four specialised platforms serving the mental, emotional, and operational needs of the Indian diaspora and businesses worldwide.
+            Neo HappyLyf is a global wellness and automation conglomerate — four specialised platforms serving the mental, emotional, and operational needs of the Indian diaspora and businesses worldwide, powered by FulSuccess.
           </p>
 
           {/* CTAs */}
@@ -1561,7 +1561,7 @@ export default function App() {
                   Our ecosystem addresses two of the most pressing challenges of our era: the mental health crisis among the Indian diaspora, and the operational inefficiencies that prevent growing businesses from scaling. We don't just build products — we build platforms that genuinely change lives.
                 </p>
                 <p>
-                  With a growing portfolio of specialised platforms serving NRIs across 20+ countries, NeoHappyLyf is positioned to become the defining wellness and automation company for the global Indian diaspora.
+                  With a growing portfolio of specialised platforms serving NRIs across 20+ countries, NeoHappyLyf is positioned to become the defining wellness and FulSuccess-powered company for the global Indian diaspora.
                 </p>
               </div>
             </div>
@@ -1570,7 +1570,7 @@ export default function App() {
             <div className="about-quad reveal" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2 }}>
               {[
                 { label: 'Mental Wellness', desc: 'Therapy, coaching & emotional support platforms for the Indian diaspora.' },
-                { label: 'Business Automation', desc: 'Custom workflow & process automation systems for growing businesses.' },
+                { label: 'FulSuccess', desc: 'Custom workflow & process automation systems for growing businesses via fulsuccess.com.' },
                 { label: 'NRI-Focused', desc: 'Services designed with deep cultural context for Indians worldwide.' },
                 { label: 'Culturally Rooted', desc: 'Solutions that honour South Asian values, family dynamics, and lived experience.' },
               ].map((item, i) => (
@@ -1711,13 +1711,13 @@ export default function App() {
                 </div>
               ))}
 
-              {/* Business Automation — offset node */}
+              {/* FulSuccess — offset node */}
               <div style={{ position: 'absolute', top: '22%', right: '-60px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8, zIndex: 5, animation: 'float-node 4s ease-in-out infinite' }}>
                 <div style={{ width: 64, height: 64, borderRadius: '50%', background: 'rgba(212,168,83,0.06)', border: '1px solid rgba(212,168,83,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <Zap size={18} color="#D4A853" aria-hidden="true" />
                 </div>
                 <div style={{ textAlign: 'center' }}>
-                  <div style={{ fontSize: 10, fontWeight: 700, color: 'rgba(245,245,240,0.6)', letterSpacing: '0.04em' }}>Automation</div>
+                  <div style={{ fontSize: 10, fontWeight: 700, color: 'rgba(245,245,240,0.6)', letterSpacing: '0.04em' }}>FulSuccess</div>
                   <div style={{ fontSize: 10, color: '#D4A853', fontWeight: 500 }}>Division</div>
                 </div>
               </div>
@@ -1823,8 +1823,8 @@ export default function App() {
         )
       })}
 
-      {/* ══════════════════════════════════ AUTOMATION LAB ══════════════════════════════════ */}
-      <section id="automation" style={{ padding: '120px 40px', background: 'rgba(255,255,255,0.01)', borderTop: '1px solid rgba(212,168,83,0.07)', borderBottom: '1px solid rgba(212,168,83,0.07)' }}>
+      {/* ══════════════════════════════════ FULSUCCESS ══════════════════════════════════ */}
+      <section id="fulsuccess" style={{ padding: '120px 40px', background: 'rgba(255,255,255,0.01)', borderTop: '1px solid rgba(212,168,83,0.07)', borderBottom: '1px solid rgba(212,168,83,0.07)' }}>
         <div style={{ maxWidth: 1280, margin: '0 auto' }}>
 
           {/* Header */}
@@ -1832,7 +1832,7 @@ export default function App() {
             <span className="section-label">Service Division</span>
             <div className="gold-rule" />
             <h2 className="playfair" style={{ fontSize: 'clamp(30px, 4vw, 56px)', fontWeight: 700, lineHeight: 1.1, marginBottom: 20 }}>
-              Automation &<br /><em style={{ color: '#D4A853' }}>Innovation Lab</em>
+              FulSuccess<br /><em style={{ color: '#D4A853' }}>Innovation Lab</em>
             </h2>
             <p style={{ color: 'rgba(245,245,240,0.55)', fontSize: 17, lineHeight: 1.9, fontWeight: 300 }}>
               We build the systems that free businesses to focus on what matters.
@@ -1900,9 +1900,9 @@ export default function App() {
 
           {/* CTA */}
           <div className="reveal" style={{ display: 'flex', alignItems: 'center', gap: 20, flexWrap: 'wrap' }}>
-            <a href="mailto:contact@neohappylyf.com?subject=Business Automation Enquiry"
+            <a href="mailto:contact@neohappylyf.com?subject=FulSuccess Enquiry"
               className="btn-gold" style={{ fontSize: 14, padding: '15px 32px' }}>
-              Let's Automate Your Business <ArrowRight size={15} />
+              Get Started with FulSuccess <ArrowRight size={15} />
             </a>
             <span style={{ fontSize: 13, color: 'rgba(245,245,240,0.35)' }}>
               Free 30-minute discovery call available
@@ -2024,13 +2024,13 @@ export default function App() {
                   Based in Tamil Nadu, India, Krishnan recognised an underserved gap: the Indian diaspora needed culturally rooted mental health and life coaching support, accessible through modern digital platforms. What began as IndiaTherapist.com in 2022 — before the company was even formally incorporated — has since grown into a multi-vertical ecosystem that bridges continents.
                 </p>
                 <p>
-                  An entrepreneur at heart, Krishnan simultaneously identified the operational pain points holding growing businesses back — and built NeoHappyLyf's automation division to address them head-on. He believes automation is a fundamentally humanist pursuit: free people from the mundane, and they flourish.
+                  An entrepreneur at heart, Krishnan simultaneously identified the operational pain points holding growing businesses back — and built FulSuccess (fulsuccess.com) to address them head-on. He believes automation is a fundamentally humanist pursuit: free people from the mundane, and they flourish.
                 </p>
               </div>
 
               {/* Expertise pills */}
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 36 }}>
-                {['Mental Wellness', 'Business Automation', 'NRI Services', 'Entrepreneurship', 'AI & Technology', 'Platform Building'].map(tag => (
+                {['Mental Wellness', 'FulSuccess', 'NRI Services', 'Entrepreneurship', 'AI & Technology', 'Platform Building'].map(tag => (
                   <span key={tag} className="expertise-pill">
                     <span style={{ width: 4, height: 4, borderRadius: '50%', background: '#D4A853', flexShrink: 0 }} />
                     {tag}
@@ -2042,7 +2042,7 @@ export default function App() {
               <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap' }}>
                 {[
                   ['Mental Wellness', 'Domain Expert'],
-                  ['Business Automation', 'Builder'],
+                  ['FulSuccess', 'Builder'],
                   ['NRI Services', 'Pioneer'],
                   ['Thought Leadership', 'Speaker'],
                 ].map(([domain, role]) => (
@@ -2103,7 +2103,7 @@ export default function App() {
               Platforms We Work With
             </h2>
             <p style={{ color: 'rgba(245,245,240,0.45)', maxWidth: 460, margin: '0 auto', lineHeight: 1.85, fontSize: 16 }}>
-              Our wellness and automation services integrate with the tools your business and clients already rely on.
+              Our wellness and FulSuccess services integrate with the tools your business and clients already rely on.
             </p>
           </div>
 
@@ -2238,9 +2238,9 @@ export default function App() {
                 readTime: '8 min read',
               },
               {
-                tag: 'Business Automation',
+                tag: 'FulSuccess',
                 title: 'The Hidden Cost of Manual Processes: What Most Indian SMEs Don\'t Track',
-                excerpt: 'Most small businesses underestimate how much time — and money — is lost to repetitive tasks. A practical breakdown of the automation opportunity.',
+                excerpt: 'Most small businesses underestimate how much time — and money — is lost to repetitive tasks. A practical breakdown of the FulSuccess opportunity.',
                 date: 'Coming Soon',
                 readTime: '6 min read',
               },
@@ -2282,7 +2282,7 @@ export default function App() {
             <span className="section-label">Opportunities</span>
             <div className="gold-rule" style={{ margin: '20px auto 28px' }} />
             <h2 className="playfair" style={{ fontSize: 'clamp(28px, 4vw, 56px)', fontWeight: 700, lineHeight: 1.12, marginBottom: 20 }}>
-              Invest in Wellness<br /><em style={{ color: '#D4A853' }}>&amp; Automation</em>
+              Invest in Wellness<br /><em style={{ color: '#D4A853' }}>&amp; FulSuccess</em>
             </h2>
             <p style={{ color: 'rgba(245,245,240,0.5)', maxWidth: 520, margin: '0 auto', lineHeight: 1.88, fontSize: 16 }}>
               We are open to strategic partnerships, investment conversations, and collaboration opportunities that align with our mission of healing minds and building efficient systems.
@@ -2293,7 +2293,7 @@ export default function App() {
             {[
               { title: 'Strategic Investor', desc: 'Partner with us to scale our wellness platforms across Southeast Asia and the global Indian diaspora. Strong unit economics and underserved markets.' },
               { title: 'Platform Partner',   desc: 'Integrate your services with our growing ecosystem — therapists, coaches, and digital tools that serve a dedicated, engaged user base.' },
-              { title: 'Technology Partner', desc: 'Collaborate on our automation division or co-develop specialised digital health tools with an experienced team and clear market validation.' },
+              { title: 'Technology Partner', desc: 'Collaborate on FulSuccess or co-develop specialised digital health tools with an experienced team and clear market validation.' },
             ].map((item, i) => (
               <div key={i} className="reveal" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(212,168,83,0.1)', padding: '40px 32px', transition: 'border-color 0.3s, background 0.3s' }}
                 onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(212,168,83,0.28)'; e.currentTarget.style.background = 'rgba(212,168,83,0.04)' }}
@@ -2324,7 +2324,7 @@ export default function App() {
               Let's Build Something<br /><em style={{ color: '#D4A853' }}>Together</em>
             </h2>
             <p style={{ color: 'rgba(245,245,240,0.5)', lineHeight: 1.9, fontSize: 16 }}>
-              Whether you're seeking wellness support, automation solutions, or partnership opportunities — the right door is open for you.
+              Whether you're seeking wellness support, FulSuccess solutions, or partnership opportunities — the right door is open for you.
             </p>
           </div>
 
@@ -2342,10 +2342,10 @@ export default function App() {
               {
                 Icon: Cpu,
                 color: '#D4A853',
-                title: 'Business Automation',
-                desc: 'Discuss your automation project, custom tool development, process optimisation, or AI-powered solutions.',
+                title: 'FulSuccess',
+                desc: 'Discuss your FulSuccess project, custom tool development, process optimisation, or AI-powered solutions.',
                 email: 'automation@neohappylyf.com',
-                label: 'Automation Division',
+                label: 'FulSuccess Division',
               },
               {
                 Icon: HeartHandshake,
@@ -2409,7 +2409,7 @@ export default function App() {
                     <select id="c-subject" className="form-ctrl" name="subject" value={form.subject} onChange={handleForm} style={{ cursor: 'pointer' }}>
                       <option value="">Select a topic</option>
                       <option value="wellness">Wellness Platforms</option>
-                      <option value="automation">Business Automation</option>
+                      <option value="fulsuccess">FulSuccess</option>
                       <option value="partnership">Partnership / Investment</option>
                       <option value="media">Media / Press</option>
                       <option value="other">Other</option>
@@ -2451,7 +2451,7 @@ export default function App() {
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
                   {[
                     ['General Enquiries',      'Within 48 hours'],
-                    ['Automation Projects',    'Within 24 hours'],
+                    ['FulSuccess Projects',    'Within 24 hours'],
                     ['Investment / Partners',  'Within 72 hours'],
                   ].map(([type, time]) => (
                     <div key={type} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -2466,7 +2466,7 @@ export default function App() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
                 {[
                   { label: 'General & Wellness',    email: 'contact@neohappylyf.com' },
-                  { label: 'Automation',            email: 'automation@neohappylyf.com' },
+                  { label: 'FulSuccess',            email: 'automation@neohappylyf.com' },
                   { label: 'Partnerships',          email: 'partnerships@neohappylyf.com' },
                 ].map(({ label, email }) => (
                   <div key={email} style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
@@ -2500,7 +2500,7 @@ export default function App() {
             <div style={{ maxWidth: 420 }}>
               <Logo onClick={() => nav('hero')} />
               <p className="playfair" style={{ fontSize: 'clamp(18px, 2.2vw, 24px)', fontStyle: 'italic', color: 'rgba(245,245,240,0.35)', marginTop: 20, lineHeight: 1.5 }}>
-                "Empowering Lives.<br />Automating Futures."
+                "Empowering Lives.<br />Powering FulSuccess."
               </p>
             </div>
             {/* Social icons */}
@@ -2527,7 +2527,7 @@ export default function App() {
               <div style={{ fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#D4A853', fontWeight: 700, marginBottom: 6 }}>Stay Informed</div>
               <div className="playfair" style={{ fontSize: 20, fontWeight: 600, color: '#F5F5F0', marginBottom: 4 }}>Join Our Newsletter</div>
               <div style={{ fontSize: 13, color: 'rgba(245,245,240,0.4)', maxWidth: 320 }}>
-                Insights on mental wellness, automation, and the NeoHappyLyf ecosystem. No spam — ever.
+                Insights on mental wellness, FulSuccess, and the NeoHappyLyf ecosystem. No spam — ever.
               </div>
             </div>
             {newsSent ? (
@@ -2556,7 +2556,7 @@ export default function App() {
             {/* Brand column */}
             <div>
               <p style={{ fontSize: 15, color: 'rgba(245,245,240,0.4)', lineHeight: 1.9, maxWidth: 280, marginBottom: 20 }}>
-                Neo HappyLyf Mind Care For U Private Limited — building wellness platforms and automation systems for the global Indian diaspora.
+                Neo HappyLyf Mind Care For U Private Limited — building wellness platforms and FulSuccess systems for the global Indian diaspora.
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                 <a href="mailto:contact@neohappylyf.com" className="foot-link" style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
@@ -2582,7 +2582,7 @@ export default function App() {
               {[
                 ['about',      'About Us'],
                 ['ventures',   'Our Ventures'],
-                ['automation', 'Automation Services'],
+                ['fulsuccess', 'FulSuccess'],
                 ['journey',    'Our Journey'],
                 ['leadership', 'Leadership'],
                 ['contact',    'Contact'],
@@ -2595,10 +2595,10 @@ export default function App() {
             <div>
               <div className="foot-col-head">Services</div>
               {[
-                ['automation', 'Workflow Automation'],
-                ['automation', 'Custom Tool Dev'],
-                ['automation', 'Process Optimisation'],
-                ['automation', 'AI Solutions'],
+                ['fulsuccess', 'Workflow Automation'],
+                ['fulsuccess', 'Custom Tool Dev'],
+                ['fulsuccess', 'Process Optimisation'],
+                ['fulsuccess', 'AI Solutions'],
                 ['partner',    'Partnerships'],
               ].map(([id, label]) => (
                 <span key={label} className="foot-link" onClick={() => nav(id)} role="button" tabIndex={0} onKeyDown={e => e.key === 'Enter' && nav(id)}>{label}</span>
