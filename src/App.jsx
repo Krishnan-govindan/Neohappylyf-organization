@@ -1976,14 +1976,17 @@ export default function App() {
                 <div aria-hidden="true" style={{ position: 'absolute', top: '10%', right: '10%', width: 160, height: 160, borderRadius: '50%', background: 'radial-gradient(circle, rgba(212,168,83,0.12) 0%, transparent 70%)', pointerEvents: 'none' }} />
                 <div aria-hidden="true" style={{ position: 'absolute', bottom: '15%', left: '5%', width: 120, height: 120, borderRadius: '50%', background: 'radial-gradient(circle, rgba(212,168,83,0.08) 0%, transparent 70%)', pointerEvents: 'none' }} />
 
-                <div className="founder-initials">
-                  <span className="playfair" style={{ fontSize: 34, color: '#D4A853', fontWeight: 700, lineHeight: 1 }}>KG</span>
-                </div>
-                <span className="founder-role-tag">
+                <img
+                  src="https://assets.cdn.filesafe.space/m9jCzEyKqM4xlMWTjcgS/media/685aa9b8f1a848bc1fe8873d.jpeg"
+                  alt="Krishnan Govindan — Founder & CEO"
+                  loading="lazy"
+                  style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', zIndex: 0 }}
+                />
+                <div aria-hidden="true" style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 55%, rgba(10,10,10,0.75) 100%)', zIndex: 1, pointerEvents: 'none' }} />
+                <span className="founder-role-tag" style={{ position: 'absolute', bottom: 20, left: '50%', transform: 'translateX(-50%)', zIndex: 2 }}>
                   <Star size={11} aria-hidden="true" />
                   Founder & CEO
                 </span>
-                <span style={{ fontSize: 11, color: 'rgba(245,245,240,0.2)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>Photo Coming Soon</span>
               </div>
 
               {/* Social links */}
