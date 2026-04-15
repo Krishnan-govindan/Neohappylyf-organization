@@ -1804,19 +1804,32 @@ export default function App() {
                   </div>
                 </div>
 
-                {/* Visual side — image only */}
-                <a href={v.url} target="_blank" rel="noopener noreferrer" className="reveal vd-visual" style={{ direction: 'ltr', background: `linear-gradient(135deg, ${v.gradStart} 0%, ${v.gradEnd} 100%)`, border: `1px solid ${v.accent}20`, display: 'block', textDecoration: 'none', overflow: 'hidden', position: 'relative' }}
+                {/* Visual side — image on top, text fills remaining space */}
+                <a href={v.url} target="_blank" rel="noopener noreferrer" className="reveal vd-visual" style={{ direction: 'ltr', background: `linear-gradient(135deg, ${v.gradStart} 0%, ${v.gradEnd} 100%)`, border: `1px solid ${v.accent}20`, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'stretch', textDecoration: 'none', overflow: 'hidden', position: 'relative', padding: 24 }}
                   aria-label={`Visit ${v.displayName}`}>
-                  {v.image && (
-                    <img
-                      src={v.image}
-                      alt={v.displayName}
-                      loading="lazy"
-                      style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block', padding: 24 }}
-                    />
-                  )}
                   {/* Ambient glow */}
-                  <div aria-hidden="true" style={{ position: 'absolute', top: '20%', left: '30%', width: 240, height: 240, borderRadius: '50%', background: `radial-gradient(circle, ${v.accent}10 0%, transparent 70%)`, pointerEvents: 'none' }} />
+                  <div aria-hidden="true" style={{ position: 'absolute', top: '20%', left: '30%', width: 240, height: 240, borderRadius: '50%', background: `radial-gradient(circle, ${v.accent}10 0%, transparent 70%)`, pointerEvents: 'none', zIndex: 0 }} />
+
+                  {/* Image — top */}
+                  {v.image && (
+                    <div style={{ flex: '1 1 auto', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 0, position: 'relative', zIndex: 1 }}>
+                      <img
+                        src={v.image}
+                        alt={v.displayName}
+                        loading="lazy"
+                        style={{ maxWidth: '100%', maxHeight: '100%', width: 'auto', height: 'auto', objectFit: 'contain', display: 'block', borderRadius: 4, boxShadow: `0 12px 40px -12px ${v.accent}40` }}
+                      />
+                    </div>
+                  )}
+
+                  {/* Text — bottom, fills remaining space */}
+                  <div style={{ marginTop: 20, paddingTop: 20, borderTop: `1px solid ${v.accent}25`, textAlign: 'center', position: 'relative', zIndex: 1 }}>
+                    <div style={{ fontSize: 13, color: `${v.accent}EE`, fontWeight: 500, letterSpacing: '0.05em', marginBottom: 6 }}>{v.domain} ↗</div>
+                    <div style={{ fontSize: 14, color: 'rgba(245,245,240,0.7)', lineHeight: 1.55, maxWidth: 420, margin: '0 auto 8px' }}>{v.tagline}</div>
+                    <span className="vd-tag" style={{ display: 'inline-block', marginTop: 6, background: v.visual.tagBg, color: v.visual.tagColor, border: `1px solid ${v.accent}25` }}>
+                      {v.visual.label}
+                    </span>
+                  </div>
                 </a>
 
               </div>
