@@ -1119,7 +1119,9 @@ const GlobalStyles = () => (
 /* ─── Data ───────────────────────────────────────────────────────────────── */
 const VENTURES = [
   {
-    name: 'IndiaTherapist.com',
+    name: 'India Therapist',
+    displayName: 'India Therapist',
+    domain: 'indiatherapist.com',
     tagline: "The leading online therapy platform for the global Indian diaspora.",
     desc: 'Connecting the Indian diaspora with licensed Indian therapists via video sessions and subscription-based mental health plans. Culturally rooted support for those who need it most.',
     url: 'https://indiatherapist.com',
@@ -1129,7 +1131,9 @@ const VENTURES = [
     accent: '#7C6AF7',
   },
   {
-    name: 'IndianLifeCoaches.com',
+    name: 'Indian Life Coaches',
+    displayName: 'Indian Life Coaches',
+    domain: 'indianlifecoaches.com',
     tagline: 'Holistic life coaching for NRIs seeking growth and freedom.',
     desc: 'Career coaching, financial freedom pathways, and personal development programs — delivered through subscription-based 1:1 video coaching sessions.',
     url: 'https://indianlifecoaches.com',
@@ -1139,7 +1143,9 @@ const VENTURES = [
     accent: '#4ECDC4',
   },
   {
-    name: 'IndianDivorceCoach.com',
+    name: 'Indian Divorce Coach',
+    displayName: 'Indian Divorce Coach',
+    domain: 'indiandivorcecoach.com',
     tagline: 'Confidential divorce coaching for South Asians worldwide.',
     desc: 'Specialized emotional support and practical guidance for individuals navigating separation — with deep cultural sensitivity and zero judgment.',
     url: 'https://indiandivorcecoach.com',
@@ -1149,7 +1155,9 @@ const VENTURES = [
     accent: '#F4788A',
   },
   {
-    name: 'KrishnanGovindan.com',
+    name: 'Krishnan Govindan',
+    displayName: 'Krishnan Govindan',
+    domain: 'krishnangovindan.com',
     tagline: "Founder's platform for thought leadership and mentorship.",
     desc: 'Speaking engagements, mentorship programs, and thought leadership at the intersection of mental wellness, entrepreneurship, and business innovation.',
     url: 'https://krishnangovindan.com',
@@ -1158,46 +1166,28 @@ const VENTURES = [
     Icon: Building2,
     accent: '#D4A853',
   },
+  {
+    name: 'Full Success',
+    displayName: 'Full Success',
+    domain: 'fulsuccess.com',
+    tagline: 'Business automation, custom tools, and process optimisation for growing businesses.',
+    desc: 'NeoHappyLyf\'s business automation division — workflow automation, custom tool development, AI-powered solutions, and process optimisation that frees businesses to focus on what matters most.',
+    url: 'https://fulsuccess.com',
+    live: true,
+    statusLabel: 'Live Platform',
+    Icon: Zap,
+    accent: '#D4A853',
+  },
 ]
 
-const MILESTONES = [
-  {
-    year: '2022',
-    title: 'IndiaTherapist.com Launched',
-    desc: 'The founding vision takes shape — a pre-incorporation project connecting the Indian diaspora with licensed therapists from India. The problem was real; the solution was needed.',
-  },
-  {
-    year: 'June 2023',
-    title: 'Neo HappyLyf Incorporated',
-    desc: 'Neo HappyLyf Mind Care For U Private Limited officially registered under the Companies Act — formalising the vision of a purpose-driven wellness and automation conglomerate.',
-  },
-  {
-    year: '2023',
-    title: 'IndianLifeCoaches.com Goes Live',
-    desc: 'Expanding the ecosystem with holistic life coaching — career, financial freedom, and personal development for the NRI community through expert-led subscription programmes.',
-  },
-  {
-    year: '2024',
-    title: 'IndianDivorceCoach.com Launched',
-    desc: 'A specialized vertical addressing one of life\'s hardest transitions — with culturally sensitive coaching for South Asians navigating separation and rebuilding their lives.',
-  },
-  {
-    year: '2024',
-    title: 'FulSuccess Division Launched',
-    desc: 'NeoHappyLyf enters its second major vertical — FulSuccess (fulsuccess.com), building custom automation systems and digital tools for businesses struggling with repetitive day-to-day operations.',
-  },
-  {
-    year: '2025',
-    title: 'Scaling & Founder Brand Launch',
-    desc: 'KrishnanGovindan.com launches as a thought leadership platform. Regional expansion across Tamil Nadu begins. Global NRI outreach scales across Southeast Asia and beyond.',
-  },
-]
 
 const VENTURE_DETAILS = [
   {
     num: '01',
     id: 'v-therapy',
-    name: 'IndiaTherapist.com',
+    name: 'India Therapist',
+    displayName: 'India Therapist',
+    domain: 'indiatherapist.com',
     tagline: 'Online Therapy for the Global Indian Diaspora',
     desc: 'Connecting Non-Resident Indians worldwide with licensed therapists via secure, encrypted video sessions. Anxiety, depression, relationship issues, trauma, career stress — all addressed through culturally relevant mental health support from therapists who truly understand your world.',
     features: ['Video Therapy Sessions', 'Verified Licensed Therapists', 'Subscription Plans', 'Confidential & Secure', 'Culturally Relevant', 'NRI-Specialised'],
@@ -1213,7 +1203,9 @@ const VENTURE_DETAILS = [
   {
     num: '02',
     id: 'v-coaches',
-    name: 'IndianLifeCoaches.com',
+    name: 'Indian Life Coaches',
+    displayName: 'Indian Life Coaches',
+    domain: 'indianlifecoaches.com',
     tagline: 'Complete Holistic Lifestyle Transformation for NRIs',
     desc: "Connecting NRIs globally with expert life coaches for financial freedom, career acceleration, personal empowerment, and relationship transformation. Subscription-based 1:1 video coaching with structured goal-setting, strategy sessions, and on-demand content.",
     features: ['1:1 Coaching Sessions', 'On-Demand Content Library', 'Goal-Setting Tools', 'Strategy Sessions', 'Financial Coaching', 'Career Acceleration'],
@@ -1229,7 +1221,9 @@ const VENTURE_DETAILS = [
   {
     num: '03',
     id: 'v-divorce',
-    name: 'IndianDivorceCoach.com',
+    name: 'Indian Divorce Coach',
+    displayName: 'Indian Divorce Coach',
+    domain: 'indiandivorcecoach.com',
     tagline: 'Confidential Divorce Coaching with Cultural Sensitivity',
     desc: 'Specialised support for individuals navigating separation and divorce. Emotional coaching, practical step-by-step guidance, and a culturally aware approach built for the Indian diaspora — where family dynamics, social pressure, and personal dignity matter deeply.',
     features: ['Confidential Sessions', 'Emotional Support', 'Practical Guidance', 'Culturally Aware', 'Zero Judgement', 'Post-Divorce Rebuilding'],
@@ -1245,9 +1239,11 @@ const VENTURE_DETAILS = [
   {
     num: '04',
     id: 'v-founder',
-    name: 'KrishnanGovindan.com',
+    name: 'Krishnan Govindan',
+    displayName: 'Krishnan Govindan',
+    domain: 'krishnangovindan.com',
     tagline: 'Founder. Thought Leader. Wellness Entrepreneur.',
-    desc: "Krishnan Govindan's personal brand and thought leadership platform — at the intersection of mental wellness, entrepreneurship, and FulSuccess. Speaking engagements, public mentorship, long-form writing, and a growing body of work that challenges how India thinks about health and efficiency.",
+    desc: "Krishnan Govindan's personal brand and thought leadership platform — at the intersection of mental wellness, entrepreneurship, and Full Success. Speaking engagements, public mentorship, long-form writing, and a growing body of work that challenges how India thinks about health and efficiency.",
     features: ['Keynote Speaking', 'Public Mentorship', 'Thought Leadership Blog', 'Media & Press', 'Entrepreneurship Insights', 'Wellness Innovation'],
     target: 'Entrepreneurs, wellness professionals, and the Indian startup ecosystem',
     url: 'https://krishnangovindan.com',
@@ -1295,7 +1291,7 @@ function Logo({ onClick }) {
         <span style={{ fontFamily: 'Playfair Display, serif', fontWeight: 800, fontSize: 17, color: '#0A0A0A', lineHeight: 1 }}>N</span>
       </div>
       <div>
-        <div style={{ fontFamily: 'Playfair Display, serif', fontWeight: 600, fontSize: 16, letterSpacing: '0.02em', lineHeight: 1.1 }}>NeoHappyLyf</div>
+        <div style={{ fontFamily: 'Playfair Display, serif', fontWeight: 600, fontSize: 16, letterSpacing: '0.02em', lineHeight: 1.1 }}>Neo HappyLyf</div>
         <div style={{ fontSize: 9, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(245,245,240,0.35)', lineHeight: 1 }}>Mind Care For U</div>
       </div>
     </div>
@@ -1340,8 +1336,7 @@ export default function App() {
     ['about', 'About'],
     ['ventures', 'Ventures'],
     ['ecosystem', 'Ecosystem'],
-    ['fulsuccess', 'FulSuccess'],
-    ['journey', 'Journey'],
+    ['fulsuccess', 'Full Success'],
     ['leadership', 'Leadership'],
     ['contact', 'Contact'],
   ]
@@ -1359,7 +1354,7 @@ export default function App() {
                 <span style={{ fontFamily: 'Playfair Display, serif', fontWeight: 800, fontSize: 20, color: '#0A0A0A' }}>N</span>
               </div>
               <div>
-                <div style={{ fontFamily: 'Playfair Display, serif', fontWeight: 600, fontSize: 18, color: '#F5F5F0', letterSpacing: '0.02em' }}>NeoHappyLyf</div>
+                <div style={{ fontFamily: 'Playfair Display, serif', fontWeight: 600, fontSize: 18, color: '#F5F5F0', letterSpacing: '0.02em' }}>Neo HappyLyf</div>
                 <div style={{ fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', color: 'rgba(245,245,240,0.3)' }}>Mind Care For U</div>
               </div>
             </div>
@@ -1388,7 +1383,7 @@ export default function App() {
         alternateName: 'NeoHappyLyf',
         url: 'https://neohappylyf.com',
         logo: 'https://neohappylyf.com/logo.png',
-        description: "Global wellness and business automation conglomerate serving the Indian diaspora — operating IndiaTherapist.com, IndianLifeCoaches.com, IndianDivorceCoach.com, and FulSuccess.com.",
+        description: "Global wellness and business automation conglomerate serving the Indian diaspora — operating India Therapist, Indian Life Coaches, Indian Divorce Coach, Krishnan Govindan, and Full Success.",
         address: { '@type': 'PostalAddress', addressCountry: 'IN' },
         founder: { '@type': 'Person', name: 'Krishnan Govindan', jobTitle: 'Founder & CEO', url: 'https://krishnangovindan.com' },
         foundingDate: '2023-06-01',
@@ -1400,7 +1395,7 @@ export default function App() {
         ],
         hasOfferCatalog: {
           '@type': 'OfferCatalog',
-          name: 'Wellness & FulSuccess Platforms',
+          name: 'Wellness & Full Success Platforms',
           itemListElement: VENTURES.map(v => ({ '@type': 'Offer', name: v.name, url: v.url }))
         }
       })}} />
@@ -1500,7 +1495,7 @@ export default function App() {
             marginBottom: 48,
             animation: 'fadeInUp 0.7s ease 0.3s both',
           }}>
-            Neo HappyLyf is a global wellness and automation conglomerate — four specialised platforms serving the mental, emotional, and operational needs of the Indian diaspora and businesses worldwide, powered by FulSuccess.
+            Neo HappyLyf is a global wellness and automation conglomerate — five specialised platforms serving the mental, emotional, and operational needs of the Indian diaspora and businesses worldwide, powered by Full Success.
           </p>
 
           {/* CTAs */}
@@ -1561,7 +1556,7 @@ export default function App() {
                   Our ecosystem addresses two of the most pressing challenges of our era: the mental health crisis among the Indian diaspora, and the operational inefficiencies that prevent growing businesses from scaling. We don't just build products — we build platforms that genuinely change lives.
                 </p>
                 <p>
-                  With a growing portfolio of specialised platforms serving NRIs across 20+ countries, NeoHappyLyf is positioned to become the defining wellness and FulSuccess-powered company for the global Indian diaspora.
+                  With a growing portfolio of specialised platforms serving NRIs across 20+ countries, Neo HappyLyf is positioned to become the defining wellness and Full Success-powered company for the global Indian diaspora.
                 </p>
               </div>
             </div>
@@ -1570,7 +1565,7 @@ export default function App() {
             <div className="about-quad reveal" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2 }}>
               {[
                 { label: 'Mental Wellness', desc: 'Therapy, coaching & emotional support platforms for the Indian diaspora.' },
-                { label: 'FulSuccess', desc: 'Custom workflow & process automation systems for growing businesses via fulsuccess.com.' },
+                { label: 'Full Success', desc: 'Custom workflow & process automation systems for growing businesses via fulsuccess.com.' },
                 { label: 'NRI-Focused', desc: 'Services designed with deep cultural context for Indians worldwide.' },
                 { label: 'Culturally Rooted', desc: 'Solutions that honour South Asian values, family dynamics, and lived experience.' },
               ].map((item, i) => (
@@ -1593,7 +1588,7 @@ export default function App() {
             <span className="section-label">Business Verticals</span>
             <div className="gold-rule" />
             <h2 className="playfair" style={{ fontSize: 'clamp(28px, 3.5vw, 52px)', fontWeight: 700, lineHeight: 1.18, maxWidth: 560 }}>
-              Four Platforms. <em style={{ color: '#D4A853' }}>One Vision.</em>
+              Five Platforms. <em style={{ color: '#D4A853' }}>One Vision.</em>
             </h2>
             <p style={{ color: 'rgba(245,245,240,0.45)', marginTop: 16, maxWidth: 500, lineHeight: 1.85, fontSize: 17 }}>
               Each venture operates independently while contributing to the NeoHappyLyf mission of making wellness and efficiency accessible to the Indian diaspora — wherever they are in the world.
@@ -1615,11 +1610,17 @@ export default function App() {
                     }
                   </div>
 
-                  <h3 className="playfair" style={{ fontSize: 22, fontWeight: 600, marginBottom: 10, color: '#F5F5F0' }}>{v.name}</h3>
+                  <h3 className="playfair" style={{ fontSize: 22, fontWeight: 600, marginBottom: 4, color: '#F5F5F0' }}>{v.displayName}</h3>
+                  <a href={v.url} target="_blank" rel="noopener noreferrer"
+                    style={{ display: 'inline-block', fontSize: 12, color: 'rgba(245,245,240,0.45)', textDecoration: 'none', letterSpacing: '0.05em', marginBottom: 12, transition: 'color 0.2s' }}
+                    onMouseEnter={e => e.currentTarget.style.color = v.accent}
+                    onMouseLeave={e => e.currentTarget.style.color = 'rgba(245,245,240,0.45)'}>
+                    {v.domain} ↗
+                  </a>
                   <p style={{ fontSize: 15, color: '#D4A853', marginBottom: 12, fontWeight: 500, lineHeight: 1.55 }}>{v.tagline}</p>
                   <p style={{ fontSize: 16, color: 'rgba(245,245,240,0.45)', lineHeight: 1.8, marginBottom: 30 }}>{v.desc}</p>
 
-                  <a href={v.url} target="_blank" rel="noopener noreferrer" className="btn-ghost-sm" aria-label={`Visit ${v.name}`}>
+                  <a href={v.url} target="_blank" rel="noopener noreferrer" className="btn-ghost-sm" aria-label={`Visit ${v.displayName}`}>
                     Visit Platform <ExternalLink size={12} />
                   </a>
                 </article>
@@ -1634,9 +1635,9 @@ export default function App() {
         <div style={{ maxWidth: 1280, margin: '0 auto' }}>
           <div className="stats-bar">
             {[
-              { value: '2+', label: 'Years of Impact', sub: 'Operating Since 2022' },
+              { value: '4+', label: 'Years of Impact', sub: 'Operating Since 2022' },
               { value: '20+', label: 'Countries Served', sub: 'NRI Communities Worldwide' },
-              { value: '3', label: 'Live Platforms', sub: 'Wellness & Coaching' },
+              { value: '5', label: 'Platforms', sub: 'Wellness, Coaching & Automation' },
             ].map((s, i) => (
               <div key={i} className="stat-cell reveal">
                 <div className="playfair" style={{ fontSize: 'clamp(36px, 4vw, 56px)', fontWeight: 700, color: '#D4A853', lineHeight: 1, marginBottom: 8 }}>{s.value}</div>
@@ -1655,7 +1656,7 @@ export default function App() {
             <span className="section-label">The NeoHappyLyf Ecosystem</span>
             <div className="gold-rule" style={{ margin: '20px auto 28px' }} />
             <h2 className="playfair" style={{ fontSize: 'clamp(28px, 3.5vw, 48px)', fontWeight: 700, lineHeight: 1.18, maxWidth: 600, margin: '0 auto 16px' }}>
-              One Holding Company.<br /><em style={{ color: '#D4A853' }}>Four Focused Platforms.</em>
+              One Holding Company.<br /><em style={{ color: '#D4A853' }}>Five Focused Platforms.</em>
             </h2>
             <p style={{ color: 'rgba(245,245,240,0.45)', maxWidth: 480, margin: '0 auto', lineHeight: 1.85, fontSize: 15 }}>
               NeoHappyLyf sits at the centre of a purpose-built ecosystem — each venture independently operated yet unified by a shared mission.
@@ -1693,10 +1694,10 @@ export default function App() {
 
               {/* Spoke nodes — top, right, bottom, left */}
               {[
-                { label: 'IndiaTherapist', sub: '.com', color: '#6C9FD4', Icon: Brain,     top: '0%',   left: '50%',  tx: '-50%', ty: '0' },
-                { label: 'IndianLife',     sub: 'Coaches', color: '#D4A853', Icon: Users,   top: '50%',  left: '100%', tx: '-100%', ty: '-50%' },
-                { label: 'IndianDivorce',  sub: 'Coach',   color: '#9B8EC4', Icon: Heart,   top: '100%', left: '50%',  tx: '-50%', ty: '-100%' },
-                { label: 'Krishnan',       sub: 'Govindan', color: '#F4788A', Icon: Building2, top: '50%', left: '0%',  tx: '0', ty: '-50%' },
+                { label: 'India Therapist',     sub: 'indiatherapist.com',     color: '#6C9FD4', Icon: Brain,     top: '0%',   left: '50%',  tx: '-50%', ty: '0' },
+                { label: 'Indian Life Coaches', sub: 'indianlifecoaches.com',  color: '#D4A853', Icon: Users,     top: '50%',  left: '100%', tx: '-100%', ty: '-50%' },
+                { label: 'Indian Divorce Coach', sub: 'indiandivorcecoach.com', color: '#9B8EC4', Icon: Heart,     top: '100%', left: '50%',  tx: '-50%', ty: '-100%' },
+                { label: 'Krishnan Govindan',   sub: 'krishnangovindan.com',   color: '#F4788A', Icon: Building2, top: '50%',  left: '0%',   tx: '0',     ty: '-50%' },
               ].map(({ label, sub, color, Icon, top, left, tx, ty }, i) => (
                 <div key={i} style={{ position: 'absolute', top, left, transform: `translate(${tx}, ${ty})`, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8, zIndex: 5, animation: `float-node ${3 + i * 0.5}s ease-in-out infinite` }}>
                   <div style={{ width: 82, height: 82, borderRadius: '50%', background: `${color}12`, border: `1px solid ${color}35`, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 3, transition: 'box-shadow 0.3s', cursor: 'default' }}
@@ -1711,14 +1712,14 @@ export default function App() {
                 </div>
               ))}
 
-              {/* FulSuccess — offset node */}
+              {/* Full Success — offset node */}
               <div style={{ position: 'absolute', top: '22%', right: '-60px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8, zIndex: 5, animation: 'float-node 4s ease-in-out infinite' }}>
                 <div style={{ width: 64, height: 64, borderRadius: '50%', background: 'rgba(212,168,83,0.06)', border: '1px solid rgba(212,168,83,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <Zap size={18} color="#D4A853" aria-hidden="true" />
                 </div>
                 <div style={{ textAlign: 'center' }}>
-                  <div style={{ fontSize: 10, fontWeight: 700, color: 'rgba(245,245,240,0.6)', letterSpacing: '0.04em' }}>FulSuccess</div>
-                  <div style={{ fontSize: 10, color: '#D4A853', fontWeight: 500 }}>Division</div>
+                  <div style={{ fontSize: 10, fontWeight: 700, color: 'rgba(245,245,240,0.6)', letterSpacing: '0.04em' }}>Full Success</div>
+                  <div style={{ fontSize: 10, color: '#D4A853', fontWeight: 500 }}>fulsuccess.com</div>
                 </div>
               </div>
             </div>
@@ -1756,9 +1757,15 @@ export default function App() {
                   <span className="section-label" style={{ color: v.accent }}>Venture Spotlight</span>
                   <div style={{ width: 48, height: 1, background: v.accent, margin: '20px 0 24px' }} />
 
-                  <h2 className="playfair" style={{ fontSize: 'clamp(26px, 3vw, 42px)', fontWeight: 700, lineHeight: 1.18, marginBottom: 10, color: '#F5F5F0' }}>
-                    {v.name}
+                  <h2 className="playfair" style={{ fontSize: 'clamp(26px, 3vw, 42px)', fontWeight: 700, lineHeight: 1.18, marginBottom: 6, color: '#F5F5F0' }}>
+                    {v.displayName}
                   </h2>
+                  <a href={v.url} target="_blank" rel="noopener noreferrer"
+                    style={{ display: 'inline-block', fontSize: 13, color: 'rgba(245,245,240,0.5)', textDecoration: 'none', letterSpacing: '0.05em', marginBottom: 18, transition: 'color 0.2s' }}
+                    onMouseEnter={e => e.currentTarget.style.color = v.accent}
+                    onMouseLeave={e => e.currentTarget.style.color = 'rgba(245,245,240,0.5)'}>
+                    {v.domain} ↗
+                  </a>
                   <p style={{ fontSize: 'clamp(15px, 1.6vw, 18px)', color: v.accent, fontWeight: 500, marginBottom: 20, lineHeight: 1.5 }}>{v.tagline}</p>
                   <p style={{ color: 'rgba(245,245,240,0.6)', lineHeight: 1.95, fontSize: 15, marginBottom: 32 }}>{v.desc}</p>
 
@@ -1784,7 +1791,7 @@ export default function App() {
                       style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: v.accent, color: '#0A0A0A', padding: '13px 26px', fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: 13, letterSpacing: '0.05em', textTransform: 'uppercase', textDecoration: 'none', transition: 'opacity 0.25s, transform 0.2s', borderRadius: 1 }}
                       onMouseEnter={e => { e.currentTarget.style.opacity = '0.85'; e.currentTarget.style.transform = 'translateY(-1px)' }}
                       onMouseLeave={e => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.transform = 'translateY(0)' }}>
-                      Visit {v.name} <ExternalLink size={13} />
+                      Visit {v.displayName} <ExternalLink size={13} />
                     </a>
                     {v.live
                       ? <span className="badge-live"><span className="live-dot" />Live & Operating</span>
@@ -1803,7 +1810,8 @@ export default function App() {
 
                     {/* Brand name */}
                     <div style={{ textAlign: 'center', padding: '0 40px' }}>
-                      <div className="playfair" style={{ fontSize: 'clamp(18px, 2.5vw, 26px)', fontWeight: 700, color: '#F5F5F0', marginBottom: 6 }}>{v.name}</div>
+                      <div className="playfair" style={{ fontSize: 'clamp(18px, 2.5vw, 26px)', fontWeight: 700, color: '#F5F5F0', marginBottom: 4 }}>{v.displayName}</div>
+                      <a href={v.url} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', fontSize: 12, color: `${v.accent}BB`, textDecoration: 'none', marginBottom: 8, letterSpacing: '0.05em' }}>{v.domain} ↗</a>
                       <div style={{ fontSize: 13, color: `${v.accent}CC`, lineHeight: 1.6, maxWidth: 260 }}>{v.tagline}</div>
                     </div>
 
@@ -1832,7 +1840,7 @@ export default function App() {
             <span className="section-label">Service Division</span>
             <div className="gold-rule" />
             <h2 className="playfair" style={{ fontSize: 'clamp(30px, 4vw, 56px)', fontWeight: 700, lineHeight: 1.1, marginBottom: 20 }}>
-              FulSuccess<br /><em style={{ color: '#D4A853' }}>Innovation Lab</em>
+              Full Success<br /><em style={{ color: '#D4A853' }}>Innovation Lab</em>
             </h2>
             <p style={{ color: 'rgba(245,245,240,0.55)', fontSize: 17, lineHeight: 1.9, fontWeight: 300 }}>
               We build the systems that free businesses to focus on what matters.
@@ -1900,40 +1908,13 @@ export default function App() {
 
           {/* CTA */}
           <div className="reveal" style={{ display: 'flex', alignItems: 'center', gap: 20, flexWrap: 'wrap' }}>
-            <a href="mailto:contact@neohappylyf.com?subject=FulSuccess Enquiry"
+            <a href="mailto:contact@neohappylyf.com?subject=Full Success Enquiry"
               className="btn-gold" style={{ fontSize: 14, padding: '15px 32px' }}>
-              Get Started with FulSuccess <ArrowRight size={15} />
+              Get Started with Full Success <ArrowRight size={15} />
             </a>
             <span style={{ fontSize: 13, color: 'rgba(245,245,240,0.35)' }}>
               Free 30-minute discovery call available
             </span>
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════ JOURNEY ══════════════════════════════════ */}
-      <section id="journey" style={{ padding: '120px 40px', background: 'rgba(255,255,255,0.012)', borderTop: '1px solid rgba(212,168,83,0.07)', borderBottom: '1px solid rgba(212,168,83,0.07)' }}>
-        <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-          <div className="reveal" style={{ marginBottom: 64 }}>
-            <span className="section-label">Company Timeline</span>
-            <div className="gold-rule" />
-            <h2 className="playfair" style={{ fontSize: 'clamp(28px, 3.5vw, 52px)', fontWeight: 700, lineHeight: 1.18 }}>
-              The Journey So Far
-            </h2>
-            <p style={{ color: 'rgba(245,245,240,0.4)', marginTop: 14, fontSize: 15, maxWidth: 420, lineHeight: 1.8 }}>
-              From a single idea to a multi-vertical ecosystem — every step deliberate, every platform purposeful.
-            </p>
-          </div>
-
-          <div className="timeline-wrap">
-            {MILESTONES.map((m, i) => (
-              <div key={i} className="tl-item reveal">
-                <div className="tl-dot" />
-                <div style={{ fontSize: 10, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#D4A853', fontWeight: 700, marginBottom: 8 }}>{m.year}</div>
-                <h3 className="playfair" style={{ fontSize: 19, fontWeight: 600, marginBottom: 8 }}>{m.title}</h3>
-                <p style={{ fontSize: 14, color: 'rgba(245,245,240,0.5)', lineHeight: 1.85 }}>{m.desc}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -2021,16 +2002,16 @@ export default function App() {
                   Krishnan Govindan is the founder and driving force behind Neo HappyLyf — a company built from the conviction that mental wellness and operational excellence are not trade-offs, but complements of a fully realised human life.
                 </p>
                 <p style={{ marginBottom: 16 }}>
-                  Based in Tamil Nadu, India, Krishnan recognised an underserved gap: the Indian diaspora needed culturally rooted mental health and life coaching support, accessible through modern digital platforms. What began as IndiaTherapist.com in 2022 — before the company was even formally incorporated — has since grown into a multi-vertical ecosystem that bridges continents.
+                  Based in Tamil Nadu, India, Krishnan recognised an underserved gap: the Indian diaspora needed culturally rooted mental health and life coaching support, accessible through modern digital platforms. What began as India Therapist (indiatherapist.com) in 2022 — before the company was even formally incorporated — has since grown into a multi-vertical ecosystem that bridges continents.
                 </p>
                 <p>
-                  An entrepreneur at heart, Krishnan simultaneously identified the operational pain points holding growing businesses back — and built FulSuccess (fulsuccess.com) to address them head-on. He believes automation is a fundamentally humanist pursuit: free people from the mundane, and they flourish.
+                  An entrepreneur at heart, Krishnan simultaneously identified the operational pain points holding growing businesses back — and built Full Success (fulsuccess.com) to address them head-on. He believes automation is a fundamentally humanist pursuit: free people from the mundane, and they flourish.
                 </p>
               </div>
 
               {/* Expertise pills */}
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 36 }}>
-                {['Mental Wellness', 'FulSuccess', 'NRI Services', 'Entrepreneurship', 'AI & Technology', 'Platform Building'].map(tag => (
+                {['Mental Wellness', 'Full Success', 'NRI Services', 'Entrepreneurship', 'AI & Technology', 'Platform Building'].map(tag => (
                   <span key={tag} className="expertise-pill">
                     <span style={{ width: 4, height: 4, borderRadius: '50%', background: '#D4A853', flexShrink: 0 }} />
                     {tag}
@@ -2042,7 +2023,7 @@ export default function App() {
               <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap' }}>
                 {[
                   ['Mental Wellness', 'Domain Expert'],
-                  ['FulSuccess', 'Builder'],
+                  ['Full Success', 'Builder'],
                   ['NRI Services', 'Pioneer'],
                   ['Thought Leadership', 'Speaker'],
                 ].map(([domain, role]) => (
@@ -2074,7 +2055,7 @@ export default function App() {
               { Icon: BadgeCheck,  title: 'Registered Company',           sub: 'Private Limited · Est. 2023',       color: '#22c55e' },
               { Icon: ShieldCheck, title: 'Data Privacy Committed',       sub: 'Secure & Confidential Platforms',   color: '#6C9FD4' },
               { Icon: Globe,       title: 'Serving 20+ Countries',        sub: 'Global NRI Communities',            color: '#9B8EC4' },
-              { Icon: Clock,       title: '2+ Years in Operation',        sub: 'Continuously Operating Since 2022', color: '#F4788A' },
+              { Icon: Clock,       title: '4+ Years in Operation',        sub: 'Continuously Operating Since 2022', color: '#F4788A' },
               { Icon: Award,       title: 'Culturally Rooted',            sub: 'Built for the Indian Diaspora',     color: '#D4A853' },
             ].map(({ Icon, title, sub, color }, i) => (
               <div key={i} className="trust-badge">
@@ -2103,7 +2084,7 @@ export default function App() {
               Platforms We Work With
             </h2>
             <p style={{ color: 'rgba(245,245,240,0.45)', maxWidth: 460, margin: '0 auto', lineHeight: 1.85, fontSize: 16 }}>
-              Our wellness and FulSuccess services integrate with the tools your business and clients already rely on.
+              Our wellness and Full Success services integrate with the tools your business and clients already rely on.
             </p>
           </div>
 
@@ -2233,21 +2214,21 @@ export default function App() {
               {
                 tag: 'Mental Wellness',
                 title: 'Why NRIs Struggle to Access Indian Therapy — And What We\'re Doing About It',
-                excerpt: 'The gap between demand and supply in NRI mental health support is massive. Here\'s the data, the problem, and how IndiaTherapist.com was built as the answer.',
+                excerpt: 'The gap between demand and supply in NRI mental health support is massive. Here\'s the data, the problem, and how India Therapist (indiatherapist.com) was built as the answer.',
                 date: 'Coming Soon',
                 readTime: '8 min read',
               },
               {
-                tag: 'FulSuccess',
+                tag: 'Full Success',
                 title: 'The Hidden Cost of Manual Processes: What Most Indian SMEs Don\'t Track',
-                excerpt: 'Most small businesses underestimate how much time — and money — is lost to repetitive tasks. A practical breakdown of the FulSuccess opportunity.',
+                excerpt: 'Most small businesses underestimate how much time — and money — is lost to repetitive tasks. A practical breakdown of the Full Success opportunity.',
                 date: 'Coming Soon',
                 readTime: '6 min read',
               },
               {
                 tag: 'Entrepreneurship',
                 title: 'Building a Global Wellness Conglomerate from India: The NeoHappyLyf Story',
-                excerpt: 'A candid account of building four platforms from South India to serve a global diaspora — the challenges, the lessons, and the vision that keeps it moving.',
+                excerpt: 'A candid account of building five platforms from South India to serve a global diaspora — the challenges, the lessons, and the vision that keeps it moving.',
                 date: 'Coming Soon',
                 readTime: '10 min read',
               },
@@ -2282,7 +2263,7 @@ export default function App() {
             <span className="section-label">Opportunities</span>
             <div className="gold-rule" style={{ margin: '20px auto 28px' }} />
             <h2 className="playfair" style={{ fontSize: 'clamp(28px, 4vw, 56px)', fontWeight: 700, lineHeight: 1.12, marginBottom: 20 }}>
-              Invest in Wellness<br /><em style={{ color: '#D4A853' }}>&amp; FulSuccess</em>
+              Invest in Wellness<br /><em style={{ color: '#D4A853' }}>&amp; Full Success</em>
             </h2>
             <p style={{ color: 'rgba(245,245,240,0.5)', maxWidth: 520, margin: '0 auto', lineHeight: 1.88, fontSize: 16 }}>
               We are open to strategic partnerships, investment conversations, and collaboration opportunities that align with our mission of healing minds and building efficient systems.
@@ -2293,7 +2274,7 @@ export default function App() {
             {[
               { title: 'Strategic Investor', desc: 'Partner with us to scale our wellness platforms across Southeast Asia and the global Indian diaspora. Strong unit economics and underserved markets.' },
               { title: 'Platform Partner',   desc: 'Integrate your services with our growing ecosystem — therapists, coaches, and digital tools that serve a dedicated, engaged user base.' },
-              { title: 'Technology Partner', desc: 'Collaborate on FulSuccess or co-develop specialised digital health tools with an experienced team and clear market validation.' },
+              { title: 'Technology Partner', desc: 'Collaborate on Full Success or co-develop specialised digital health tools with an experienced team and clear market validation.' },
             ].map((item, i) => (
               <div key={i} className="reveal" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(212,168,83,0.1)', padding: '40px 32px', transition: 'border-color 0.3s, background 0.3s' }}
                 onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(212,168,83,0.28)'; e.currentTarget.style.background = 'rgba(212,168,83,0.04)' }}
@@ -2324,7 +2305,7 @@ export default function App() {
               Let's Build Something<br /><em style={{ color: '#D4A853' }}>Together</em>
             </h2>
             <p style={{ color: 'rgba(245,245,240,0.5)', lineHeight: 1.9, fontSize: 16 }}>
-              Whether you're seeking wellness support, FulSuccess solutions, or partnership opportunities — the right door is open for you.
+              Whether you're seeking wellness support, Full Success solutions, or partnership opportunities — the right door is open for you.
             </p>
           </div>
 
@@ -2335,17 +2316,17 @@ export default function App() {
                 Icon: Brain,
                 color: '#6C9FD4',
                 title: 'Wellness Platforms',
-                desc: 'Enquiries about IndiaTherapist.com, IndianLifeCoaches.com, IndianDivorceCoach.com, or mental wellness partnerships.',
+                desc: 'Enquiries about India Therapist, Indian Life Coaches, Indian Divorce Coach, or mental wellness partnerships.',
                 email: 'contact@neohappylyf.com',
                 label: 'General & Wellness',
               },
               {
                 Icon: Cpu,
                 color: '#D4A853',
-                title: 'FulSuccess',
-                desc: 'Discuss your FulSuccess project, custom tool development, process optimisation, or AI-powered solutions.',
+                title: 'Full Success',
+                desc: 'Discuss your Full Success project, custom tool development, process optimisation, or AI-powered solutions.',
                 email: 'automation@neohappylyf.com',
-                label: 'FulSuccess Division',
+                label: 'Full Success Division',
               },
               {
                 Icon: HeartHandshake,
@@ -2409,7 +2390,7 @@ export default function App() {
                     <select id="c-subject" className="form-ctrl" name="subject" value={form.subject} onChange={handleForm} style={{ cursor: 'pointer' }}>
                       <option value="">Select a topic</option>
                       <option value="wellness">Wellness Platforms</option>
-                      <option value="fulsuccess">FulSuccess</option>
+                      <option value="fulsuccess">Full Success</option>
                       <option value="partnership">Partnership / Investment</option>
                       <option value="media">Media / Press</option>
                       <option value="other">Other</option>
@@ -2451,7 +2432,7 @@ export default function App() {
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
                   {[
                     ['General Enquiries',      'Within 48 hours'],
-                    ['FulSuccess Projects',    'Within 24 hours'],
+                    ['Full Success Projects',  'Within 24 hours'],
                     ['Investment / Partners',  'Within 72 hours'],
                   ].map(([type, time]) => (
                     <div key={type} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -2466,7 +2447,7 @@ export default function App() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
                 {[
                   { label: 'General & Wellness',    email: 'contact@neohappylyf.com' },
-                  { label: 'FulSuccess',            email: 'automation@neohappylyf.com' },
+                  { label: 'Full Success',          email: 'automation@neohappylyf.com' },
                   { label: 'Partnerships',          email: 'partnerships@neohappylyf.com' },
                 ].map(({ label, email }) => (
                   <div key={email} style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
@@ -2500,7 +2481,7 @@ export default function App() {
             <div style={{ maxWidth: 420 }}>
               <Logo onClick={() => nav('hero')} />
               <p className="playfair" style={{ fontSize: 'clamp(18px, 2.2vw, 24px)', fontStyle: 'italic', color: 'rgba(245,245,240,0.35)', marginTop: 20, lineHeight: 1.5 }}>
-                "Empowering Lives.<br />Powering FulSuccess."
+                "Empowering Lives.<br />Powering Full Success."
               </p>
             </div>
             {/* Social icons */}
@@ -2527,7 +2508,7 @@ export default function App() {
               <div style={{ fontSize: 11, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#D4A853', fontWeight: 700, marginBottom: 6 }}>Stay Informed</div>
               <div className="playfair" style={{ fontSize: 20, fontWeight: 600, color: '#F5F5F0', marginBottom: 4 }}>Join Our Newsletter</div>
               <div style={{ fontSize: 13, color: 'rgba(245,245,240,0.4)', maxWidth: 320 }}>
-                Insights on mental wellness, FulSuccess, and the NeoHappyLyf ecosystem. No spam — ever.
+                Insights on mental wellness, Full Success, and the Neo HappyLyf ecosystem. No spam — ever.
               </div>
             </div>
             {newsSent ? (
@@ -2556,7 +2537,7 @@ export default function App() {
             {/* Brand column */}
             <div>
               <p style={{ fontSize: 15, color: 'rgba(245,245,240,0.4)', lineHeight: 1.9, maxWidth: 280, marginBottom: 20 }}>
-                Neo HappyLyf Mind Care For U Private Limited — building wellness platforms and FulSuccess systems for the global Indian diaspora.
+                Neo HappyLyf Mind Care For U Private Limited — building wellness platforms and Full Success systems for the global Indian diaspora.
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                 <a href="mailto:contact@neohappylyf.com" className="foot-link" style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
@@ -2572,7 +2553,10 @@ export default function App() {
             <div>
               <div className="foot-col-head">Ventures</div>
               {VENTURES.map(v => (
-                <a key={v.name} href={v.url} target="_blank" rel="noopener noreferrer" className="foot-link">{v.name}</a>
+                <a key={v.name} href={v.url} target="_blank" rel="noopener noreferrer" className="foot-link" style={{ display: 'block', lineHeight: 1.3 }}>
+                  <span style={{ display: 'block' }}>{v.displayName}</span>
+                  <span style={{ display: 'block', fontSize: 11, color: 'rgba(245,245,240,0.3)', letterSpacing: '0.04em' }}>{v.domain}</span>
+                </a>
               ))}
             </div>
 
@@ -2582,8 +2566,7 @@ export default function App() {
               {[
                 ['about',      'About Us'],
                 ['ventures',   'Our Ventures'],
-                ['fulsuccess', 'FulSuccess'],
-                ['journey',    'Our Journey'],
+                ['fulsuccess', 'Full Success'],
                 ['leadership', 'Leadership'],
                 ['contact',    'Contact'],
               ].map(([id, label]) => (
