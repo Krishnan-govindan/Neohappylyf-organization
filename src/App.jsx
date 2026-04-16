@@ -1392,7 +1392,7 @@ export default function App() {
         address: { '@type': 'PostalAddress', addressCountry: 'IN' },
         founder: { '@type': 'Person', name: 'Krishnan Govindan', jobTitle: 'Founder & CEO', url: 'https://krishnangovindan.com' },
         foundingDate: '2023-06-01',
-        email: 'contact@neohappylyf.com',
+        email: 'customerservice@indiatherapist.com',
         sameAs: [
           'https://www.linkedin.com/company/neohappylyf',
           'https://twitter.com/neohappylyf',
@@ -1933,7 +1933,7 @@ export default function App() {
 
           {/* CTA */}
           <div className="reveal" style={{ display: 'flex', alignItems: 'center', gap: 20, flexWrap: 'wrap' }}>
-            <a href="mailto:contact@neohappylyf.com?subject=Ful Success Enquiry"
+            <a href="mailto:customerservice@indiatherapist.com?subject=Ful Success Enquiry"
               className="btn-gold" style={{ fontSize: 14, padding: '15px 32px' }}>
               Get Started with Ful Success <ArrowRight size={15} />
             </a>
@@ -1994,7 +1994,7 @@ export default function App() {
                 {[
                   { Icon: Linkedin, href: '#', label: 'LinkedIn' },
                   { Icon: Twitter,  href: '#', label: 'Twitter' },
-                  { Icon: Mail,     href: 'mailto:contact@neohappylyf.com', label: 'Email' },
+                  { Icon: Mail,     href: 'mailto:customerservice@indiatherapist.com', label: 'Email' },
                 ].map(({ Icon, href, label }) => (
                   <a key={label} href={href} aria-label={label}
                     style={{ width: 38, height: 38, background: 'rgba(212,168,83,0.06)', border: '1px solid rgba(212,168,83,0.18)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#D4A853', textDecoration: 'none', transition: 'all 0.25s' }}
@@ -2345,7 +2345,7 @@ export default function App() {
                 color: '#6C9FD4',
                 title: 'Wellness Platforms',
                 desc: 'Enquiries about India Therapist, Indian Life Coaches, Indian Divorce Coach, or mental wellness partnerships.',
-                email: 'contact@neohappylyf.com',
+                email: 'customerservice@indiatherapist.com',
                 label: 'General & Wellness',
               },
               {
@@ -2353,7 +2353,7 @@ export default function App() {
                 color: '#D4A853',
                 title: 'Ful Success',
                 desc: 'Discuss your Ful Success project, custom tool development, process optimisation, or AI-powered solutions.',
-                email: 'automation@neohappylyf.com',
+                email: 'customerservice@indiatherapist.com',
                 label: 'Ful Success Division',
               },
               {
@@ -2361,10 +2361,10 @@ export default function App() {
                 color: '#9B8EC4',
                 title: 'Partnerships & Investment',
                 desc: 'Strategic investment conversations, platform partnerships, media enquiries, and collaboration opportunities.',
-                email: 'partnerships@neohappylyf.com',
+                email: 'customerservice@indiatherapist.com',
                 label: 'Investors & Partners',
               },
-            ].map(({ Icon, color, title, desc, email, label }) => (
+            ].map(({ Icon, color, title, desc, label }) => (
               <div key={title} className="contact-card">
                 <div style={{ width: 50, height: 50, background: `${color}12`, border: `1px solid ${color}28`, display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: 2 }}>
                   <Icon size={22} color={color} aria-hidden="true" />
@@ -2374,15 +2374,20 @@ export default function App() {
                   <h3 className="playfair" style={{ fontSize: 19, fontWeight: 600, color: '#F5F5F0', marginBottom: 10 }}>{title}</h3>
                   <p style={{ fontSize: 15, color: 'rgba(245,245,240,0.48)', lineHeight: 1.75 }}>{desc}</p>
                 </div>
-                <a href={`mailto:${email}`}
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: 7, color, fontSize: 13, fontWeight: 600, textDecoration: 'none', marginTop: 'auto', letterSpacing: '0.01em', transition: 'opacity 0.2s' }}
-                  onMouseEnter={e => e.currentTarget.style.opacity = '0.7'}
-                  onMouseLeave={e => e.currentTarget.style.opacity = '1'}>
-                  <Mail size={13} aria-hidden="true" />
-                  {email}
-                </a>
               </div>
             ))}
+          </div>
+
+          {/* Common contact email */}
+          <div className="reveal" style={{ textAlign: 'center', marginBottom: 64 }}>
+            <p style={{ fontSize: 13, color: 'rgba(245,245,240,0.35)', marginBottom: 10, letterSpacing: '0.06em', textTransform: 'uppercase' }}>For all enquiries</p>
+            <a href="mailto:customerservice@indiatherapist.com"
+              style={{ display: 'inline-flex', alignItems: 'center', gap: 8, color: '#D4A853', fontSize: 16, fontWeight: 600, textDecoration: 'none', letterSpacing: '0.01em', transition: 'opacity 0.2s' }}
+              onMouseEnter={e => e.currentTarget.style.opacity = '0.7'}
+              onMouseLeave={e => e.currentTarget.style.opacity = '1'}>
+              <Mail size={16} aria-hidden="true" />
+              customerservice@indiatherapist.com
+            </a>
           </div>
 
           {/* Form + HQ panel */}
@@ -2432,7 +2437,7 @@ export default function App() {
                     Send Message <ArrowRight size={15} />
                   </button>
                   <p style={{ fontSize: 11, color: 'rgba(245,245,240,0.22)', textAlign: 'center', letterSpacing: '0.04em' }}>
-                    We respond to all enquiries within 48 hours · contact@neohappylyf.com
+                    We respond to all enquiries within 48 hours · customerservice@indiatherapist.com
                   </p>
                 </form>
               )}
@@ -2546,8 +2551,8 @@ export default function App() {
                 Neo Happy Lyf Mind Care For U Private Limited — building wellness platforms and Ful Success systems for the global Indian diaspora.
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-                <a href="mailto:contact@neohappylyf.com" className="foot-link" style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
-                  <Mail size={12} aria-hidden="true" /> contact@neohappylyf.com
+                <a href="mailto:customerservice@indiatherapist.com" className="foot-link" style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
+                  <Mail size={12} aria-hidden="true" /> customerservice@indiatherapist.com
                 </a>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 7, fontSize: 15, color: 'rgba(245,245,240,0.45)' }}>
                   <MapPin size={12} aria-hidden="true" /> Tamil Nadu, India · Serving Clients Worldwide
