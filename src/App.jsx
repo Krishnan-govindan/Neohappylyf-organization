@@ -2471,28 +2471,6 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Direct emails */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-                {[
-                  { label: 'General & Wellness',    email: 'contact@neohappylyf.com' },
-                  { label: 'Ful Success',          email: 'automation@neohappylyf.com' },
-                  { label: 'Partnerships',          email: 'partnerships@neohappylyf.com' },
-                ].map(({ label, email }) => (
-                  <div key={email} style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-                    <div style={{ width: 34, height: 34, background: 'rgba(212,168,83,0.07)', border: '1px solid rgba(212,168,83,0.14)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                      <Mail size={13} color="#D4A853" aria-hidden="true" />
-                    </div>
-                    <div>
-                      <div style={{ fontSize: 9, color: 'rgba(245,245,240,0.3)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 2 }}>{label}</div>
-                      <a href={`mailto:${email}`} style={{ fontSize: 13, color: 'rgba(245,245,240,0.7)', textDecoration: 'none', transition: 'color 0.2s' }}
-                        onMouseEnter={e => e.currentTarget.style.color = '#D4A853'}
-                        onMouseLeave={e => e.currentTarget.style.color = 'rgba(245,245,240,0.7)'}>
-                        {email}
-                      </a>
-                    </div>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </div>
